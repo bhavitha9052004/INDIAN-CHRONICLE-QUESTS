@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betla National Park</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('b2.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Betla National Park</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Betla National Park</h1>
+        <p class="lead">Explore the wilderness</p>
+    </div>
+    <div class="description">
+        <h2>About Betla National Park</h2>
+        <p>Betla National Park is located in the state of Jharkhand, India. It is one of the first national parks to be established in India. The park is known for its rich biodiversity, including various species of flora and fauna.History: Originally the private hunting grounds of the Chero rulers of Jharkhand, Betla National Park was later converted into a wildlife sanctuary and then declared a national park in 1989. Its name is derived from the iconic Betla Fort, a historical landmark within the park that dates back to the 16th century. The fort bears testimony to the region's historical significance and serves as a reminder of its cultural heritage.
+
+Tribal Culture: The park is home to indigenous tribes such as the Oraons and Munda, whose rich cultural traditions and practices are intricately woven into the fabric of Betla's landscape. Their harmonious coexistence with nature adds a unique dimension to the park's cultural tapestry, making it a repository of tribal heritage and folklore.
+
+Natural Beauty and Wildlife
+Flora: Betla National Park boasts a diverse range of vegetation, including tropical dry deciduous forests, grasslands, and bamboo groves. Sal, bamboo, and semal trees dominate the landscape, providing shelter and sustenance to a variety of wildlife.
+
+Fauna: The park is renowned for its rich wildlife diversity, with species such as tigers, elephants, leopards, wild boars, sambar deer, and sloth bears inhabiting its forests. Birdwatchers can delight in spotting over 150 species of birds, including the Indian peafowl, hornbills, and kingfishers, making Betla a haven for birding enthusiasts.</p>
+        <h2>Attractions</h2>
+        <p>The park offers opportunities for wildlife safaris, bird watching, trekking, and nature walks. Visitors can spot animals like tigers, elephants, sloth bears, and deer in their natural habitat.afari and Nature Trails: Visitors can explore the park's wilderness through jeep safaris, guided nature walks, and trekking trails that offer opportunities to observe wildlife in their natural habitat. The park's tranquil lakes and water bodies provide scenic spots for birdwatching and photography.
+
+Accommodation and Amenities: Betla National Park offers accommodation options ranging from forest rest houses to eco-friendly resorts, allowing visitors to immerse themselves in the park's pristine surroundings while enjoying modern amenities.
+
+Conservation Efforts and Future Prospects
+Conservation: The park is committed to wildlife conservation and sustainable tourism practices, aiming to preserve its ecological balance and protect endangered species. Initiatives such as habitat restoration and community involvement play a crucial role in safeguarding Betla's natural heritage.
+
+Future Prospects: As one of Jharkhand's premier eco-tourism destinations, Betla National Park continues to attract nature lovers and adventure enthusiasts from across the globe. Efforts to enhance infrastructure and promote eco-friendly tourism are expected to further elevate Betla's status as a beacon of biodiversity conservation and natural beauty in India.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="b2.jpg" alt="Betla National Park Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="b1.jpeg" alt="Betla National Park Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="b3.jpeg" alt="Betla National Park Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Betla_National_Park" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Betla National Park -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Betla National Park</button>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Betla National Park, Jharkhand, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
