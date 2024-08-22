@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Quiz</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title text-center">Find Your Perfect Travel Destination in India</h1>
+        <form id="quiz-form">
+          <!-- Your quiz questions here -->
+<div class="quiz-question" id="question-1">
+            <h2>1. Which kind of place do you connect with the most?</h2>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" value="royal" required>
+              <label class="form-check-label">Royal</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" value="nature">
+              <label class="form-check-label">Nature</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" value="adventure">
+              <label class="form-check-label">Adventure</label>
+            </div>
+          </div>
+          <div class="quiz-question" id="question-2">
+            <h2>2. Which type of activities do you prefer?</h2>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" value="historical" required>
+              <label class="form-check-label">Historical</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" value="wildlife">
+              <label class="form-check-label">Wildlife</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" value="sports">
+              <label class="form-check-label">Sports</label>
+            </div>
+          </div>
+          <div class="quiz-question" id="question-3">
+            <h2>3. What type of weather do you enjoy the most?</h2>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" value="hot" required>
+              <label class="form-check-label">Hot</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" value="moderate">
+              <label class="form-check-label">Moderate</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" value="cold">
+              <label class="form-check-label">Cold</label>
+            </div>
+          </div>
+          <div class="quiz-question" id="question-4">
+            <h2>4. What kind of landscapes do you prefer?</h2>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" value="mountains" required>
+              <label class="form-check-label">Mountains</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" value="beaches">
+              <label class="form-check-label">Beaches</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" value="deserts">
+              <label class="form-check-label">Deserts</label>
+            </div>
+          </div>
+          <div class="quiz-question" id="question-5">
+            <h2>5. What kind of accommodation do you prefer?</h2>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" value="luxury" required>
+              <label class="form-check-label">Luxury</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" value="budget">
+              <label class="form-check-label">Budget</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" value="camping">
+              <label class="form-check-label">Camping</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block mt-4">See Your Perfect Destination</button>
+
+        </form>
+        <div id="result" class="mt-5 text-center"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+$(document).ready(function() {
+  $('#quiz-form').on('submit', function(event) {
+    event.preventDefault();
+    
+    // Collect answers
+    const answers = {
+      q1: $('input[name="q1"]:checked').val(),
+      q2: $('input[name="q2"]:checked').val(),
+      q3: $('input[name="q3"]:checked').val(),
+      q4: $('input[name="q4"]:checked').val(),
+      q5: $('input[name="q5"]:checked').val(),
+    };
+    
+    // Logic to determine the destination based on answers
+    const destinations = {
+      'royal_historical_hot_mountains_luxury': 'Udaipur, Rajasthan',
+      'royal_historical_hot_mountains_budget': 'Jaipur, Rajasthan',
+      'royal_historical_hot_mountains_camping': 'Jodhpur, Rajasthan',
+      'royal_historical_hot_beaches_luxury': 'Mysore, Karnataka',
+      'royal_historical_hot_beaches_budget': 'Pondicherry',
+      'royal_historical_hot_beaches_camping': 'Mahabalipuram, Tamil Nadu',
+      'royal_historical_hot_deserts_luxury': 'Bikaner, Rajasthan',
+      'royal_historical_hot_deserts_budget': 'Jaisalmer, Rajasthan',
+      'royal_historical_hot_deserts_camping': 'Rann of Kutch, Gujarat',
+      'royal_historical_moderate_mountains_luxury': 'Shimla, Himachal Pradesh',
+      'royal_historical_moderate_mountains_budget': 'Dharamshala, Himachal Pradesh',
+      'royal_historical_moderate_mountains_camping': 'McLeod Ganj, Himachal Pradesh',
+      'royal_historical_moderate_beaches_luxury': 'Goa',
+      'royal_historical_moderate_beaches_budget': 'Alleppey, Kerala',
+      'royal_historical_moderate_beaches_camping': 'Gokarna, Karnataka',
+      'royal_historical_moderate_deserts_luxury': 'Jodhpur, Rajasthan',
+      'royal_historical_moderate_deserts_budget': 'Pushkar, Rajasthan',
+      'royal_historical_moderate_deserts_camping': 'Mandawa, Rajasthan',
+      'royal_historical_cold_mountains_luxury': 'Gulmarg, Kashmir',
+      'royal_historical_cold_mountains_budget': 'Leh, Ladakh',
+      'royal_historical_cold_mountains_camping': 'Manali, Himachal Pradesh',
+      'royal_historical_cold_beaches_luxury': 'Visakhapatnam, Andhra Pradesh',
+      'royal_historical_cold_beaches_budget': 'Puri, Odisha',
+      'royal_historical_cold_beaches_camping': 'Diu',
+      'royal_historical_cold_deserts_luxury': 'Spiti Valley, Himachal Pradesh',
+      'royal_historical_cold_deserts_budget': 'Kargil, Ladakh',
+      'royal_historical_cold_deserts_camping': 'Nubra Valley, Ladakh',
+      'royal_wildlife_hot_mountains_luxury': 'Ranthambore, Rajasthan',
+      'royal_wildlife_hot_mountains_budget': 'Bandhavgarh, Madhya Pradesh',
+      'royal_wildlife_hot_mountains_camping': 'Kanha, Madhya Pradesh',
+      'royal_wildlife_hot_beaches_luxury': 'Sundarbans, West Bengal',
+      'royal_wildlife_hot_beaches_budget': 'Periyar, Kerala',
+      'royal_wildlife_hot_beaches_camping': 'Kumarakom, Kerala',
+      'royal_wildlife_hot_deserts_luxury': 'Gir, Gujarat',
+      'royal_wildlife_hot_deserts_budget': 'Bharatpur, Rajasthan',
+      'royal_wildlife_hot_deserts_camping': 'Sariska, Rajasthan',
+      'royal_wildlife_moderate_mountains_luxury': 'Jim Corbett, Uttarakhand',
+      'royal_wildlife_moderate_mountains_budget': 'Kaziranga, Assam',
+      'royal_wildlife_moderate_mountains_camping': 'Pench, Madhya Pradesh',
+      'royal_wildlife_moderate_beaches_luxury': 'Andaman and Nicobar Islands',
+      'royal_wildlife_moderate_beaches_budget': 'Lakshadweep',
+      'royal_wildlife_moderate_beaches_camping': 'Varkala, Kerala',
+      'royal_wildlife_moderate_deserts_luxury': 'Desert National Park, Rajasthan',
+      'royal_wildlife_moderate_deserts_budget': 'Kutch, Gujarat',
+      'royal_wildlife_moderate_deserts_camping': 'Kutch, Gujarat',
+      'royal_wildlife_cold_mountains_luxury': 'Great Himalayan National Park, Himachal Pradesh',
+      'royal_wildlife_cold_mountains_budget': 'Hemis National Park, Ladakh',
+      'royal_wildlife_cold_mountains_camping': 'Nanda Devi National Park, Uttarakhand',
+      'royal_wildlife_cold_beaches_luxury': 'Chilka Lake, Odisha',
+      'royal_wildlife_cold_beaches_budget': 'Kanha National Park, Madhya Pradesh',
+      'royal_wildlife_cold_beaches_camping': 'Sundarbans, West Bengal',
+      'royal_wildlife_cold_deserts_luxury': 'Nanda Devi and Valley of Flowers National Parks, Uttarakhand',
+      'royal_wildlife_cold_deserts_budget': 'Desert National Park, Rajasthan',
+      'royal_wildlife_cold_deserts_camping': 'Ranthambore National Park, Rajasthan',
+      'royal_sports_hot_mountains_luxury': 'Auli, Uttarakhand',
+      'royal_sports_hot_mountains_budget': 'Gulmarg, Jammu & Kashmir',
+      'royal_sports_hot_mountains_camping': 'Solang Valley, Himachal Pradesh',
+      'royal_sports_hot_beaches_luxury': 'Rishikesh, Uttarakhand',
+      'royal_sports_hot_beaches_budget': 'Goa',
+      'royal_sports_hot_beaches_camping': 'Alleppey, Kerala',
+      'royal_sports_hot_deserts_luxury': 'Jaisalmer, Rajasthan',
+      'royal_sports_hot_deserts_budget': 'Bikaner, Rajasthan',
+      'royal_sports_hot_deserts_camping': 'Jodhpur, Rajasthan',
+      'royal_sports_moderate_mountains_luxury': 'Manali, Himachal Pradesh',
+      'royal_sports_moderate_mountains_budget': 'Leh, Ladakh',
+      'royal_sports_moderate_mountains_camping': 'Gulmarg, Jammu & Kashmir',
+      'royal_sports_moderate_beaches_luxury': 'Goa',
+      'royal_sports_moderate_beaches_budget': 'Rishikesh, Uttarakhand',
+      'royal_sports_moderate_beaches_camping': 'Gokarna, Karnataka',
+      'royal_sports_moderate_deserts_luxury': 'Jaisalmer, Rajasthan',
+      'royal_sports_moderate_deserts_budget': 'Bikaner, Rajasthan',
+      'royal_sports_moderate_deserts_camping': 'Pushkar, Rajasthan',
+      'royal_sports_cold_mountains_luxury': 'Gulmarg, Jammu & Kashmir',
+      'royal_sports_cold_mountains_budget': 'Leh, Ladakh',
+      'royal_sports_cold_mountains_camping': 'Auli, Uttarakhand',
+      'royal_sports_cold_beaches_luxury': 'Varkala, Kerala',
+      'royal_sports_cold_beaches_budget': 'Puri, Odisha',
+      'royal_sports_cold_beaches_camping': 'Diu',
+      'royal_sports_cold_deserts_luxury': 'Spiti Valley, Himachal Pradesh',
+      'royal_sports_cold_deserts_budget': 'Nubra Valley, Ladakh',
+      'royal_sports_cold_deserts_camping': 'Kargil, Ladakh',
+      'nature_historical_hot_mountains_luxury': 'Ooty, Tamil Nadu',
+      'nature_historical_hot_mountains_budget': 'Munnar, Kerala',
+      'nature_historical_hot_mountains_camping': 'Kodaikanal, Tamil Nadu',
+      'nature_historical_hot_beaches_luxury': 'Goa',
+      'nature_historical_hot_beaches_budget': 'Gokarna, Karnataka',
+      'nature_historical_hot_beaches_camping': 'Varkala, Kerala',
+      'nature_historical_hot_deserts_luxury': 'Rann of Kutch, Gujarat',
+      'nature_historical_hot_deserts_budget': 'Jaisalmer, Rajasthan',
+      'nature_historical_hot_deserts_camping': 'Bikaner, Rajasthan',
+      'nature_historical_moderate_mountains_luxury': 'Shimla, Himachal Pradesh',
+      'nature_historical_moderate_mountains_budget': 'Manali, Himachal Pradesh',
+      'nature_historical_moderate_mountains_camping': 'McLeod Ganj, Himachal Pradesh',
+      'nature_historical_moderate_beaches_luxury': 'Alleppey, Kerala',
+      'nature_historical_moderate_beaches_budget': 'Pondicherry',
+      'nature_historical_moderate_beaches_camping': 'Mahabalipuram, Tamil Nadu',
+      'nature_historical_moderate_deserts_luxury': 'Rann of Kutch, Gujarat',
+      'nature_historical_moderate_deserts_budget': 'Jaisalmer, Rajasthan',
+      'nature_historical_moderate_deserts_camping': 'Bikaner, Rajasthan',
+      'nature_historical_cold_mountains_luxury': 'Gulmarg, Jammu & Kashmir',
+      'nature_historical_cold_mountains_budget': 'Leh, Ladakh',
+      'nature_historical_cold_mountains_camping': 'Manali, Himachal Pradesh',
+      'nature_historical_cold_beaches_luxury': 'Puri, Odisha',
+      'nature_historical_cold_beaches_budget': 'Digha, West Bengal',
+      'nature_historical_cold_beaches_camping': 'Diu',
+      'nature_historical_cold_deserts_luxury': 'Spiti Valley, Himachal Pradesh',
+      'nature_historical_cold_deserts_budget': 'Kargil, Ladakh',
+      'nature_historical_cold_deserts_camping': 'Nubra Valley, Ladakh',
+      'nature_wildlife_hot_mountains_luxury': 'Bandipur, Karnataka',
+      'nature_wildlife_hot_mountains_budget': 'Nagarhole, Karnataka',
+      'nature_wildlife_hot_mountains_camping': 'Periyar, Kerala',
+      'nature_wildlife_hot_beaches_luxury': 'Sundarbans, West Bengal',
+      'nature_wildlife_hot_beaches_budget': 'Pichavaram, Tamil Nadu',
+      'nature_wildlife_hot_beaches_camping': 'Chilka Lake, Odisha',
+      'nature_wildlife_hot_deserts_luxury': 'Gir, Gujarat',
+      'nature_wildlife_hot_deserts_budget': 'Sariska, Rajasthan',
+      'nature_wildlife_hot_deserts_camping': 'Bharatpur, Rajasthan',
+      'nature_wildlife_moderate_mountains_luxury': 'Jim Corbett, Uttarakhand',
+      'nature_wildlife_moderate_mountains_budget': 'Kaziranga, Assam',
+      'nature_wildlife_moderate_mountains_camping': 'Pench, Madhya Pradesh',
+      'nature_wildlife_moderate_beaches_luxury': 'Andaman and Nicobar Islands',
+      'nature_wildlife_moderate_beaches_budget': 'Lakshadweep',
+      'nature_wildlife_moderate_beaches_camping': 'Varkala, Kerala',
+      'nature_wildlife_moderate_deserts_luxury': 'Desert National Park, Rajasthan',
+      'nature_wildlife_moderate_deserts_budget': 'Kutch, Gujarat',
+      'nature_wildlife_moderate_deserts_camping': 'Kutch, Gujarat',
+      'nature_wildlife_cold_mountains_luxury': 'Great Himalayan National Park, Himachal Pradesh',
+      'nature_wildlife_cold_mountains_budget': 'Hemis National Park, Ladakh',
+      'nature_wildlife_cold_mountains_camping': 'Nanda Devi National Park, Uttarakhand',
+      'nature_wildlife_cold_beaches_luxury': 'Chilka Lake, Odisha',
+      'nature_wildlife_cold_beaches_budget': 'Kanha National Park, Madhya Pradesh',
+      'nature_wildlife_cold_beaches_camping': 'Sundarbans, West Bengal',
+      'nature_wildlife_cold_deserts_luxury': 'Nanda Devi and Valley of Flowers National Parks, Uttarakhand',
+      'nature_wildlife_cold_deserts_budget': 'Desert National Park, Rajasthan',
+      'nature_wildlife_cold_deserts_camping': 'Ranthambore National Park, Rajasthan',
+      'nature_sports_hot_mountains_luxury': 'Auli, Uttarakhand',
+      'nature_sports_hot_mountains_budget': 'Gulmarg, Jammu & Kashmir',
+      'nature_sports_hot_mountains_camping': 'Solang Valley, Himachal Pradesh',
+      'nature_sports_hot_beaches_luxury': 'Rishikesh, Uttarakhand',
+      'nature_sports_hot_beaches_budget': 'Goa',
+      'nature_sports_hot_beaches_camping': 'Alleppey, Kerala',
+      'nature_sports_hot_deserts_luxury': 'Jaisalmer, Rajasthan',
+      'nature_sports_hot_deserts_budget': 'Bikaner, Rajasthan',
+      'nature_sports_hot_deserts_camping': 'Jodhpur, Rajasthan',
+      'nature_sports_moderate_mountains_luxury': 'Manali, Himachal Pradesh',
+      'nature_sports_moderate_mountains_budget': 'Leh, Ladakh',
+      'nature_sports_moderate_mountains_camping': 'Gulmarg, Jammu & Kashmir',
+      'nature_sports_moderate_beaches_luxury': 'Goa',
+      'nature_sports_moderate_beaches_budget': 'Rishikesh, Uttarakhand',
+      'nature_sports_moderate_beaches_camping': 'Gokarna, Karnataka',
+      'nature_sports_moderate_deserts_luxury': 'Jaisalmer, Rajasthan',
+      'nature_sports_moderate_deserts_budget': 'Bikaner, Rajasthan',
+      'nature_sports_moderate_deserts_camping': 'Pushkar, Rajasthan',
+      'nature_sports_cold_mountains_luxury': 'Gulmarg, Jammu & Kashmir',
+      'nature_sports_cold_mountains_budget': 'Leh, Ladakh',
+      'nature_sports_cold_mountains_camping': 'Auli, Uttarakhand',
+      'nature_sports_cold_beaches_luxury': 'Varkala, Kerala',
+      'nature_sports_cold_beaches_budget': 'Puri, Odisha',
+      'nature_sports_cold_beaches_camping': 'Diu',
+      'nature_sports_cold_deserts_luxury': 'Spiti Valley, Himachal Pradesh',
+      'nature_sports_cold_deserts_budget': 'Nubra Valley, Ladakh',
+      'nature_sports_cold_deserts_camping': 'Kargil, Ladakh',
+      'adventure_historical_hot_mountains_luxury': 'Shimla, Himachal Pradesh',
+      'adventure_historical_hot_mountains_budget': 'Manali, Himachal Pradesh',
+      'adventure_historical_hot_mountains_camping': 'Kasol, Himachal Pradesh',
+      'adventure_historical_hot_beaches_luxury': 'Goa',
+      'adventure_historical_hot_beaches_budget': 'Gokarna, Karnataka',
+      'adventure_historical_hot_beaches_camping': 'Varkala, Kerala',
+      'adventure_historical_hot_deserts_luxury': 'Rann of Kutch, Gujarat',
+      'adventure_historical_hot_deserts_budget': 'Jaisalmer, Rajasthan',
+      'adventure_historical_hot_deserts_camping': 'Bikaner, Rajasthan',
+      'adventure_historical_moderate_mountains_luxury': 'Leh, Ladakh',
+      'adventure_historical_moderate_mountains_budget': 'Manali, Himachal Pradesh',
+      'adventure_historical_moderate_mountains_camping': 'Kasol, Himachal Pradesh',
+      'adventure_historical_moderate_beaches_luxury': 'Alleppey, Kerala',
+      'adventure_historical_moderate_beaches_budget': 'Pondicherry',
+      'adventure_historical_moderate_beaches_camping': 'Mahabalipuram, Tamil Nadu',
+      'adventure_historical_moderate_deserts_luxury': 'Rann of Kutch, Gujarat',
+      'adventure_historical_moderate_deserts_budget': 'Jaisalmer, Rajasthan',
+      'adventure_historical_moderate_deserts_camping': 'Bikaner, Rajasthan',
+      'adventure_historical_cold_mountains_luxury': 'Gulmarg, Jammu & Kashmir',
+      'adventure_historical_cold_mountains_budget': 'Leh, Ladakh',
+      'adventure_historical_cold_mountains_camping': 'Manali, Himachal Pradesh',
+      'adventure_historical_cold_beaches_luxury': 'Puri, Odisha',
+      'adventure_historical_cold_beaches_budget': 'Digha, West Bengal',
+      'adventure_historical_cold_beaches_camping': 'Diu',
+      'adventure_historical_cold_deserts_luxury': 'Spiti Valley, Himachal Pradesh',
+      'adventure_historical_cold_deserts_budget': 'Kargil, Ladakh',
+      'adventure_historical_cold_deserts_camping': 'Nubra Valley, Ladakh',
+      'adventure_wildlife_hot_mountains_luxury': 'Bandipur, Karnataka',
+      'adventure_wildlife_hot_mountains_budget': 'Nagarhole, Karnataka',
+      'adventure_wildlife_hot_mountains_camping': 'Periyar, Kerala',
+      'adventure_wildlife_hot_beaches_luxury': 'Sundarbans, West Bengal',
+      'adventure_wildlife_hot_beaches_budget': 'Pichavaram, Tamil Nadu',
+      'adventure_wildlife_hot_beaches_camping': 'Chilka Lake, Odisha',
+      'adventure_wildlife_hot_deserts_luxury': 'Gir, Gujarat',
+      'adventure_wildlife_hot_deserts_budget': 'Sariska, Rajasthan',
+      'adventure_wildlife_hot_deserts_camping': 'Bharatpur, Rajasthan',
+      'adventure_wildlife_moderate_mountains_luxury': 'Jim Corbett, Uttarakhand',
+      'adventure_wildlife_moderate_mountains_budget': 'Kaziranga, Assam',
+      'adventure_wildlife_moderate_mountains_camping': 'Pench, Madhya Pradesh',
+      'adventure_wildlife_moderate_beaches_luxury': 'Andaman and Nicobar Islands',
+      'adventure_wildlife_moderate_beaches_budget': 'Lakshadweep',
+      'adventure_wildlife_moderate_beaches_camping': 'Varkala, Kerala',
+      'adventure_wildlife_moderate_deserts_luxury': 'Desert National Park, Rajasthan',
+      'adventure_wildlife_moderate_deserts_budget': 'Kutch, Gujarat',
+      'adventure_wildlife_moderate_deserts_camping': 'Kutch, Gujarat',
+      'adventure_wildlife_cold_mountains_luxury': 'Great Himalayan National Park, Himachal Pradesh',
+      'adventure_wildlife_cold_mountains_budget': 'Hemis National Park, Ladakh',
+      'adventure_wildlife_cold_mountains_camping': 'Nanda Devi National Park, Uttarakhand',
+      'adventure_wildlife_cold_beaches_luxury': 'Chilka Lake, Odisha',
+      'adventure_wildlife_cold_beaches_budget': 'Kanha National Park, Madhya Pradesh',
+      'adventure_wildlife_cold_beaches_camping': 'Sundarbans, West Bengal',
+      'adventure_wildlife_cold_deserts_luxury': 'Nanda Devi and Valley of Flowers National Parks, Uttarakhand',
+      'adventure_wildlife_cold_deserts_budget': 'Desert National Park, Rajasthan',
+      'adventure_wildlife_cold_deserts_camping': 'Ranthambore National Park, Rajasthan',
+      'adventure_sports_hot_mountains_luxury': 'Auli, Uttarakhand',
+      'adventure_sports_hot_mountains_budget': 'Gulmarg, Jammu & Kashmir',
+      'adventure_sports_hot_mountains_camping': 'Solang Valley, Himachal Pradesh',
+      'adventure_sports_hot_beaches_luxury': 'Rishikesh, Uttarakhand',
+      'adventure_sports_hot_beaches_budget': 'Goa',
+      'adventure_sports_hot_beaches_camping': 'Alleppey, Kerala',
+      'adventure_sports_hot_deserts_luxury': 'Jaisalmer, Rajasthan',
+      'adventure_sports_hot_deserts_budget': 'Bikaner, Rajasthan',
+      'adventure_sports_hot_deserts_camping': 'Jodhpur, Rajasthan',
+      'adventure_sports_moderate_mountains_luxury': 'Manali, Himachal Pradesh',
+      'adventure_sports_moderate_mountains_budget': 'Leh, Ladakh',
+      'adventure_sports_moderate_mountains_camping': 'Gulmarg, Jammu & Kashmir',
+      'adventure_sports_moderate_beaches_luxury': 'Goa',
+      'adventure_sports_moderate_beaches_budget': 'Rishikesh, Uttarakhand',
+      'adventure_sports_moderate_beaches_camping': 'Gokarna, Karnataka',
+      'adventure_sports_moderate_deserts_luxury': 'Jaisalmer, Rajasthan',
+      'adventure_sports_moderate_deserts_budget': 'Bikaner, Rajasthan',
+      'adventure_sports_moderate_deserts_camping': 'Pushkar, Rajasthan',
+      'adventure_sports_cold_mountains_luxury': 'Gulmarg, Jammu & Kashmir',
+      'adventure_sports_cold_mountains_budget': 'Leh, Ladakh',
+      'adventure_sports_cold_mountains_camping': 'Auli, Uttarakhand',
+      'adventure_sports_cold_beaches_luxury': 'Varkala, Kerala',
+      'adventure_sports_cold_beaches_budget': 'Puri, Odisha',
+      'adventure_sports_cold_beaches_camping': 'Diu',
+      'adventure_sports_cold_deserts_luxury': 'Spiti Valley, Himachal Pradesh',
+      'adventure_sports_cold_deserts_budget': 'Nubra Valley, Ladakh',
+      'adventure_sports_cold_deserts_camping': 'Kargil, Ladakh'
+    };
+
+    const key = `${answers.q1}_${answers.q2}_${answers.q3}_${answers.q4}_${answers.q5}`;
+    const result = destinations[key] || 'Unknown Destination';
+    
+    // Display the result
+    $('#result').html(`<h2>Your Perfect Travel Destination: ${result}</h2>`);
+  });
+});
+
+</script>
+</body>
+</html>

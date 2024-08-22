@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Chronicle Quests</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 56px; /* Adjusted for the navbar height */
+    }
+    .search-box {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      width: 400px;
+      display: flex;
+      justify-content: space-evenly;
+      border-radius: 3px;
+    }
+    .search-icon {
+      size: 15px;
+      color: #111;
+      background-color: cadetblue;
+      display: flex;
+      align-items: center;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border: none;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 400px; /* Adjust as needed */
+      object-fit: cover;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      color: black; /* Set controls to black color */
+    }
+    .quiz{
+      height: 40px;
+    }
+    .quiz1,.quiz2{
+      display:flex;
+      justify-content: center;
+      text-align: center;
+      background-color: aquamarine;
+    }
+.btn-group-vertical {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .btn-group-vertical .btn {
+      width: calc(33.33% - 10px); /* 3 items per row */
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .btn-group-vertical .btn:last-child {
+      margin-right: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Indian Chronicle Quests</a>
+    <div class="search-box">
+      <input type="text" class="form-control" id="searchInput" placeholder="Search states and UTs" onkeyup="filterStates(event)" onkeydown="handleEnter(event)">
+      <div class="search-icon">
+        <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+      </div>
+      <div id="dropdownMenu" class="dropdown-menu"></div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Presentation1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" onclick="location.href='index.html'">
+        <img src="Presentation2.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!--Quiz Section-->
+  <div class="quiz">
+    <div class="quiz1">
+    <h5>Want to find out your perfect travel destination in India? Take this quiz to find out!!</h5>
+  </div>
+  <div class="quiz2" style="font-size: 20px;">
+    <a href="index.html">Take quiz</a>
+  </div>
+  </div>
+
+
+ <!-- States and UTs buttons -->
+  <div id="states-uts" class="container mt-5">
+    <h3>States</h3>
+    <div id="states-list" class="btn-group-vertical" role="group">
+      <!-- States buttons -->
+      <button class="btn btn-primary" onclick="location.href='andhrapradesh\\ap....ofc.html'">Andhra Pradesh</button><br>
+      <button class="btn btn-primary" onclick="location.href='Arunachal Pradesh\\arunachal.html'">Arunachal Pradesh</button><br>
+      <!-- Add other state buttons here -->
+      <!-- Remaining states -->
+<button class="btn btn-primary" onclick="location.href='Assam\\Assam.html'">Assam</button><br>
+          <button class="btn btn-primary" onclick="location.href='bihar\\BIHAR.html'">Bihar</button><br>
+          <button class="btn btn-primary" onclick="location.href='chattisgarh\\chattisgarh.html'">Chhattisgarh</button><br>
+          <button class="btn btn-primary" onclick="location.href='goa..ofcc\\goa.html'">Goa</button><br>
+          <button class="btn btn-primary" onclick="location.href='gujarat\\gujarat.html'">Gujarat</button><br>
+          <button class="btn btn-primary" onclick="location.href='haryana\\haryana.html'">Haryana</button><br>
+          <button class="btn btn-primary" onclick="location.href='himachal pradesh\\hp.html'">Himachal Pradesh</button><br>
+          <button class="btn btn-primary" onclick="location.href='jar\\jharkhand.html'">Jharkhand</button><br>
+          <button class="btn btn-primary" onclick="location.href='karnataka\\karnataka.html'">Karnataka</button><br>
+          <button class="btn btn-primary" onclick="location.href='KerelA\\kerala1.html'">Kerala</button><br>
+          <button class="btn btn-primary" onclick="location.href='mp\\mp.html'">Madhya Pradesh</button><br>
+          <button class="btn btn-primary" onclick="location.href='maharashtra\\maharashtra.html'">Maharashtra</button><br>
+          <button class="btn btn-primary" onclick="location.href='Manipur\\Manipur.html'">Manipur</button><br>
+          <button class="btn btn-primary" onclick="location.href='Meghalaya\\Meghalaya.html'">Meghalaya</button><br>
+          <button class="btn btn-primary" onclick="location.href='Mizoram\\Mizoram.html'">Mizoram</button><br>
+          <button class="btn btn-primary" onclick="location.href='Nagaland\\Nagaland.html'">Nagaland</button><br>
+          <button class="btn btn-primary" onclick="location.href='odisha\\odisha.html'">Odisha</button><br>
+          <button class="btn btn-primary" onclick="location.href='punjab\\punjab.html'">Punjab</button><br>
+          <button class="btn btn-primary" onclick="location.href='rajasthan\\rajasthan.html'">Rajasthan</button><br>
+          <button class="btn btn-primary" onclick="location.href='sikkim\\sikkim.html'">Sikkim</button><br>
+          <button class="btn btn-primary" onclick="location.href='TamilnadU\\tamilnadu..ofc1.html'">Tamil Nadu</button><br>
+          <button class="btn btn-primary" onclick="location.href='telangana...ofc\\telangana.....ofc.html'">Telangana</button><br>
+          <button class="btn btn-primary" onclick="location.href='Tripura\\Tripura.html'">Tripura</button><br>
+          <button class="btn btn-primary" onclick="location.href='uttar pradesh\\up.html'">Uttar Pradesh</button><br>
+          <button class="btn btn-primary" onclick="location.href='uttarakhand\\uttarakhand.html'">Uttarakhand</button><br>
+          <button class="btn btn-primary" onclick="location.href='westbengal\\westbengal.html'">West Bengal</button><br>
+                          </div>
+     
+   
+    <!-- Union Territories buttons -->
+    <h3>Union Territories</h3>
+    <div id="uts-list" class="btn-group-vertical" role="group">
+      <!-- UTs buttons -->
+          <button class="btn btn-secondary" onclick="location.href='a&dislands\\a&dislands.html'">Andaman and Nicobar Islands</button><br>
+          <button class="btn btn-secondary" onclick="location.href='chandigarh\\chandhigarh.html'">Chandigarh</button><br>
+          <button class="btn btn-secondary" onclick="location.href='Daman and Diu\\Daman_Diu.html'">Dadra and Nagar Haveli and Daman and Diu</button><br>
+          <button class="btn btn-secondary" onclick="location.href='Jammu and Kashmir\\Jammu and Kashmir.html'">Jammu & Kashmir</button><br>
+          <button class="btn btn-secondary" onclick="location.href='lakswadweep..ofc\\Lakswadweep.html'">Lakshadweep</button><br>
+          <button class="btn btn-secondary" onclick="location.href='delhi\\delhi.html'">Delhi</button><br>
+          <button class="btn btn-secondary" onclick="location.href='puducherry\\puducherry.html'">Puducherry</button><br>
+          <button class="btn btn-secondary" onclick="location.href='Ladakh\\Ladakh.html'">Ladakh</button><br>
+
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Activate the carousel
+      $('#carouselExampleIndicators').carousel();
+
+      // Set interval for automatic sliding
+      $('#carouselExampleIndicators').carousel({
+        interval: 800 // Time in milliseconds
+      });
+
+      // Previous button click
+      $('.carousel-control-prev').click(function() {
+        $('#carouselExampleIndicators').carousel('prev');
+      });
+
+      // Next button click
+      $('.carousel-control-next').click(function() {
+        $('#carouselExampleIndicators').carousel('next');
+      });
+    });
+
+    // States and UTs arrays for filtering
+    const states = [
+      "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh",
+      "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha",
+      "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+    ];
+
+    const uts = [
+      "Andaman and Nicobar Islands", "Chandigarh", "Dadra and Nagar Haveli and Daman and Diu", "Lakshadweep", "Delhi", "Puducherry", "Ladakh"
+    ];
+
+    // Function to filter states and UTs
+    function filterStates(event) {
+      const searchInput = document.getElementById('searchInput');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+
+      const value = searchInput.value.toLowerCase();
+      const matchedStates = states.filter(state => state.toLowerCase().includes(value));
+      const matchedUTs = uts.filter(ut => ut.toLowerCase().includes(value));
+
+      if (matchedStates.length > 0 || matchedUTs.length > 0) {
+        dropdownMenu.classList.add('show');
+        dropdownMenu.innerHTML = '';
+        matchedStates.forEach(state => {
+          const item = document.createElement('div');
+          item.classList.add('dropdown-item');
+          item.innerText = state;
+          item.addEventListener('click', () => {
+            searchInput.value = state;
+            dropdownMenu.classList.remove('show');
+            showSelectedButton(state);
+          });
+          dropdownMenu.appendChild(item);
+        });
+        matchedUTs.forEach(ut => {
+          const item = document.createElement('div');
+          item.classList.add('dropdown-item');
+          item.innerText = ut;
+          item.addEventListener('click', () => {
+            searchInput.value = ut;
+            dropdownMenu.classList.remove('show');
+            showSelectedButton(ut);
+          });
+          dropdownMenu.appendChild(item);
+        });
+      } else {
+        dropdownMenu.classList.remove('show');
+      }
+    }
+
+    // Function to show selected button
+    function showSelectedButton(selectedItem) {
+      const statesList = document.getElementById('states-list').getElementsByTagName('button');
+      const utsList = document.getElementById('uts-list').getElementsByTagName('button');
+
+      for (let i = 0; i < statesList.length; i++) {
+        if (statesList[i].innerText === selectedItem) {
+          statesList[i].style.display = '';
+        } else {
+          statesList[i].style.display = 'none';
+        }
+      }
+
+      for (let i = 0; i < utsList.length; i++) {
+        if (utsList[i].innerText === selectedItem) {
+          utsList[i].style.display = '';
+        } else {
+          utsList[i].style.display = 'none';
+        }
+      }
+    }
+
+    // Function to handle enter key press
+    function handleEnter(event) {
+      if (event.key === "Enter") {
+        const searchInput = document.getElementById('searchInput');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const selectedOption = dropdownMenu.querySelector('.selected');
+        if (selectedOption) {
+          searchInput.value = selectedOption.innerText;
+          dropdownMenu.classList.remove('show');
+          showSelectedButton(selectedOption.innerText);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
