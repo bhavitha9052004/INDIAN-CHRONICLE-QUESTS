@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranchi Hill - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('r1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ranchi Hill</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ranchi Hill</h1>
+        <p class="lead">A symbol of tranquility and spirituality</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Ranchi Hill, also known as Pahari Mandir, holds significant historical importance in the city of Ranchi, Jharkhand, India. It is believed to have been a site of worship for centuries, with ancient temples dedicated to Hindu deities dotting its slopes. The hill has witnessed the rise and fall of empires and has been a silent witness to the rich tapestry of Ranchi's history.</p>
+        <h2>Cultural Significance</h2>
+        <p>Ranchi Hill is not only a place of historical significance but also a cultural hub for the people of Ranchi. It is revered by locals and visitors alike for its spiritual aura and serene ambiance. The hill serves as a pilgrimage site for devotees who climb its slopes to seek blessings at the temples and soak in the panoramic views of the surrounding landscape.</p>
+        <h2>Brief Synthesis</h2>
+        <p>Ranchi Hill rises majestically above the city, offering breathtaking views of Ranchi and its lush green surroundings. At its summit, nestled amidst verdant trees, stand several ancient temples dedicated to Hindu gods and goddesses. The most prominent among these is the Pahari Mandir, dedicated to Lord Shiva, which attracts devotees from far and wide.</p>
+        <p>The ascent to Ranchi Hill is not just a physical journey but also a spiritual one, with devotees and tourists alike making the pilgrimage to pay homage to the deities and seek solace in the tranquil surroundings. The hill is also a popular spot for picnics and leisurely walks, providing respite from the hustle and bustle of city life.</p>
+        <h2>Integrity</h2>
+        <p>The integrity of Ranchi Hill is carefully preserved through conservation efforts and regular maintenance. The temples and structures on the hill are meticulously maintained to ensure their structural stability and prevent deterioration. Measures are also in place to protect the natural habitat and biodiversity of the hill.</p>
+        <h2>Authenticity</h2>
+        <p>Ranchi Hill retains its authenticity as a place of worship and natural beauty. Efforts are made to preserve the original architecture and design of the temples, ensuring that they continue to reflect the rich cultural heritage of the region. Conservation work is carried out with sensitivity to maintain the hill's spiritual ambiance and historical significance.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="r1.jpeg" alt="Ranchi Hill Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="r2.jpeg" alt="Ranchi Hill Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="r3.jpeg" alt="Ranchi Hill Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Ranchi_Hill" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Ranchi Hill -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ranchi Hill</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ranchi Hill, Ranchi, Jharkhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

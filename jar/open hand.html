@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open Hand Monument</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('o1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Open Hand Monument</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Open Hand Monument</h1>
+        <p class="lead">A symbol of peace and reconciliation in Chandigarh</p>
+    </div>
+    <div class="description">
+        <h2>About the Open Hand Monument</h2>
+        <p>The Open Hand Monument, located in the city of Chandigarh, India, is a significant architectural symbol designed by the renowned architect Le Corbusier. The monument stands as a testament to peace, prosperity, and unity. It is part of the Capitol Complex, a UNESCO World Heritage site, and serves as a reminder of the open hand's message: "Open to give, open to receive."</p>
+        
+        <h2>Design and Architecture</h2>
+        <p>The Open Hand Monument is made of metal and stands at a height of 26 meters (85 feet). The design features a large, open hand that rotates with the wind, symbolizing the concepts of change and progress. Le Corbusier envisioned the monument as a moving structure that would reflect the city's dynamism and forward-looking spirit. The hand itself is mounted on a central pivot and can turn in the direction of the wind, making it a unique piece of kinetic art.</p>
+        
+        <h2>Historical Significance</h2>
+        <p>The monument was conceived as part of Le Corbusier's master plan for Chandigarh, a city that was to represent the hopes and aspirations of a newly independent India. The Open Hand was intended to embody the values of peace and reconciliation in a nation emerging from the trauma of partition. Its design and placement in the Capitol Complex underscore its role as a symbol of governance and civic life, reflecting Le Corbusier's philosophy of modern urban planning.</p>
+        
+        <h2>Symbolism</h2>
+        <p>The Open Hand is more than just a piece of art; it carries deep symbolic meaning. The open hand signifies openness, trust, and mutual respect. It represents the idea of giving and receiving without prejudice, fostering a sense of community and cooperation. The rotating motion of the hand highlights the importance of adaptability and the ever-changing nature of life, urging people to embrace change and innovation.</p>
+        
+        <h2>Cultural Impact</h2>
+        <p>The Open Hand Monument has become an iconic landmark in Chandigarh, attracting visitors from around the world. It stands as a powerful representation of the city's identity and values. The monument is frequently featured in cultural events, educational programs, and artistic initiatives, serving as a source of inspiration for architects, artists, and urban planners. Its presence in the Capitol Complex enhances the area's cultural and historical significance, making it a must-visit destination for those interested in architecture and history.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery Section 1 -->
+<div class="container mt-4">
+    <h2>Photo Gallery - Monument Views</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="o1.jpg" alt="Open Hand Monument View 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="o2.jpeg" alt="Open Hand Monument View 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="o3.jpeg" alt="Open Hand Monument View 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Open Hand Monument -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Open Hand Monument</button>
+</div>
+
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Open_Hand_Monument" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Open Hand Monument, Chandigarh, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage()

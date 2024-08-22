@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hundru Falls - Natural Beauty</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('h1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Hundru Falls</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Hundru Falls</h1>
+        <p class="lead">A mesmerizing cascade of nature</p>
+    </div>
+    <div class="description">
+        <h2>Natural Beauty</h2>
+        <p>Hundru Falls is a breathtaking waterfall located near Ranchi in the Indian state of Jharkhand. It is one of the highest waterfalls in the state, cascading from a height of approximately 98 meters (322 feet). The waterfall is surrounded by lush greenery and rocky terrain, creating a picturesque setting that attracts nature lovers and adventure enthusiasts alike.</p>
+        <h2>Geographical Significance</h2>
+        <p>The Hundru Falls is formed by the Subarnarekha River as it plunges over a steep cliff, creating a spectacular sight and a natural swimming pool at the base. The roaring sound of the cascading water echoes through the surrounding hills, adding to the immersive experience of visiting the falls. The area around Hundru Falls is known for its rich biodiversity, with various species of flora and fauna thriving in the dense forests.</p>
+        <h2>Accessibility</h2>
+        <p>Hundru Falls is easily accessible by road from Ranchi, the capital city of Jharkhand. Visitors can enjoy a scenic drive through the picturesque countryside before reaching the falls. Upon arrival, there are well-maintained pathways and viewing platforms that offer stunning vistas of the waterfall and its surroundings. Adventurous travelers can also trek down to the base of the falls to get a closer look and take a refreshing dip in the cool waters.</p>
+        <h2>Local Culture</h2>
+        <p>The area surrounding Hundru Falls is inhabited by indigenous tribal communities who have lived in harmony with nature for centuries. Visitors to the falls have the opportunity to interact with locals and learn about their traditional way of life, including their unique customs, rituals, and cuisine. The nearby villages offer a glimpse into the cultural heritage of Jharkhand, with colorful festivals and folk performances celebrated throughout the year.</p>
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are underway to preserve the natural beauty and ecological balance of Hundru Falls and its surrounding ecosystem. Conservation initiatives include reforestation projects, waste management programs, and awareness campaigns aimed at promoting sustainable tourism practices. By working together with local communities and government agencies, stakeholders strive to ensure that future generations can continue to enjoy the splendor of Hundru Falls.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="h1.jpeg" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="h2.jpg" alt="Hundru Falls Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="h3.jpeg" alt="Hundru Falls Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Hundru_Falls" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Hundru Falls -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Hundru Falls</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Hundru Falls, Ranchi, Jharkhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

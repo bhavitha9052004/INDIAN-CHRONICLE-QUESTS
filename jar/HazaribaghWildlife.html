@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hazaribagh Wildlife Sanctuary - Nature's Paradise</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('hb1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Hazaribagh Wildlife Sanctuary</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Hazaribagh Wildlife Sanctuary</h1>
+        <p class="lead">Nature's Paradise in Jharkhand</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Hazaribagh Wildlife Sanctuary, located in the Hazaribagh district of Jharkhand, India, is a haven for nature lovers and wildlife enthusiasts. Spanning an area of approximately 184 square kilometers, this sanctuary is known for its diverse flora and fauna, picturesque landscapes, and tranquil surroundings.</p>
+        <h2>Historical Significance</h2>
+        <p>The sanctuary has a rich historical background, with evidence of human habitation dating back to ancient times. It was established in 1954 to protect the local wildlife and preserve the natural ecosystems of the region. Over the years, it has become a popular destination for eco-tourism and wildlife conservation efforts.</p>
+        <h2>Geographical Features</h2>
+        <p>Hazaribagh Wildlife Sanctuary is characterized by its rugged terrain, dense forests, and rolling hills. The sanctuary is home to several water bodies, including lakes, rivers, and streams, which provide vital habitats for a variety of wildlife species.</p>
+        <h2>Flora and Fauna</h2>
+        <p>The sanctuary boasts a rich biodiversity, with diverse flora and fauna found throughout its expanse. The forests are dominated by sal, mahua, bamboo, and semal trees, providing food and shelter for a wide range of animals, including tigers, leopards, sloth bears, elephants, and deer.</p>
+        <h2>Avifauna</h2>
+        <p>Hazaribagh Wildlife Sanctuary is a paradise for birdwatchers, with over 250 species of birds recorded within its boundaries. From majestic birds of prey like eagles and vultures to colorful songbirds and waterfowl, the sanctuary offers ample opportunities for birdwatching and photography.</p>
+        <h2>Visitor Facilities</h2>
+        <p>The sanctuary is equipped with visitor facilities such as nature trails, watchtowers, and interpretation centers, allowing visitors to explore the wilderness while learning about its ecological significance. Guided safaris and trekking expeditions are also available for those seeking a closer encounter with nature.</p>
+        <h2>Conservation Efforts</h2>
+        <p>Hazaribagh Wildlife Sanctuary is actively involved in conservation efforts aimed at protecting its natural resources and biodiversity. Measures such as habitat restoration, anti-poaching patrols, and community-based conservation initiatives are undertaken to ensure the long-term sustainability of the sanctuary.</p>
+        <h2>Integrity</h2>
+        <p>The integrity of Hazaribagh Wildlife Sanctuary is carefully maintained through strict enforcement of wildlife laws and regulations. Regular monitoring and surveillance activities are conducted to deter illegal activities such as poaching, encroachment, and deforestation, which threaten the sanctuary's ecological balance.</p>
+        <h2>Authenticity</h2>
+        <p>The sanctuary remains true to its natural heritage, with efforts made to preserve its pristine beauty and ecological integrity. Conservation work is carried out in consultation with scientific experts and local communities to ensure that the sanctuary retains its authenticity as a natural wilderness area.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="hb2.jpeg" alt="Hazaribagh Wildlife Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="hb2.jpeg" alt="Hazaribagh Wildlife Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="hb3.jpeg" alt="Hazaribagh Wildlife Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Hazaribagh_Wildlife_Sanctuary" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Hazaribagh Wildlife Sanctuary -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Hazaribagh Wildlife Sanctuary</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Hazaribagh Wildlife Sanctuary, Jharkhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
