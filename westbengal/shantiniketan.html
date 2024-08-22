@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shantiniketan - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('shwb2.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Shantiniketan</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Shantiniketan</h1>
+        <p class="lead">An abode of peace and cultural enlightenment</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Shantiniketan, located in Birbhum district of West Bengal, India, was established by Nobel laureate Rabindranath Tagore in 1863. It served as a center for his educational experiment and cultural revival, giving birth to Visva-Bharati University.</p>
+        <h2>Cultural Significance</h2>
+        <p>Shantiniketan is renowned for its vibrant cultural life, artistic heritage, and intellectual pursuits. It continues to inspire generations with its emphasis on holistic education, creative expression, and harmony with nature.</p>
+        <h2>Visva-Bharati University</h2>
+        <p>Visva-Bharati, founded by Rabindranath Tagore, is a central institution in Shantiniketan dedicated to the pursuit of knowledge, cultural exchange, and universal human values. It offers courses in various disciplines and promotes the synthesis of Eastern and Western thought.</p>
+        <h2>Tagore's Legacy</h2>
+        <p>Rabindranath Tagore's presence permeates every aspect of life in Shantiniketan, from its educational ethos to its artistic traditions. His works, philosophy, and vision for a harmonious society continue to inspire scholars, artists, and seekers of truth.</p>
+        <h2>Preservation Efforts</h2>
+        <p>Efforts are underway to preserve and promote the cultural heritage of Shantiniketan. Initiatives focus on conserving Tagore's legacy, protecting natural resources, and nurturing indigenous arts and crafts.</p>
+        <h2>Tourist Attractions</h2>
+        <p>Shantiniketan attracts tourists with its tranquil surroundings, cultural festivals, and iconic landmarks such as Tagore's Ashram, Kala Bhavana, and Uttarayan Complex. Visitors can explore its museums, art galleries, and lush greenery.</p>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Shantiniketan" style="color:red;">Wikipedia</a></div><br>
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="shwb2.jpg" alt="Shantiniketan Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="shwb1.jpg" alt="Shantiniketan Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="swb1.jpeg" alt="Shantiniketan Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+<!-- Button to Get Directions to Shantiniketan -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Shantiniketan</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Shantiniketan, West Bengal, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kolkata (Calcutta) - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('kwb2.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Kolkata (Calcutta)</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Kolkata (Calcutta)</h1>
+        <p class="lead">A city of rich history, culture, and diversity</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Kolkata, formerly known as Calcutta, is the capital city of West Bengal, India. It has a storied past, having served as the capital of British India until 1911. Kolkata played a pivotal role in India's struggle for independence and is home to numerous historical landmarks.</p>
+        <h2>Cultural Significance</h2>
+        <p>Kolkata is a melting pot of cultures, traditions, and religions. It is renowned for its literary heritage, artistic expression, and culinary delights. The city's diverse population contributes to its vibrant cultural tapestry, making it a hub of creativity and innovation.</p>
+        <h2>Landmarks</h2>
+        <p>Key landmarks in Kolkata include the Victoria Memorial, Howrah Bridge, and the Marble Palace. These architectural marvels reflect Kolkata's colonial legacy and its transition into a modern metropolis.</p>
+        <h2>Literary Heritage</h2>
+        <p>Kolkata has a rich literary tradition and has been home to luminaries such as Rabindranath Tagore, Bankim Chandra Chattopadhyay, and Sarat Chandra Chattopadhyay. The city's literary festivals and cultural events celebrate its literary heritage and foster creative expression.</p>
+        <h2>Art and Music</h2>
+        <p>Kolkata is a hub of art, music, and theater. It hosts numerous art galleries, music concerts, and theater performances throughout the year. The city's vibrant cultural scene attracts artists, musicians, and performers from around the world.</p>
+        <h2>Cuisine</h2>
+        <p>Kolkata is famous for its diverse cuisine, influenced by Bengali, British, Chinese, and Mughal culinary traditions. Street food delicacies such as phuchka, kathi roll, and jhal muri are popular among locals and visitors alike.</p>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Kolkata" style="color:red;">Wikipedia</a>
+</div>
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="kwb1.jpeg" alt="Kolkata Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="kwb2.jpg" alt="Kolkata Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="kwb3.jpg" alt="Kolkata Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+<!-- Button to Get Directions to Kolkata -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Kolkata</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Kolkata, West Bengal, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

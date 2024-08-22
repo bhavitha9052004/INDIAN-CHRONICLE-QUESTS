@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore West Bengal</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('dwb2.jpg'); /* Replace with an image of West Bengal */
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+    .btn-primary {
+      background-color: #007bff; /* Blue button */
+      border-color: #007bff; /* Blue button */
+    }
+    .btn-primary:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+      border-color: #0056b3; /* Darker blue on hover */
+    }
+    .btn-primary img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px 5px 0 0; /* Rounded corners on top */
+    }
+    .btn-primary .btn-body {
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore West Bengal</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">West Bengal</h1>
+      <p class="lead">Discover the cultural heritage of India's eastern state</p>
+    </div>
+    <div class="description">
+      <h2>Famous Landmarks and Attractions</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='kolkata.html'">
+            <img src="kwb2.jpg" alt="Kolkata (Calcutta)" class="img-fluid mb-2">
+            <div class="btn-body">Kolkata (Calcutta)</div>
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='darjeeling.html'">
+            <img src="dwb2.jpg" alt="Darjeeling" class="img-fluid mb-2">
+            <div class="btn-body">Darjeeling</div>
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='sundarbans.html'">
+            <img src="swb2.jpg" alt="Sundarbans National Park" class="img-fluid mb-2">
+            <div class="btn-body">Sundarbans National Park</div>
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='shantiniketan.html'">
+            <img src="shwb3.jpg" alt="Shantiniketan" class="img-fluid mb-2">
+            <div class="btn-body">Shantiniketan</div>
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='murshidabad.html'">
+            <img src="mwb1.jpg" alt="Murshidabad" class="img-fluid mb-2">
+            <div class="btn-body">Murshidabad</div>
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='bishnupur.html'">
+            <img src="bwb3.jpg" alt="Bishnupur" class="img-fluid mb-2">
+            <div class="btn-body">Bishnupur</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
