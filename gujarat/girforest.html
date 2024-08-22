@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gir Forest - Home to Asiatic Lions</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('gir_photo3.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Gir Forest</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Gir Forest</h1>
+        <p class="lead">Home to the majestic Asiatic Lions</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+<p>The Gir Forest National Park and Wildlife Sanctuary, also known as Sasan Gir, is located in Gujarat, India. It is renowned as the last refuge of the Asiatic Lion outside Africa, offering a unique opportunity to witness these magnificent animals in their natural habitat.</p>
+<h2>Wildlife</h2>
+<p>Aside from the Asiatic Lions, Gir Forest is home to a diverse range of flora and fauna. The park supports a significant population of leopards, which are the primary predator besides lions. Other notable species include various deer species such as sambar, chital (spotted deer), and nilgai (blue bull), as well as antelopes like chinkara and the Indian gazelle. The avian diversity is remarkable, with over 300 species of birds recorded, including endemic and migratory species.</p>
+<h2>Conservation Efforts</h2>
+<p>The Gir Forest plays a critical role in the conservation of the Asiatic Lion. The park has been instrumental in the successful recovery of the lion population, which faced severe threats to its survival in the past. Conservation efforts include habitat management, anti-poaching measures, community involvement in conservation programs, and scientific research to monitor lion populations and their prey species.</p>
+<h2>Visiting Gir</h2>
+<p>Visitors to Gir have the opportunity to explore the sanctuary through guided safaris conducted by park authorities. These safaris provide a chance to observe lions and other wildlife in their natural surroundings. It's advisable to book safaris in advance, especially during peak seasons (December to April), to secure a spot due to high demand.</p>
+<p>Accommodation options near Gir range from forest lodges operated by the Gujarat Forest Department to private resorts and hotels. Staying near the park allows visitors to maximize their wildlife viewing opportunities and experience the serene natural beauty of the Gir region.</p>
+<h2>Additional Information</h2>
+<p>For those interested in visiting Gir Forest National Park and Wildlife Sanctuary, it's essential to adhere to park regulations to ensure the safety of both visitors and wildlife. The park is open throughout the year, but the best time for wildlife sightings is during the cooler months from December to March.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="gir_photo1.jpeg" alt="Gir Forest Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="gir_photo2.jpeg" alt="Gir Forest Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="gir_photo3.jpg" alt="Gir Forest Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Gir_Forest_National_Park" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Gir Forest -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Gir Forest</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Gir Forest National Park, Gujarat, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

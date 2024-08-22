@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dwarka - Ancient City of Lord Krishna</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('dwarka_photo3.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Dwarka</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Dwarka</h1>
+        <p class="lead">The Ancient City of Lord Krishna</p>
+    </div>
+    <div class="description">
+        <h2>Historical Context</h2>
+<p>Dwarka, located on the western coast of India in the state of Gujarat, holds a profound historical significance dating back thousands of years. According to ancient texts and archaeological evidence, Dwarka is believed to have been a prosperous city and a prominent port in ancient India.</p>
+<h2>Mythological References</h2>
+<p>According to Hindu mythology, Dwarka is considered the legendary kingdom of Lord Krishna. It is believed to be the capital of Krishna's kingdom, referred to as Dwaraka or Dwaravati. The city finds mention in Hindu epics such as the Mahabharata, where it is described as a magnificent city built by the divine architect Vishwakarma.</p>
+<h2>Archaeological Discoveries</h2>
+<p>Archaeological excavations off the coast of Dwarka have revealed submerged structures and artifacts that suggest the existence of a city dating back to ancient times. These discoveries have sparked debates and discussions among historians and archaeologists about the historical accuracy of the myths surrounding Dwarka.</p>
+<h2>Importance as a Pilgrimage Site</h2>
+<p>For centuries, Dwarka has been a major pilgrimage site for Hindus. Devotees visit the city to seek blessings at the Dwarkadhish Temple, dedicated to Lord Krishna. The temple, with its intricate architecture and spiritual ambiance, stands as a testament to the city's religious and cultural heritage.</p>
+<h2>Evolution Over Time</h2>
+<p>Over the centuries, Dwarka has evolved from an ancient port city and a center of maritime trade to a prominent religious and cultural hub. It continues to attract pilgrims, historians, and archaeologists alike, each seeking to unravel its rich tapestry of history, mythology, and spirituality.</p>
+<h2>Preservation Efforts</h2>
+<p>The preservation of Dwarka's cultural and archaeological heritage is of utmost importance. Efforts are ongoing to protect and conserve the ancient structures and artifacts associated with the city's historical legacy, ensuring that future generations can continue to learn from and appreciate its significance.</p>
+<h2>Visiting Dwarka Today</h2>
+<p>Visitors to Dwarka can explore its temples, archaeological sites, and cultural landmarks while immersing themselves in its rich history and mythology. Guided tours, informative displays, and local narratives offer insights into the city's past and its enduring cultural relevance.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="dwarka_photo1.jpeg" alt="Dwarka Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dwarka_photo2.jpeg" alt="Dwarka Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dwarka_photo3.jpeg" alt="Dwarka Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Dwarka" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Dwarka -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Dwarka</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Dwarka, Gujarat, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Gujarat</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('rann_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Gujarat</a>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Gujarat</h1>
+        <p class="lead">Discover the vibrant state of India</p>
+    </div>
+    <div class="description">
+        <h2>About Gujarat</h2>
+        <p>Gujarat, located on the western coast of India, is known for its rich cultural heritage, historical significance, and vibrant festivals. It is home to diverse landscapes, including deserts, beaches, and forests.</p>
+        <h2>Tourist Attractions</h2>
+        <!-- Buttons with pictures and names of tourist attractions -->
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='somnath.html'">
+                    <img src="somnath_photo2.jpeg" alt="Somnath Temple" class="img-fluid mb-2">Somnath Temple</button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='girforest.html'">
+                    <img src="gir_photo3.jpg" alt="Gir Forest National Park" class="img-fluid mb-2">Gir Forest National Park</button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='kutch.html'">
+                    <img src="rann_photo2.jpeg" alt="Rann of Kutch" class="img-fluid mb-2">Rann of Kutch </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='dwarka.html'">
+                    <img src="dwarka_photo2.jpeg" alt="Dwarka Temple" class="img-fluid mb-2">Dwarka Temple
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='ahmedabad.html'">
+                    <img src="ahmedabad_photo1.jpeg" alt="Ahmedabad" class="img-fluid mb-2">Ahmedabad</button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='saputara.html'">
+                    <img src="saputara_photo2.jpeg" alt="Saputara Hill Station" class="img-fluid mb-2">Saputara Hill Station</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

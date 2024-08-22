@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saputara Hill Station - Nature's Retreat</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('saputara_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Saputara Hill Station</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Saputara Hill Station</h1>
+        <p class="lead">Nature's Retreat in Gujarat</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+<p>Saputara is a picturesque hill station situated in the Western Ghats of Gujarat, India. Nestled amidst lush greenery, it offers serene lakes, breathtaking views of the surrounding mountains, and a pleasant climate throughout the year.</p>
+
+<h2>Attractions</h2>
+<p>Saputara boasts a variety of attractions that appeal to nature lovers and adventure enthusiasts alike. Saputara Lake is a popular spot for boating and enjoying scenic sunsets. Sunset Point offers panoramic views of the Sahyadri mountain range and is a favorite among visitors. Gira Waterfalls, located near Saputara, cascade down amidst verdant landscapes, providing a refreshing sight during the monsoon season. The Artist Village showcases tribal art and culture, offering insights into the local heritage through exhibitions and workshops.</p>
+
+<h2>Activities</h2>
+<p>Visitors to Saputara can engage in a range of activities that make the most of its natural beauty and cultural richness. Boating on Saputara Lake is a relaxing way to soak in the surroundings, while trekking trails such as the Governor's Hill and Pandava Caves offer opportunities for exploration and scenic vistas. Adventure enthusiasts can experience the thrill of paragliding from Sunset Point, enjoying bird's-eye views of Saputara. For those interested in local culture, the tribal museums provide a glimpse into the lifestyle, traditions, and craftsmanship of the Dang region's tribal communities.</p>
+
+<h2>Accommodation</h2>
+<p>Saputara offers various accommodation options to suit different preferences and budgets. From comfortable guesthouses and cottages to resorts with scenic views, visitors can find a place to stay that complements their experience of being close to nature. Many accommodations in Saputara provide amenities such as restaurants serving local cuisine, outdoor seating areas, and easy access to nearby attractions and activities.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="saputara_photo1.jpeg" alt="Saputara Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="saputara_photo2.jpeg" alt="Saputara Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="saputara_photo3.jpeg" alt="Saputara Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Saputara" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Saputara -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Saputara</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Saputara, Gujarat, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
