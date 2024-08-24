@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dzukou Valley - Natural Beauty</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('dzukou_valley_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Dzukou Valley</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Dzukou Valley</h1>
+        <p class="lead">Nature's Palette of Serenity and Splendor</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Known as the "Valley of Flowers," the Dzukou Valley is a popular tourist destination in the North East of India. Situated at an altitude of 2450 meters, it is renowned for its stunning natural beauty and is considered one of the top adventure spots in Kohima, Nagaland. The valley is located behind the Japfu range, which is another significant travel destination in the state, offering breathtaking views and a serene environment.
+
+            The Dzukou Valley is most visited during the full bloom season, typically in the monsoon months. During this time, the valley is transformed into a vibrant display of colors, with lilies in white and pink, aconitums, euphorbias, and numerous other botanical species adding to its allure. The valley's beauty is truly captivating, making it a must-visit destination for nature lovers and adventure enthusiasts alike.</p>
+        <h2>History</h2>
+        <p>The Dzukou Valley, located near Kohima in Nagaland, has a rich history and cultural significance. Historically, the valley has been inhabited by the Angami tribes, who consider it a sacred place. The name "Dzukou" is derived from the Angami word "Dzü-ko," which means "soulless and dull" due to the difficulty in cultivating the land in the valley.
+
+            The valley has also played a role in the political history of the region. During the Japanese invasion of India in World War II, the Dzukou Valley served as a refuge for the local people and Allied forces. The rugged terrain and difficult access made it a natural fortress, allowing the defenders to hold off the enemy.
+            
+            Today, the Dzukou Valley is not only a natural wonder but also a symbol of resilience and heritage for the people of Nagaland. It continues to attract visitors from around the world, drawn by its stunning beauty and historical significance.</p>
+        <h2>Attractions</h2>
+        <p>The Dzukou Valley, often referred to as the "Valley of Flowers," is a breathtaking destination in Nagaland, known for its pristine beauty and rich biodiversity. Located at an altitude of 2450 meters, this valley offers a picturesque landscape with rolling hills, lush greenery, and meandering streams. The valley is a haven for nature lovers and trekkers, offering a tranquil escape from the hustle and bustle of city life.
+
+            One of the main attractions of the Dzukou Valley is its stunning floral diversity. During the monsoon season, the valley comes alive with a riot of colors as numerous species of flowers bloom across the valley floor. The valley is particularly famous for its lilies, aconitums, euphorbias, and other botanical species that paint the landscape in vibrant hues. Apart from its natural beauty, the Dzukou Valley also offers excellent trekking opportunities. The trek to the valley, starting from Viswema village near Kohima, is a popular route that takes trekkers through dense forests and verdant meadows, offering panoramic views of the surrounding hills and valleys. Whether you're a nature enthusiast, a photographer, or an adventure seeker, the Dzukou Valley is sure to leave you mesmerized with its unparalleled beauty and tranquility.</p>
+        <h2>Best Time to Visit</h2>
+        <p>One of the most important places to visit in the North East, the Valley of Celestial Charm is best visited between June and September, i.e., the full bloom season.</p>
+        <h2>Location</h2>
+        <p>The Dzukou Valley is located near the border of the Indian states of Nagaland and Manipur, at an altitude of approximately 2450 meters above sea level. It is situated to the south of Kohima, the capital of Nagaland, and is accessible by a trekking route from the villages of Viswema or Zakhama, which are located near Kohima. The valley is nestled amidst the Japfu and Viswema ranges, offering a serene and picturesque environment for visitors to explore and enjoy.</p>
+           
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="dzukou_valley_photo1.jpeg" alt="Dzukou Valley Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dzukou_valley_photo2.jpeg" alt="Dzukou Valley Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dzukou_valley_photo3.jpeg" alt="Dzukou Valley Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Dzukou_Valley" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Dzukou Valley -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Dzukou Valley</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Dzukou Valley, Nagaland, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
