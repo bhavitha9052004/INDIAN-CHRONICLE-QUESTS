@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Arunachal Pradesh</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('arunachal_pradesh.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Arunachal Pradesh</a>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Arunachal Pradesh</h1>
+        <p class="lead">Discover the beauty of the easternmost state of India</p>
+    </div>
+    <div class="description">
+        <h2>About Arunachal Pradesh</h2>
+        <p>Arunachal Pradesh, nestled in the eastern Himalayas, is known for its breathtaking natural beauty, diverse cultures, and vibrant traditions. Explore its enchanting landscapes and rich heritage.</p>
+        <h2>Tourist Attractions</h2>
+        <!-- Buttons with pictures and names of tourist attractions -->
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Tawang.html'">
+                    <img src="tawang_image.jpg" alt="Tawang Monastery" class="img-fluid mb-2">
+                    Tawang 
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Ziro Valley.html'">
+                    <img src="ziro_image.jpg" alt="Ziro Valley" class="img-fluid mb-2">
+                    Ziro Valley
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Namdapha National Park.html'">
+                    <img src="namdapha_image.jpg" alt="Namdapha National Park" class="img-fluid mb-2">
+                    Namdapha National Park
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Bomdila.html'" >
+                    <img src="bomdila_image.jpg" alt="Bomdila Monastery" class="img-fluid mb-2">
+                    Bomdila 
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Pakhui Wildlife Sanctuary.html'">
+                    <img src="pakhui_wildlife_sanctuary.jpg" alt="Pakhui Wildlife Sanctuary" class="img-fluid mb-2">
+                    Pakhui Wildlife Sanctuary
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Itanagar.html'" >
+                    <img src="itanagar_image.jpg" alt="Itanagar" class="img-fluid mb-2">
+                    Itanagar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
