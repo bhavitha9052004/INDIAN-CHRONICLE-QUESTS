@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmir Valley - Historical & Cultural Significance</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('kashmir_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Kashmir Valley</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Kashmir Valley</h1>
+            <p class="lead">The Paradise on Earth</p>
+        </div>
+        <div class="description">
+            <h2>Overview</h2>
+            <p>Popularly known as the "Paradise on Earth," the Kashmir Valley in northwestern India is renowned for its scenic splendor, snow-capped mountains, abundant wildlife, exquisite monuments, and hospitable people. Major cities in the valley include Srinagar, Anantnag, and Baramulla. Nestled in the Himalayas, the Kashmir Valley offers stunning landscapes like the Gulmarg Gondola and serene locations for trekking and adventure. The valley's trekking routes, such as the Kashmir Great Lakes Trek and Tarsar Marsar, feature breathtaking peaks, glaciers, and meadows. Adventure sports like skiing, river rafting, and paragliding add excitement, while Amarnath and Vaishno Devi draw many pilgrims. Famous for its cuisine, Wazwan, and local crafts like shawls and dried fruits, the Kashmir Valley's Lal Chowk Market is a must-visit. Note that heavy snowfall can affect travel during winter months.</p>
+            <h2>History</h2>
+            <p>The Kashmir Valley, a region of stunning beauty, has a rich and complex history. Historically, it was an important center of Hinduism and later Buddhism before becoming a significant region for Islam in the 14th century. The valley was ruled by various dynasties, including the Mauryas, Kushans, and Guptas, before falling under the control of Muslim rulers. In the 1580s, the Mughal Emperor Akbar conquered Kashmir, ushering in a period of architectural and cultural development that left a lasting legacy. In the 19th century, Kashmir came under the rule of the Sikh Empire and later the Dogra Dynasty following the First Anglo-Sikh War. The Dogra rulers retained control until 1947 when the princely state of Jammu and Kashmir acceded to India following the partition. Since then, the region has experienced significant political and military conflict but continues to be renowned for its natural beauty and cultural heritage.</p>
+            <h2>Places to Visit</h2>
+            <h5>Kashmir Great Lakes Trek</h5>
+            <p>The Kashmir Great Lakes Trek is one of the most exhilarating trekking experiences in the Himalayas. This trek takes adventurers through diverse landscapes, including lush meadows, pristine lakes, and challenging mountain passes. The trek offers breathtaking views of the Himalayan peaks, serene alpine lakes, and the opportunity to connect with nature in its most untouched form.</p>
+            <h5>Tarsar Marsar Trek</h5>
+            <p>The Tarsar Marsar Trek is a stunning journey through the Kashmir Valley's picturesque landscapes. The trek features beautiful alpine meadows, high mountain passes, and serene glacial lakes. Trekkers are treated to incredible views of the surrounding mountains and the peaceful environment of these less-traveled paths, offering a unique Himalayan adventure.</p>
+            <h5>Amarnath Temple</h5>
+            <p>The Amarnath Temple is a revered Hindu shrine dedicated to Lord Shiva, located in a cave high in the Himalayas. The temple is famous for its natural ice Shiva Lingam, which is believed to symbolize the divine presence. It is an important pilgrimage site for Hindus, attracting thousands of devotees annually during the Amarnath Yatra.</p>
+            <h5>Vaishno Devi Temple</h5>
+            <p>The Vaishno Devi Temple, situated on Trikuta Mountain, is one of the most visited pilgrimage sites in India. Dedicated to the goddess Vaishno Devi, this temple offers a spiritual journey for devotees who undertake a challenging trek to reach the shrine. The temple's sacred atmosphere and the spiritual experience of the pilgrimage make it a significant religious destination.</p>
+            <h2>Best Time to Visit</h2>
+            <p>The best time to visit Kashmir Valley is during the spring (March to May) and autumn (September to November) seasons. During these months, the weather is pleasant, and the valley is adorned with blooming flowers and vibrant colors. The winter months (December to February) are ideal for snow lovers and adventure enthusiasts, as the valley transforms into a winter wonderland.</p>
+            <h2>Location</h2>
+            <p>The Kashmir Valley is located in the northern part of India, in the state of Jammu and Kashmir. It is surrounded by the majestic Himalayas and the Pir Panjal range, making it a region of unparalleled natural beauty. The valley's strategic location has made it a crossroads of various cultures and civilizations throughout history.</p>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="kashmir_photo1.jpeg" alt="Kashmir Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="kashmir_photo2.jpeg" alt="Kashmir Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="kashmir_photo3.jpeg" alt="Kashmir Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Kashmir_Valley" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Kashmir Valley -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Kashmir Valley</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+        document.getElementById('map-btn').addEventListener('click', function() {
+            // Check if geolocation is supported
+            if ("geolocation" in navigator) {
+                // Get current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Open Google Maps with directions
+                    var destination = "Kashmir Valley, Jammu and Kashmir, India";
+                    var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+
+            // Reset language selection after translation
+            document.getElementById('languageSelect').selectedIndex = 0;
+        }
+    </script>
+
+</body>
+</html>

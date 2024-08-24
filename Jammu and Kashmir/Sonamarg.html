@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonamarg - Scenic Beauty and Adventure</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('sonamarg_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Sonamarg</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Sonamarg</h1>
+        <p class="lead">The Meadow of Gold</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Sonamarg, also known as the "Meadow of Gold," is a stunning destination located in the Indian state of Jammu and Kashmir. Nestled in the Sindh Valley along the banks of the Sindh River, Sonamarg is renowned for its breathtaking natural beauty and serene environment. The region is characterized by lush green meadows, snow-capped mountains, and glistening rivers. It serves as an ideal base for various outdoor activities such as trekking, fishing, and camping. The Thajiwas Glacier, a prominent attraction, offers picturesque views and a chance for adventure enthusiasts to engage in glacier trekking. Sonamarg is also known for its scenic drives and picturesque landscapes, making it a popular spot for nature lovers and adventure seekers alike.</p>
+        <h2>History</h2>
+        <p>Sonamarg's history is steeped in natural beauty and historical significance. The area was historically part of the Silk Route, which connected the Indian subcontinent with Central Asia. In the 19th century, Sonamarg became a popular destination for British officials and explorers who were drawn to its pristine beauty and tranquility. The name "Sonamarg," meaning "Meadow of Gold," reflects the golden hue of the wildflowers that bloom in the meadows during the summer months. The region has been a site for various historical events, including its role as a trade route and a retreat for those seeking respite from the heat of the plains. Today, Sonamarg continues to attract visitors with its natural splendor and rich heritage.</p>
+        <h2>Places to Visit</h2>
+        <h5>Thajiwas Glacier</h5>
+        <p>Thajiwas Glacier is a prominent attraction in Sonamarg, located about 7 kilometers from the town. This stunning glacier is known for its spectacular views and the opportunity for glacier trekking. The trek to Thajiwas Glacier offers breathtaking vistas of the surrounding mountains and valleys, with lush green meadows and pristine snow fields. Visitors can enjoy the beauty of the glacier, engage in adventure activities, and experience the serene environment of the glacier region. It is a must-visit destination for adventure enthusiasts and nature lovers.</p>
+        <h5>Vishansar and Krishansar Lakes</h5>
+        <p>Vishansar and Krishansar Lakes are two beautiful alpine lakes located near Sonamarg. These high-altitude lakes are situated at an elevation of around 3,600 meters and offer stunning reflections of the surrounding snow-capped peaks. The trek to these lakes is part of the popular "Vishansar-Krishansar Trek," which takes visitors through lush meadows, serene landscapes, and rugged terrains. The lakes are known for their crystal-clear waters and are a popular spot for trekkers and nature enthusiasts seeking a tranquil retreat.</p>
+        <h5>Frozen Waterfalls</h5>
+        <p>The Frozen Waterfalls of Sonamarg are a natural marvel that captivates visitors with their unique beauty. During the winter months, the cascading waterfalls freeze into intricate ice formations, creating a magical winter wonderland. The frozen waterfalls are a popular spot for photography and offer a serene and picturesque environment for visitors to explore. The sight of the frozen falls against the snowy backdrop of the Himalayas is a memorable experience for those visiting Sonamarg.</p>
+        <h5>Margsu</h5>
+        <p>Margsu is a scenic village located about 15 kilometers from Sonamarg. This picturesque location is known for its beautiful meadows, crystal-clear streams, and serene environment. The village offers a tranquil escape from the bustling town of Sonamarg and provides opportunities for nature walks, picnics, and outdoor activities. Visitors can enjoy the stunning views of the surrounding mountains and explore the traditional village life of the local inhabitants. Margsu is an excellent spot for those seeking a peaceful retreat and a chance to connect with nature.</p>
+        <h2>Conservation Efforts in Sonamarg</h2>
+        <p>Sonamarg is actively engaged in various conservation efforts aimed at preserving its natural beauty and ecological balance. These initiatives include the protection of the Thajiwas Glacier from the impacts of tourism through regulated access and sustainable practices. The local administration has implemented measures to manage waste, promote eco-friendly tourism, and protect the region's diverse flora and fauna. Community-based conservation programs focus on educating visitors and residents about the importance of environmental protection and the preservation of Sonamarg's pristine landscapes. These efforts are essential for maintaining the ecological health of Sonamarg and ensuring that future generations can enjoy its natural wonders.</p>
+        <h2>Best Time to Visit</h2>
+        <p>The best time to visit Sonamarg depends on the type of experience you are seeking. For trekking and outdoor activities, the summer months from May to August are ideal, with pleasant weather and clear skies. Winter, from December to February, offers opportunities for snow-related activities such as glacier trekking and enjoying the frozen waterfalls. Spring (March to April) and autumn (September to November) are also great times to visit, with blooming flowers in spring and colorful autumn foliage. Each season provides unique opportunities to explore the natural beauty and adventure opportunities that Sonamarg has to offer.</p>
+        <h2>Location</h2>
+        <p>Sonamarg is located in the Sindh Valley of Jammu and Kashmir, India. It lies about 80 kilometers from Srinagar and is situated along the banks of the Sindh River. The town is accessible by road from Srinagar, which is well-connected by air, rail, and road to major Indian cities. The scenic drive from Srinagar to Sonamarg offers breathtaking views of the mountains, rivers, and meadows, making the journey itself a memorable experience. Sonamarg's location in the Himalayas provides a stunning backdrop for exploring the natural and cultural attractions of the region.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="sonamarg_photo1.jpeg" alt="Sonamarg Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sonamarg_photo2.jpeg" alt="Sonamarg Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sonamarg_photo3.jpeg" alt="Sonamarg Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Sonamarg" style="color:red;">Wikipedia</a>
+    </div><br>
+<div class="container mt-4 text-center">
+    <a href="https://www.google.com/maps/dir/?api=1&origin=Your+Location&destination=Sonamarg,+Jammu+and+Kashmir,+India" class="btn btn-primary" target="_blank">Get Directions to Sonamarg</a>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Geolocation functionality for directions
+    document.querySelector('.btn-primary').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                // Open Google Maps with directions
+                window.open(`https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=Sonamarg, Jammu and Kashmir, India`, '_blank');
+            }, function(error) {
+                alert("Unable to retrieve your location.");
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    });
+
+    // Google Translate Functionality
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+        var textElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        textElements.forEach(function(element) {
+            var text = element.innerText;
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                if (element.tagName === 'SELECT') {
+                    element.querySelectorAll('option').forEach(function(option, index) {
+                        option.innerText = data[0][0][index];
+                    });
+                } else {
+                    element.innerText = translatedText;
+                }
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
