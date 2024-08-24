@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bomdila - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('bomdila_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Bomdila</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Bomdila</h1>
+        <p class="lead"></p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Nestled amidst the majestic Eastern Himalayas, Bomdila is a picturesque town in the West Kameng district of Arunachal Pradesh.
+            This enchanting destination offers a perfect blend of natural beauty, cultural richness, and adventure, making it an ideal getaway for travellers seeking solace and tranquillity. 
+            Bomdila is situated at an elevation of nearly 2,530 metres above sea level, which blesses the town with a pleasant climate throughout the year. The town is known for its vibrant Tibetan culture and is dotted with numerous monasteries, craft centers, and scenic viewpoints, providing visitors with an immersive cultural experience.</p>
+        
+        <h2>Location</h2>
+        <p>Bomdila is located at 27.25°N 92.4°E. It has an average elevation of 2217 metres (7273 feet). It is 109 km from Bhalukpong and is the headquarters of West Kameng District. The town's strategic location provides breathtaking views of the snow-clad Himalayan ranges and lush green valleys, making it a popular destination for nature lovers and adventure enthusiasts alike. The proximity to other tourist destinations such as Tawang and Dirang further enhances its appeal.</p>
+        
+        <h2>Places to visit</h2>
+        <p>The place is inhabited by tribes like Aka (Hrusso), Miji (Sajalong), Monpa, Sherdukpen, and Khawas. The craft centers, monasteries, ethnographic museum and emporium etc. are worth visiting.
+            Bomdila offers several attractions for tourists, including the Bomdila Monastery, which provides a serene atmosphere for spiritual reflection. The Bomdila View Point is another must-visit spot, offering panoramic views of the Eastern Himalayan ranges. The Ethnographic Museum showcases the rich cultural heritage of the local tribes, while the Bomdila Craft Center offers a glimpse into the traditional arts and crafts of the region. Additionally, the Apple Orchards in and around Bomdila are a delightful sight, especially during the blooming season.</p>
+        
+        <h2>Significance</h2>
+        <p>Bomdila is a photographer’s delight, as the snow-capped mountain ranges of Himalayas offer spectacular views.  
+            One can also watch various snow clad mountain peaks from Bomdila including the Kangto and Gorichen Peaks which are the highest peak of the state.
+            With snow clad Himalayan mountain ranges and lush greenery to flaunt its natural beauty and various crafts to boast of its rich culture and lifestyle, Bomdila ranks amongst the leading tourist destinations in Arunachal Pradesh. 
+            The town holds significant cultural and religious importance due to its numerous monasteries and temples, which attract pilgrims and tourists alike. The annual Losar Festival, celebrated with great fervor by the local Monpa community, is a major cultural event in Bomdila, offering visitors a chance to witness traditional dance, music, and rituals.</p>
+        
+        <h2>Bomdila Monastery</h2>
+        <p>Bomdila Monastery was established in the year 1965 and it represents the spiritual essence of Buddhism. 
+            It is situated close to Tipi Orchid Research Center in West Kameng district.
+            Followers of Mahayana Buddhism consider this place sacred. The monastery resembles Tsona Gontse Monastery of South Tibet.
+            The temple of Buddha in the monastery attracts pilgrims in great numbers.
+            The monastery complex includes a prayer hall, a meditation center, and quarters for the resident monks. Visitors can participate in the daily prayer sessions and gain insights into Buddhist teachings and practices. The monastery also plays a crucial role in preserving the local culture and traditions, offering educational and social services to the community. The annual Torgya Festival, celebrated at the monastery, is a major attraction, featuring masked dances and rituals aimed at warding off evil spirits and bringing prosperity.</p>
+        
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="bomdila_photo1.jpeg" alt="Bomdila Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="bomdila_photo2.jpeg" alt="Bomdila Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="bomdila_photo3.jpeg" alt="Bomdila Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Bomdila" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Bomdila -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Bomdila</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Bomdila, Arunachal Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

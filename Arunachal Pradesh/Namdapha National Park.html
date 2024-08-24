@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namdapha National Park - Overview</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('namdapha_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Namdapha National Park</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Namdapha National Park</h1>
+        <p class="lead">Explore the wilderness of Namdapha National Park, Arunachal Pradesh</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Namdapha National Park, located in the Changlang district of Arunachal Pradesh, is one of India's most biodiverse and pristine wilderness areas. Covering an area of 1985.23 square kilometers, it is situated along the Noa-Dihing River and extends to the border with Myanmar. The park's landscape includes dense tropical rainforests, lush grasslands, and rolling hills, which provide a critical habitat for a variety of flora and fauna. Declared a Tiger Reserve in 1983, Namdapha is renowned for its untouched natural beauty and ecological significance. Visitors can explore the diverse ecosystems, from the subtropical forests at lower elevations to temperate forests and alpine meadows at higher altitudes. The park is a haven for nature enthusiasts and offers opportunities for wildlife watching, trekking, and experiencing the rich cultural heritage of the local tribes.</p>
+
+        <h2>Flora and Fauna</h2>
+        <p>Namdapha National Park is a treasure trove of biodiversity, with a wide array of flora and fauna that supports various ecosystems. The park's flora includes over 150 timber species, such as the Pinus merkusii and Abies delavavi, which are rare in India. The Blue Vanda, one of the rarest orchids, thrives here amidst the dense vegetation. The park is also known for the Mishimi Teeta (Coptis teeta), a medicinal plant used by local tribes but restricted from export. In terms of fauna, Namdapha is home to four of the world’s big cat species: the Tiger (Panthera tigris), Leopard (Panthera pardus), Snow Leopard (Panthera uncia), and Clouded Leopard (Neofelis nebulosa). Additionally, the park shelters a diverse range of primates, including the Assamese macaque, pig-tailed macaque, and stump-tailed macaque, as well as the endangered Hoolock Gibbon, which is the only ape species found in India.</p>
+        <p>The park’s diverse habitats also support over 400 species of birds, including the endangered White-winged Duck and the beautiful Great Hornbill. The varied terrain and climate create a perfect environment for both terrestrial and avian species, making Namdapha a prime location for ecological research and bird-watching activities.</p>
+
+        <h2>Travelling</h2>
+        <p>Namdapha National Park is accessible through multiple travel routes, each offering a different experience of the region’s natural beauty. The nearest airport is Mohanbari in Dibrugarh, Assam, located about 182 kilometers from the park’s Forest Rest House in Deban. From the airport, visitors can hire a taxi or take public transportation to reach Miao, which is the main gateway to the park. For those traveling by train, the nearest major railway station is Tinsukia in Assam, approximately 141 kilometers away from Deban. Regular trains connect Tinsukia to major cities across India, making it a convenient option for long-distance travelers. Road access to Namdapha is well-developed, with a motorable road leading to Miao, the park's entry point. The journey by road offers scenic views of the lush greenery and rolling hills of Arunachal Pradesh.</p>
+        <p>For a more adventurous route, visitors can also explore the park through organized eco-tours and wildlife safaris that provide guided tours of the park’s key attractions and offer insights into the local wildlife and conservation efforts.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Namdapha National Park has been at the forefront of conservation initiatives aimed at preserving its unique ecosystems and wildlife. The park management focuses on several key areas of conservation, including habitat protection, anti-poaching operations, and scientific research. Conservation teams work tirelessly to combat illegal activities such as poaching and logging, which threaten the park's biodiversity. Efforts also include the establishment of anti-poaching camps and the use of technology such as camera traps and drones for surveillance and monitoring. Community engagement is another crucial aspect of Namdapha’s conservation strategy. The park works closely with local tribes and villagers to promote sustainable practices and raise awareness about the importance of protecting their natural heritage. Additionally, educational programs and eco-tourism initiatives are designed to foster a sense of stewardship among visitors and local communities.</p>
+        <p>Recent conservation projects include the expansion of the park’s protected areas, habitat restoration efforts, and the development of eco-friendly infrastructure for visitors. These initiatives are aimed at ensuring the long-term preservation of Namdapha’s natural resources and supporting the park’s role as a critical sanctuary for endangered species.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="namdapha_photo1.jpeg" alt="Namdapha Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="namdapha_photo2.jpeg" alt="Namdapha Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="namdapha_photo3.jpeg" alt="Namdapha Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Namdapha_National_Park" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Namdapha National Park -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Namdapha National Park</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Namdapha National Park, Arunachal Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Itanagar - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('itanagar_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Itanagar</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Itanagar</h1>
+        <p class="lead"></p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Itanagar is the capital city of Arunachal Pradesh, a state located in the northeastern region of India. Surrounded by lush green forests, rolling hills, and vibrant natural beauty, Itanagar offers a perfect blend of tranquility and cultural richness. The city is a melting pot of diverse ethnic groups, including the Nyishi, Apatani, Adi, and Galo tribes, each contributing to the rich cultural mosaic of the region. Itanagar is renowned for its colorful festivals, traditional handicrafts, and scenic landscapes. The city also serves as a significant center for education and a hub for small-scale industries.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Itanagar is home to several historical and cultural landmarks that reflect the region's rich heritage. One of the most notable sites is the Itanagar Fort, an ancient fortification believed to date back to the 14th or 15th century, constructed using bricks. The fort's strategic location and historical significance make it a must-visit attraction. The Jawaharlal Nehru State Museum offers a glimpse into the diverse cultural traditions of Arunachal Pradesh, showcasing artifacts, exhibits, and historical relics. The city also celebrates several festivals, including the Tamladu Festival, which marks the beginning of the agricultural year, the Reh Festival celebrated by the Apatani tribe, and Losar, the Tibetan New Year.</p>
+
+        <h2>Gompa Temple</h2>
+        <p>The Centre for Buddhist Culture Gompa is a prominent religious and cultural site located atop a hill near the Nehru Museum. The temple features a beautiful gate at the base, and visitors can climb a winding road to reach the Gompa. The temple complex includes a white stupa adorned with golden carvings, which stands in stark contrast to the green hills surrounding it. The Gompa serves as a place for meditation and reflection, and its serene environment provides a peaceful retreat from the bustling city life. The Gompa also hosts various Buddhist ceremonies and cultural events throughout the year.</p>
+
+        <h2>Ita Fort</h2>
+        <p>The Ita Fort, meaning “Fort of Bricks,” is a significant historical monument in Itanagar. Constructed during the 14th or 15th century, the fort was built by the Chutiya kings who ruled the region during that period. The fort's structure is characterized by its irregular shape and extensive use of bricks, which were the primary building material. The fort features three main entrances located on the western, eastern, and southern sides. It is a symbol of the region's historical fortifications and offers a glimpse into the architectural techniques of the past. The fort also provides stunning views of the surrounding landscape and serves as a popular spot for history enthusiasts and tourists.</p>
+
+        <h2>Jawaharlal Nehru State Museum</h2>
+        <p>Established in 1990 to commemorate the Birth Centenary of Pandit Jawaharlal Nehru, the Jawaharlal Nehru State Museum is an ethnographic museum located in Itanagar. The museum was inaugurated by the Governor of Arunachal Pradesh, Sri R. D. Pradhan, and the Chief Minister, Sri Gegong Apang. The museum houses an extensive collection of artifacts, traditional crafts, and exhibits that represent the diverse cultural heritage of Arunachal Pradesh. It serves as an important institution for preserving and showcasing the state's history, art, and cultural traditions.</p>
+
+        <h2>Travelling</h2>
+        <p><strong>Air:</strong> The nearest airport to Itanagar is Lilabari Airport, located about 57 kilometers away in North Lakhimpur, Assam. The airport is well-connected with regional Air India flights from major cities such as Kolkata and Guwahati.</p>
+        <p><strong>Rail:</strong> The closest railway stations to Itanagar are Harmuti Railway Station in Assam and Naharlagun Railway Station in Arunachal Pradesh, situated approximately 34 kilometers and 15 kilometers away, respectively. Both stations are accessible by regular train services from various locations in India.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="itanagar_photo1.jpeg" alt="Itanagar Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="itanagar_photo2.jpeg" alt="Itanagar Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="itanagar_photo3.jpeg" alt="Itanagar Photo 3" class="img-fluid">
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Itanagar" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Itanagar -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Itanagar</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Itanagar, Arunachal Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
