@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ima Keithel - Women's Market in Manipur, India</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ima_keithel_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ima Keithel</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ima Keithel</h1>
+        <p class="lead">The largest all-women run market in the world</p>
+    </div>
+    <div class="description">
+        <h2>About Ima Keithel</h2>
+        <p>The seven sisters of northeast India are exceptional locations to experience nature. 
+            Among these, the Ima Keithel market in Manipur's Imphal stands out for its distinctive features. 
+            Located at Imphal's Khwairamband, the Ima Keithel, or Mother's Market, is the world's largest all-women market, boasting a 500-year-old history. This unique market dates back to the 16th century and originally had only a few stalls. 
+            Today, it features as many as 5,000 women shopkeepers who hold licenses passed down through generations, making it the first-of-its-kind for several reasons.</p>
+        <h2>History</h2>
+        <p>According to historical texts, a forced labour system named 'Lallup-Kaba' was imposed in the kingdom of Manipur, requiring all men from the community to serve in the army for specific years. 
+            With men in the army, women stepped forward to ensure their families continued to earn a livelihood, breaking the stereotype that only men should provide for the family. 
+            Initially, a few women began trading in the market, and gradually more women joined, putting up their stalls in a specific area. 
+            Over time, the Ima Keithel market was recognized as an all-women market, and men were denied permission to set up stalls. 
+            The government of Manipur regards these women traders as the state's pride and is committed to protecting and promoting their entrepreneurial skills.</p>
+        <h2>Characteristics of the Ima Keithel Market</h2>
+        <p>The market has an unusual rule that only married women can trade here. 
+            Such customs and traditions have been carried out for years and centuries. 
+            According to officials, married women who want to start their businesses can take a loan from the union and set up their stalls. 
+            The loans can be paid back over a period of time to the union. A women's union supervises, controls, and monitors the entire market. 
+            It's divided into three buildings- New Market, Ema Market, and Laxmi Market, and covers almost a three km area. 
+            The Imphal Municipal Council also looks after the site for development and maintenance. </p>
+        <p>One can find delicacies from traditional Manipuri sweets to fresh starfruit, bamboo shoots, lotus flower beans and fresh or fermented fish or delicious warm meals made on the spot. 
+            One can shop for fabrics, rugs, terra cotta pottery sold from a family that’s been doing it for three generations, incense, festival supplies and authentic handicrafts.
+            The only way a woman can become a vendor is if she gets nominated by an existing member. There are families that have been working there for generations. 
+            According to CNN, men may come to the market but only to buy goods, to do the heavy lifting, guarding or deliver women cups of chai.</p>
+        <h2>Women Empowerment</h2>
+        <p>Ima Keithel, a major source of sustenance and a primary market for the local economy, faced severe setbacks in the 19th century due to British reforms. 
+            These adversely affected Manipur's socio-economic fabric, leading to a revolt by women vendors against unjust policies. 
+            The British tried to crush the agitation by selling the market's buildings to foreigners, but the women successfully thwarted these attempts.
+            Despite the movement dying down during World War II, the proactive role played by women left an indelible mark on society, symbolizing gender equality and empowerment. </p>
+            <p>Post-independence, the market revived and reignited the state's socio-economic engine. 
+                Managed by a union of married women, the market operates with a credit system allowing traders to borrow money for goods. 
+                In February 2023, B20 delegates from the G20 forum visited the market, acknowledging its significant contribution to women empowerment, entrepreneurship, and the grassroots economy of Manipur.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="ima_keithel_photo1.jpeg" alt="Ima Keithel Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ima_keithel_photo2.jpeg" alt="Ima Keithel Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ima_keithel_photo3.jpeg" alt="Ima Keithel Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Ima_Keithel" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Ima Keithel -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ima Keithel</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ima Keithel, Imphal, Manipur, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
