@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guwahati - Gateway to Northeast India</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('guwahati_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Guwahati</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Guwahati</h1>
+        <p class="lead">Explore the gateway to Northeast India</p>
+    </div>
+    <div class="description">
+        <h2>About Guwahati</h2>
+        <p>Famously regarded as the gateway to North-East India, Guwahati is the largest city in the state of Assam. 
+            It is also the largest metropolis in the entire North-Eastern region of India, making it the most preferred staging point to other destinations in the region.
+            Sandwiched by the river Brahmaputra on one side and the Shillong Plateau on the other, this city was formerly known as Pragjyotishpura (Light of the East).
+            The name Guwahati is derived from the union of two Assamese words - ‘Guwa’ meaning Areca Nut and ‘Haat’ meaning market.
+        </p>
+        <h2>Tourist Attractions</h2>
+        <!-- Describe tourist attractions in Guwahati -->
+        <p> Among the many well known sightseeing places, the Kamakhya Mandir is one of the prominent religious sites of the city. 
+            This temple is known as one of the Shakti peethas as per the Hindu mythology.
+            Many devotees from great distances travel to this temple to offer their prayers to the goddess.</p>
+        <p>Tourism in this city is incomplete without visiting the Guwahati zoo. 
+            The zoo has a huge collection of wildlife creatures and is a special attraction for kids. 
+            Just about a distance of two kilometers away from the city is the ISCKON Temple which is a calm and serene place and the structure of the temple is also quiet attractive. 
+            One can listen to bhajans and witness the aartis here and spend some time in solitude; feeling the warmth of the place. 
+            Another attraction of the city is the Nabagraha Mandir which is called as the temple of nine planets.</p>
+        <p>The Shiva temple of Umananda is another tourist attraction of the city where you can visit by boats and ferries. 
+            The Umananda Ghat is a lovely place where you can capture some good moments with your loved ones. 
+            The Vashistha Ashram is another site which is not to be missed out while you are in Guwahati.</p>
+        <h2>Cultural Significance</h2>
+        <p>One of the key reasons to visit Guwahati is its cultural significance, as it is home to the revered Kamakhya Temple, one of the most sacred Hindu pilgrimage sites in India. </p>
+        <p>Apart from the Temple of Kamakhya, other sacred temples such as Umananda and Navagraha are also present in the city. 
+            The city's vibrant markets, such as Fancy Bazaar and Paltan Bazaar, offer a treasure trove of handicrafts, textiles, and local delicacies, providing a glimpse into Assam's rich cultural heritage. 
+            Additionally, Guwahati's culinary scene is renowned for its delectable Assamese cuisine, featuring mouthwatering dishes like masor tenga (sour fish curry) and pitha (traditional rice cakes), which tantalize the taste buds of visitors.
+            </p>
+        <h2>Natural Beauty</h2>
+        <p>Apart from its cultural and culinary offerings, Guwahati is also known for its adventure activities, including river rafting on the Brahmaputra, trekking in the nearby hills, and wildlife safaris in Kaziranga National Park.
+            This bustling city serves as a starting point for exploring the region's breathtaking landscapes, including wildlife sanctuaries, lush tea gardens, and picturesque hill stations.
+        </p>
+        <h2>Modern Amenities</h2>
+        <p>Guwahati has been one of the frontrunners in terms of Education in the North-Eastern Region of India. 
+            It houses some of the best-rated institutions in the country, namely Indian Institute of Guwahati (IITG) and Guwahati Medical College (GMC) in the fields of engineering and medicine respectively. 
+            Subsequently, the recent influx of more students and scholars has led to the betterment of infrastructure and modern-day amenities in the city. 
+            The two major roads - G.S Road and R.G Baruah Road, houses many malls, restaurants and theatres, thus forming the major entertainment and shopping hub in this rising cosmopolitan.</p>
+        <p>The capital of the state of Assam, Dispur, is located within Guwahati.  
+            The city's strategic location makes it easily accessible from major cities in India, with Lokpriya Gopinath International Airport towards the west and India’s first fully solar-powered railway station at its heart.</p>
+        <h2>Best time to Visit</h2>
+        <p>October to April</p>
+            <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="guwahati_photo1.jpeg" alt="Guwahati Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="guwahati_photo2.jpeg" alt="Guwahati Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="guwahati_photo3.jpeg" alt="Guwahati Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Guwahati" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Guwahati -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Guwahati</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Guwahati, Assam, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sivasagar - Explore Assam</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('sivasagar_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Sivasagar</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Sivasagar</h1>
+        <p class="lead">Imprints of Ahom Dynasty</p>
+    </div>
+    <div class="description">
+        <h2>About Sivasagar</h2>
+        <p>One of the holistic towns, Sivasagar formally called as Sibsagar is located in the upper ranges of Assam. 
+            This popular destination in Assam is set amidst the rich and diverse biodiversity surrounded by many historic attractions. 
+            Tourism in Sivasagar is popular for its Ahom monuments and palaces which are a work of excellence. 
+            And circled by the lovely ambience and graceful hills this place has a number of other attractions as well.</p>
+        <h2>Historical Importance</h2>
+        <p>Sivasagar, formerly known as Rangpur, was the capital of the Ahom Kingdom from 1699 to 1788. 
+            The Ahoms ruled Assam for six centuries until their kingdom fell to the Burmese in 1819. 
+            The British liberated the province in 1825 and annexed it in 1826, dividing it into three sub-divisions for administrative purposes. 
+            Originally named 'Kalansupar' after Kalansu Gohain, the town was later called Shivpur. After the Treaty of Yandaboo in 1826, the British renamed it Sibsagar. 
+            During British rule, the Sibsagar district included three sub-divisions: Sibsagar, Jorhat, and Golaghat. 
+            In 1912, the district headquarters moved to Jorhat, making Sibsagar a sub-divisional headquarters until 1983, when Sibsagar and Golaghat were declared new districts by the Government of Assam.</p>
+        <h2>Cultural Heritage of Sibsagar </h2>
+        <p>Initially, the Ahom clan who migrated from the Mong Mao province of Southern China used to follow a religion based on ritual oriented ancestor worship. 
+            Later Swargadeo Rudra Singha embraced Hinduism and over the time other religions too flourished in his capital. 
+            He also adopted Assamese as an official language of the Ahom kingdom. 
+            The Ahom rulers were also a strong proponent of sports, dance and music. 
+            The king commissioned the construction of 'Rang Ghar' (a house of entertainment) in 1747 AD which is now believed to be one of the oldest surviving amphitheatres in Asia. 
+            It was at this place where Bihu was fostered as a cultural identity of Assam. 
+            </p>
+        <p>Sibsagar was once a majestic city and it has witnessed some of the most remarkable transitions in the cultural history of Assam. 
+            From archaeology to culture it speaks loud about the deeds of the great Ahom rulers who shaped the future of the Brahmaputra Valley. 
+            Such illustrious past and intangible splendours make Sivasagar the heritage capital of Assam. </p>
+        <h2>Places of Interest around Sivasagar Town</h2>
+        <h5>Sibsagar Tank and Group of Temples</h5>
+        <p>Sivasagar, named after the Sibsagar tank (Borpukhuri), is renowned for its three Hindu temples and rich heritage. 
+            The Sibsagar tank, a manmade water body commissioned by Queen Ambika in 1734 AD, showcases the advanced hydrology of the Ahom period. 
+            Covering 257 acres with a consistent water depth of 27 feet, it stands higher than the rest of the town. 
+            Surrounding the tank are the Siva Dol, Vishnu Dol, and Devi Dol temples, along with a Tai Ahom museum. Notably, Siva Dol is the tallest Shiva temple in India. 
+            During winter, migratory birds flock to the tank, which also features a watchtower on its eastern bank.</p>
+        <h5>Rang Ghar</h5>
+        <p>Rang Ghar, meaning "House of Entertainment" in Assamese, is one of Asia's oldest surviving amphitheatres and sports pavilions. 
+            Originally built with bamboo and wood by Swargadeo Rudra Singha, it was rebuilt by his son Swargadeo Pramatta Singha between 1744-1750 AD. 
+            The double-storeyed structure, typical of Ahom architecture, features an oval amphitheatre with a roof shaped like an inverted Ahom longboat. 
+            Made from thin bricks and organic cement, it remains cool year-round. 
+            The Ahom kings and nobles used it to watch buffalo fights, cockfights, and dance performances, especially during the Rongali Bihu festival.</p>
+        <h5>Talatal Ghar</h5>
+        <p>Talatal Ghar, meaning "underground home" in Assamese, was commissioned by Swargadeo Rudra Singha in 1698 AD as the military base of the Ahom kingdom. 
+            It is the largest of all Ahom architectural structures. The building has three underground floors and two secret tunnels for royal escape routes. 
+            Located near Rang Ghar and Joysagar Tank, only the upper portion is accessible to tourists today, while the underground floors are sealed off.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="sivasagar_photo1.jpeg" alt="Sivasagar Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sivasagar_photo2.jpeg" alt="Sivasagar Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sivasagar_photo3.jpeg" alt="Sivasagar Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Sivasagar" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Sivasagar -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Sivasagar</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Sivasagar, Assam, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
