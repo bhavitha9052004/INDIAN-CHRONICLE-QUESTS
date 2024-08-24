@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mawlynnong - Explore Meghalaya</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('mawlynnong_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Mawlynnong</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Mawlynnong</h1>
+        <p class="lead">Asia's Cleanest Village</p>
+    </div>
+    <div class="description">
+        <h2>About Mawlynnong</h2>
+        <p>Mawlynnong is renowned as one of the cleanest villages in Asia, but a more fitting title is God’s Own Garden. 
+            The village features fruit orchards, rushing streams, evergreen surroundings, swaying palms, and the well-preserved traditions of the Khasis, all set against the picturesque backdrop of Meghalaya’s southern ranges. 
+            Here, you’ll find Meghalaya’s most famous icon – the Nohwet Living Root Bridge. 
+            This bridge was created by weaving the roots of the Ficus Elastica tree around a framework, a process continued over generations. 
+            These living root bridges are a hallmark of Khasi traditional architecture, crucial for connecting villages in the steep valleys and mountains, and facilitating travel and trade to the plains.</p>
+        <h2>Local Attractions</h2>
+        <h5>Sky Walk</h5>
+        <p>Located 2 km from the Mawlynnong Bus Stop, the Sky Walk, also known as Nohwet Viewpoint, is a popular attraction in Mawlynnong, East Khasi Hills district of Meghalaya. This viewpoint is among the top places to visit in Mawlynnong and one of the best spots to experience Meghalaya Tourism.
+
+            The Sky Walk is an 85-foot-high eco-friendly structure made entirely of bamboo poles tied to branches of six trees using jute and bamboo ropes, with no nails or metal involved. 
+            Visitors must climb four circular layers of bamboo ladders stretching across the tree branches. 
+            At the top, there is a square platform offering a bird's-eye view of Mawlynnong village and the Bangladesh plains.
+            
+            Designed by a local school teacher, Rishop Khongthongreh, this structure has become a famous tourist spot in Mawlynnong. 
+            The bamboo walking path is a bit challenging to navigate, but the climb, which takes around 30 minutes, rewards visitors with stunning and breathtaking views of the Indo-Bangladesh plains.</p>
+        <h5>Church Of Epiphany</h5>
+        <p>The Church of Epiphany, a century-old church located in East Khasi Hills, Meghalaya, is one of the must-see tourist places in Mawlynnong.
+
+            Built in 1902 by Welsh Christian missionaries, the Church of Epiphany is the only church in Mawlynnong village. 
+            Legend has it that these missionaries arrived from Bangladesh in the 19th century, bringing with them a strong tradition of Christianity that the village has followed ever since. 
+            The residents of Mawlynnong credit the missionaries with instilling in them the values of cleanliness, linking this tradition to their Christian faith. 
+            They believe the missionaries taught them that cleanliness is a way to reach God.
+            
+            Surrounded by narrow stone paths adorned with plants bearing orange flowers, the black and white church structure exudes a unique old-world charm. 
+            Having recently celebrated its hundredth anniversary, the church remains a serene and soothing place for visitors. 
+            Notably, no buildings in the village rise above the church spire, preserving its prominence and tranquil atmosphere.</p>
+        <h5>Byrdaw Falls</h5>
+        <p>Located 23 km from Mawlynnong and 70 km from Shillong, Byrdaw Falls is a captivating waterfall situated at Pomshutia village in the East Khasi Hills district of Meghalaya. Found along the Shillong - Dawki Road, it stands out as one of the most beautiful waterfalls in East Khasi Hills and a popular destination in Mawlynnong.
+
+            Byrdaw Falls descends in two tiers from a height of approximately 150 m into a pool below. 
+            The waterfall is particularly stunning during the monsoon season. Visitors can even venture behind the waterfall to experience its mighty flow. 
+            To reach the falls, one must trek 2 km from Pomshutia village, which takes about 30 minutes. Proper roads and footpaths have been constructed for easy access. 
+            Additionally, there is a cave located just behind the falls. 
+            It is advisable to hire a guide when visiting the falls due to its remote location.</p>
+        <h2>Location</h2>
+        <p>Mawlynnong is a village in the East Khasi Hills district of the Meghalaya state in North East India. 
+            It is notable for its cleanliness and also was chosen by Discover India magazine as Asia's cleanest village. 
+            The village comes under the Pynursla community development block and Vidhan Sabha constituency.</p>
+        <h2>Accommodation</h2>
+        <p>Here are some places to stay in Mawlynnong:
+            <ul>
+            <li>Rest & Relax Homestay, New Parking</li>
+            <li>Hala Tyngkong Stay Inn</li>
+            <li>Umpohliew Homestay</li>
+            <li>Kynjai Homestay</li>
+            </ul>
+        </p>
+        <h2>Places to Eat</h2>
+        <p>In Mawlynnong, food is prepared using organically grown vegetables. In fact, even meat comes from animals that are bred in-house. There are various local delicacies that you must try, like smoked banana flower, Tungrymbai, pork and greens, etc. Here are some popular places to eat:
+            <ul>
+            <li>Dapbiang Restaurant, Surok – for Indian food</li>
+            <li>Naphi Food Stall – for local Khasi food</li>
+            <li>IAIKYRSOI Café – thalis available</li>
+            <li>Wahumsang’s Food – fast food</li>
+        </ul></p>
+        <h2>Activities</h2>
+        <p>Some activities and things to do for tourists visiting Mawlynnong are:</p>
+        <ul>
+            <li><b>Explore the Village:</b>Walk through the clean, cobbled streets and admire the well-maintained houses, gardens, and surroundings and also interact with the local Khasi people to learn about their culture and traditions.</li>
+            <li><b>Waterfalls:</b>Visit the nearby Mawlynnong Waterfall, a serene spot perfect for relaxation and picnicking.</li>  
+            <li><b>Visit the Living Root Bridge:</b>Experience the unique natural architecture of the living root bridge in Riwai village, just a short walk from Mawlynnong.</li>  
+            <li><b>Balancing Rock:</b>See the fascinating Balancing Rock, a large boulder precariously balanced on a smaller rock, showcasing the wonders of nature.</li>
+            <li><b>Shop for Local Handicrafts:</b>Purchase local handicrafts, woven products, and organic produce as souvenirs.</li>
+            <li><b>Photography:</b>Capture the stunning landscapes, vibrant flora, and unique village life through photography.</li>   
+            <li><b>Eco-Tourism:</b>Participate in eco-tourism activities like nature walks, bird watching, and exploring the lush green landscapes around the village.</li> 
+        </ul>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="mawlynnong_photo1.jpeg" alt="Mawlynnong Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="mawlynnong_photo2.jpeg" alt="Mawlynnong Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="mawlynnong_photo3.jpeg" alt="Mawlynnong Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Mawlynnong" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Mawlynnong -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Mawlynnong</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Mawlynnong, Meghalaya, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
