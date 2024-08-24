@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kargil - Explore Ladakh</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('kargil_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Kargil</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Kargil</h1>
+            <p class="lead">A Historic Gem in the Heart of Ladakh</p>
+        </div>
+        <div class="description">
+            <h2>About Kargil</h2>
+            <p>Kargil is a historic town in Ladakh, situated at an altitude of 2,676 meters (8,776 feet) above sea level. 
+                Known for its pivotal role in the Kargil War of 1999, this town offers a unique blend of cultural heritage and natural beauty. 
+                The stunning landscapes of Kargil, with its rugged mountains and serene valleys, attract tourists and history enthusiasts alike. 
+                It is a gateway to the beautiful Suru Valley and offers various opportunities for trekking, sightseeing, and experiencing local culture.</p>
+            <p>Kargil is not only a place of historical significance but also a region rich in natural beauty and adventure. 
+                Visitors can explore the surrounding valleys, visit historic sites, and enjoy the breathtaking views of the Himalayas.</p>
+            <h2>Local Attractions</h2>
+            <p>Kargil's scenic beauty and historical sites make it a fascinating destination for travelers. 
+                The town is surrounded by mountains and valleys that offer picturesque views and outdoor activities. 
+                Key attractions include the Kargil War Memorial, the ancient monasteries, and the picturesque Suru Valley. 
+                Kargil also serves as a base for treks and tours to nearby regions.</p>
+            <h5>Kargil War Memorial</h5>
+            <p>The Kargil War Memorial is a poignant tribute to the soldiers who fought during the Kargil War. 
+                Located in Dras, it offers a glimpse into the heroics of the Indian Army and the sacrifices made during the conflict. 
+                The memorial features a display of weapons and equipment used during the war, as well as a wall with the names of the martyrs.</p>
+            <h5>Dras Valley</h5>
+            <p>Dras Valley, often referred to as the 'Gateway to Ladakh,' is one of the coldest inhabited places in the world. 
+                It offers stunning views of the surrounding peaks and is a great spot for sightseeing and photography. 
+                The valley is also home to historical monuments and offers opportunities for trekking and exploring the local culture.</p>
+            <h5>Suru Valley</h5>
+            <p>Suru Valley is known for its lush landscapes, clear rivers, and picturesque villages. 
+                The valley offers a tranquil retreat from the bustling town of Kargil and provides opportunities for outdoor activities like trekking and camping. 
+                Visitors can enjoy the serene beauty of the valley and explore its charming villages.</p>
+            <h5>Buddhist Monasteries</h5>
+            <p>Kargil is home to several ancient Buddhist monasteries that offer insight into the region's spiritual heritage. 
+                The monasteries are known for their architectural beauty and serene surroundings. 
+                Key monasteries include the Phuktal Monastery and the Rangdum Monastery, which offer peaceful environments for meditation and reflection.</p>
+            <h2>Location</h2>
+            <p>Kargil is located approximately 220 km from Leh, the capital of Ladakh. 
+                The journey to Kargil takes you through some of the most scenic landscapes in Ladakh, including high mountain passes and beautiful valleys.</p>
+            <p>Kargil enjoys a cold desert climate with harsh winters and mild summers. 
+                Visitors should be prepared for cold temperatures, especially at higher altitudes. 
+                It is advisable to carry warm clothing and be aware of the weather conditions before planning a trip.</p>
+            <h4>Reaching Kargil</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Kargil is at Leh, which is well-connected to major cities in India. 
+                From Leh, you can hire a cab or take a bus to reach Kargil. 
+                The journey offers stunning views of the Ladakh region.</p>
+            <h6>Railways</h6>
+            <p>There are no direct railway connections to Kargil. The nearest railway station is at Jammu Tawi, from where you can take a cab or bus to Leh and then to Kargil.</p>
+            <h6>Road</h6>
+            <p>Kargil is accessible by road from Leh via National Highway 1D. 
+                The road journey is scenic but can be challenging due to the high altitude and weather conditions. 
+                It is recommended to travel during daylight hours and to be prepared for road conditions.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Al-Farookh Restaurant (Kargil)</li>
+                <li>The Kargil Café (Kargil)</li>
+                <li>Rangdum Monastery Café (Kargil)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>Kargil offers a range of activities for visitors to enjoy, from exploring historical sites to engaging in outdoor adventures. 
+                Some of the popular activities include trekking, visiting historical monuments, and exploring the scenic beauty of the valleys.</p>
+            <ul>  
+                <li>Trekking and Hiking</li>
+                <li>Exploring Monasteries</li>
+                <li>Photography</li>
+                <li>Visiting Historical Sites</li>
+                <li>Camping</li>
+                <li>Exploring Local Markets</li>
+                <li>Enjoying Scenic Drives</li>
+            </ul>       
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="kargil_photo1.jpeg" alt="Kargil Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="kargil_photo2.jpeg" alt="Kargil Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="kargil_photo3.jpeg" alt="Kargil Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Kargil" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Kargil -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Kargil</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+        document.getElementById('map-btn').addEventListener('click', function() {
+            // Check if geolocation is supported
+            if ("geolocation" in navigator) {
+                // Get current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Open Google Maps with directions
+                    var destination = "Kargil, Ladakh, India";
+                    var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p ,li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
