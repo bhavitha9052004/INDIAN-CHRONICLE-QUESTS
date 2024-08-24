@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuophema Village - Cultural Experience</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('tuophema_village_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Tuophema Village</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Tuophema Village</h1>
+        <p class="lead">Where Culture and Nature Embrace in Harmony</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>On a green and verdant hillock, lies the township called Touphema Village. Built by the local community in partnership with the Tourism Department of Nagaland, Touphema Village is a collection of small huts built and decorated in traditional Naga design sensibilities. The village intends on giving the tourists the feel of living in a Naga tribal house.
+
+            Touphema village situated about a hundred kilometres from Dimapur and is a wonderful tribute to the culture, lifestyle and the people of Nagaland. Living at the village teaches you so much about country life and Naga culture in particular that it becomes an experience in itself. It is a highly popular place to visit in Nagaland and deservedly so. Hence one must book in advance in order to enjoy the experience. In addition to the stay and food, the attractions include traditional Naga performances such as folk dances and the retelling of folk tales.</p>
+        <h2>History</h2>
+        <p>Touphema Village, located in Nagaland, has a rich history that reflects the cultural heritage of the Angami Naga tribe. The village is known for its efforts to preserve and showcase traditional Naga culture and heritage. Touphema was established as a model tourism village, aimed at promoting sustainable tourism while preserving the local way of life.
+
+            The village provides visitors with an opportunity to experience traditional Naga life through its architecture, food, and cultural practices. Touphema's Morungs (traditional youth dormitories) are well-maintained and serve as living museums, showcasing traditional artifacts and providing insights into Naga customs and traditions. The village also organizes cultural performances, where visitors can witness traditional dances, songs, and rituals, further enriching their understanding of Naga culture.</p>
+        <h2>Attractions</h2>
+        <p>Touphema Village in Nagaland offers a range of attractions that provide visitors with a rich cultural experience. One of the main attractions is the traditional Angami Naga architecture, with intricately designed huts and Morungs (youth dormitories) that showcase the unique building style of the region. These structures serve as living museums, offering insights into the traditional way of life of the Angami Naga tribe.
+
+            The village also features cultural performances, including traditional dances and songs, which provide visitors with a glimpse into the vibrant cultural heritage of the region. Additionally, visitors can participate in activities such as bamboo crafting and traditional cooking, allowing them to immerse themselves in the local culture. The serene surroundings of Touphema, with its lush greenery and panoramic views, offer a peaceful retreat from the hustle and bustle of city life.</p>
+        <h2>Best Time to Visit</h2>
+        <p>The best time to visit Touphema Village in Nagaland is during the winter months from November to February when the weather is cool and pleasant, ranging from 10°C to 20°C, ideal for exploring the village and engaging in outdoor activities. Another favorable period is post-monsoon, in September and October, when the landscape is lush and green. It is advisable to avoid the monsoon season from June to August due to heavy rainfall.</p>
+        <h2>Location</h2>
+        <p>Touphema Village is located in the Peren district of Nagaland, approximately 41 kilometers from Kohima, the capital of Nagaland. Situated at an altitude of around 1500 meters above sea level, the village offers a picturesque setting amidst the Naga hills, providing visitors with a serene environment to experience the rich cultural heritage of the region.</p>
+        <h2>Sustainable development activities</h2> 
+        <p>Touphema Village in Nagaland has undertaken several sustainable development activities to preserve its cultural heritage and promote responsible tourism. The village has implemented waste management practices, including recycling and composting, to reduce its environmental impact. Additionally, Touphema has initiated programs to conserve water and energy, such as rainwater harvesting and using solar energy for lighting.
+
+            The village has also focused on community empowerment and education, providing local residents with opportunities for skill development and entrepreneurship. Touphema promotes sustainable agriculture practices, including organic farming, to support local livelihoods and preserve traditional farming methods. Moreover, the village actively promotes eco-friendly tourism practices, encouraging visitors to respect local customs and minimize their environmental footprint. Through these efforts, Touphema Village aims to achieve sustainable development while preserving its cultural heritage for future generations.</p>
+        
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="tuophema_village_photo1.jpeg" alt="Tuophema Village Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="tuophema_village_photo2.jpeg" alt="Tuophema Village Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="tuophema_village_photo3.jpeg" alt="Tuophema Village Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Tuophema" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Tuophema Village -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Tuophema Village</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Tuophema Village, Nagaland, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
