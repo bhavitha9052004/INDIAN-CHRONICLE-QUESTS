@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leh Palace - Explore Ladakh</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('leh_palace_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Leh Palace</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Leh Palace</h1>
+            <p class="lead">A Majestic Monument of Ladakh's Royal Heritage</p>
+        </div>
+        <div class="description">
+            <h2>About Leh Palace</h2>
+            <p>Perched on a hilltop in Leh, the Leh Palace is a magnificent structure that stands as a testament to the grandeur of the former royal dynasty of Ladakh. Built in the 17th century by King Sengge Namgyal, the palace was the residence of the royal family and served as the seat of power in the region. Its architecture reflects a blend of Tibetan and traditional Ladakhi styles, with intricately carved wooden balconies, spacious courtyards, and stunning murals depicting Buddhist deities and scenes from the royal court. The palace offers a panoramic view of the Leh town and the surrounding mountains, making it a popular spot for visitors to explore the rich history and culture of Ladakh.</p>
+            <p>The palace was once a thriving center of political and cultural activity but fell into disuse after the royal family moved to Stok Palace in the 19th century. Today, Leh Palace is a historical monument managed by the Archaeological Survey of India and is open to the public for exploration. Visitors can walk through its ancient halls, view the collection of royal artifacts, and enjoy breathtaking views of the city below. The palace also offers insights into the traditional Ladakhi lifestyle and the historical significance of the region’s royal heritage.</p>
+            <h2>Local Attractions</h2>
+            <p>Leh Palace is surrounded by a range of attractions that showcase the natural beauty and cultural richness of Ladakh. Visitors can explore nearby monasteries, scenic viewpoints, and local markets.</p>
+            <h5>Namgyal Tsemo Monastery</h5>
+            <p>Namgyal Tsemo Monastery, perched atop a hill in Leh, Ladakh, is one of the oldest and most revered monasteries in the region. Established in the 15th century by King Tashi Namgyal, this sacred site is renowned for its stunning architecture, which includes intricate murals, ancient Buddhist scriptures, and a revered 7-meter-tall statue of Maitreya Buddha. The monastery offers breathtaking panoramic views of Leh and the surrounding Himalayan landscapes, making it a serene and inspiring destination for spiritual reflection and exploration. It also serves as a center for the preservation and study of Buddhist traditions, attracting pilgrims and tourists alike with its rich historical significance and peaceful atmosphere.</p>
+            <h5>Shanti Stupa</h5>
+            <p>Shanti Stupa, located on a hilltop in Leh, Ladakh, is a majestic Buddhist monument dedicated to promoting peace and harmony. Built in 1991 by Japanese Buddhist monk Gyomyo Nakamura, the stupa is renowned for its striking white dome and golden decorations. It houses relics of the Buddha, including a piece of his bone and sacred texts. The stupa’s elevated position offers sweeping views of the Leh valley and the surrounding mountains, creating a serene backdrop for meditation and reflection. The Shanti Stupa stands as a symbol of unity and tranquility, drawing visitors and pilgrims who come to admire its architectural beauty, learn about Buddhism, and experience the peaceful atmosphere.</p>
+            <h5>Leh Market</h5>
+            <p>Leh Market is the vibrant heart of Leh town, offering a bustling hub of local culture and commerce in Ladakh. Located along the main street, the market is a vibrant tapestry of shops, stalls, and eateries where visitors can experience the unique charm of Ladakhi life. It’s a great place to explore traditional handicrafts, such as handwoven textiles, intricate jewelry, and colorful thangkas (Buddhist paintings). The market also features a variety of local food stalls serving traditional Ladakhi dishes like momos (dumplings) and thukpa (noodle soup). As you stroll through the market, you’ll encounter friendly locals, lively street performances, and opportunities to pick up souvenirs and gifts. The Leh Market is not only a commercial center but also a cultural melting pot, reflecting the rich heritage and daily life of the Ladakhi people.</p>
+            <h5>Stok Palace</h5>
+            <p>Stok Palace is a historic and majestic residence located in the charming village of Stok, just a short drive from Leh. Built in the early 19th century by King Tsespal Tondup Namgyal, this stunning palace serves as the winter residence of the royal family of Ladakh. The palace's architecture is a blend of traditional Tibetan and Ladakhi styles, characterized by intricately carved wooden balconies, beautifully decorated prayer rooms, and panoramic views of the surrounding mountains. Visitors to Stok Palace can explore its impressive museum, which houses a remarkable collection of royal artifacts, ancient manuscripts, and traditional costumes, offering a glimpse into the opulent past of Ladakh’s royalty. The serene surroundings and the palace's rich history make it a must-visit destination for those interested in Ladakhi culture and heritage.</p>
+            <h2>Location</h2>
+            <p>Leh Palace is located in Leh town, the capital of the Ladakh region. It is easily accessible from various parts of Leh and is a central landmark for visitors exploring the area. The palace is situated at an altitude of 3,500 meters (11,500 feet) and offers stunning views of the Leh Valley and the surrounding mountain ranges.</p>
+            <p>The climate in Leh is cold desert, with very cold winters and mild summers. Visitors should be prepared for low temperatures and possible snowfall during the winter months.</p>
+            <h4>Reaching Leh Palace</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Leh Palace is Kushok Bakula Rimpochee Airport in Leh. Flights to Leh are available from major cities in India. From the airport, Leh Palace can be reached by a short taxi ride or on foot if you are staying in the nearby areas.</p>
+            <h6>Railways</h6>
+            <p>There are no direct railway connections to Leh. The nearest major railway station is Jammu Tawi, from where you can travel to Leh by road or air.</p>
+            <h6>Road</h6>
+            <p>Leh Palace is accessible by road from Manali and Srinagar. The journey involves crossing high mountain passes and requires careful planning due to the challenging road conditions and high altitude.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>The Tibetan Kitchen (Leh)</li>
+                <li>Bon Appetit (Leh)</li>
+                <li>Lamayuru Restaurant (Leh)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting Leh Palace, there are several activities and experiences you can enjoy:</p>
+            <ul>
+                <li>Exploring the Palace Museum</li>
+                <li>Enjoying the panoramic views from the Palace</li>
+                <li>Visiting nearby monasteries and cultural sites</li>
+                <li>Exploring the local market for handicrafts and souvenirs</li>
+                <li>Photography of the historic architecture and landscapes</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="leh_palace_photo1.jpeg" alt="Leh Palace Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="leh_palace_photo2.jpeg" alt="Leh Palace Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="leh_palace_photo3.jpeg" alt="Leh Palace Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Leh_Palace" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Leh Palace -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Leh Palace</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+        document.getElementById('map-btn').addEventListener('click', function() {
+            // Check if geolocation is supported
+            if ("geolocation" in navigator) {
+                // Get current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Open Google Maps with directions
+                    var destination = "Leh Palace, Leh, Ladakh, India";
+                    var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3,h5,li,h4,h6,p, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

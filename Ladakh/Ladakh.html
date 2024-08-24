@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Ladakh</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ladakh.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Ladakh</a>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ladakh</h1>
+        <p class="lead">The land of high passes</p>
+    </div>
+    <div class="description">
+        <h2>About Ladakh</h2>
+        <p>Located in the northernmost region of India, Ladakh is a mesmerizing destination known for its rugged terrain, stunning landscapes, and rich cultural heritage. 
+            Bordered by Tibet to the east, the Indian state of Himachal Pradesh to the south, and the Pakistani-administered Gilgit-Baltistan to the west, Ladakh is a place of unparalleled natural beauty. 
+            The region is famous for its high-altitude deserts, snow-capped mountains, ancient monasteries, and serene lakes, making it a paradise for nature lovers and adventure seekers.</p>
+        <h2>Tourist Attractions</h2>
+        <!-- Buttons with pictures and names of tourist attractions -->
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Pangong_Lake.html'">
+                    <img src="pangong_lake_image.jpg" alt="Pangong Lake" class="img-fluid mb-2">
+                    Pangong Lake
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Nubra_Valley.html'">
+                    <img src="nubra_valley_image.jpg" alt="Nubra Valley" class="img-fluid mb-2">
+                    Nubra Valley
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Leh_Palace.html'">
+                    <img src="leh_palace_image.jpg" alt="Leh Palace" class="img-fluid mb-2">
+                    Leh Palace
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Kargil.html'">
+                    <img src="kargil_image.jpg" alt="Kargil" class="img-fluid mb-2">
+                    Kargil
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Tso_Moriri.html'">
+                    <img src="tso_moriri_image.jpg" alt="Tso Moriri" class="img-fluid mb-2">
+                    Tso Moriri
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-primary btn-block" onclick="location.href='Magnetic_Hill.html'">
+                    <img src="magnetic_hill_image.jpg" alt="Magnetic Hill" class="img-fluid mb-2">
+                    Magnetic Hill
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

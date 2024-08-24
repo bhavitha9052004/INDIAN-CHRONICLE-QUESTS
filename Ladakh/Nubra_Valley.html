@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nubra Valley - Explore Ladakh</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('nubra_valley_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Nubra Valley</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Nubra Valley</h1>
+            <p class="lead">A Hidden Gem of Ladakh's Natural Beauty</p>
+        </div>
+        <div class="description">
+            <h2>About Nubra Valley</h2>
+            <p>Nubra Valley, located in the northern part of Ladakh, is a high-altitude desert region known for its breathtaking landscapes and unique cultural heritage. 
+                This valley is situated at an altitude of around 3,000 meters (9,800 feet) and offers a stunning contrast of lush green landscapes against the stark mountains. 
+                Nubra Valley is famous for its sand dunes, Buddhist monasteries, and the rare Bactrian camels that inhabit the region.</p>
+            <p>It is a popular destination for tourists seeking adventure, spirituality, and a chance to experience the serene beauty of the Ladakh region. 
+                The valley is accessible via the Khardung La Pass, one of the highest motorable roads in the world, which adds to the allure of the journey.</p>
+            <h2>Local Attractions</h2>
+            <p>Nubra Valley is a treasure trove of natural wonders and cultural sites. Visitors can explore a variety of attractions, from the mesmerizing sand dunes to ancient monasteries and serene lakes.</p>
+            <h5>Sand Dunes at Hunder</h5>
+            <p>The sand dunes at Hunder are one of the most popular attractions in Nubra Valley. 
+                Visitors can enjoy a camel ride on the Bactrian camels, which are unique to the region and offer a traditional way to explore the dunes. 
+                The sweeping sands against the backdrop of the mountains create a surreal landscape that is perfect for photography and relaxation.</p>
+            <h5>Diskit Monastery</h5>
+            <p>Diskit Monastery is one of the oldest and largest monasteries in Nubra Valley. 
+                It is known for its impressive statue of Maitreya Buddha, which overlooks the entire valley. 
+                The monastery also offers a glimpse into the Buddhist culture and traditions of the region, with its beautiful murals and prayer flags.</p>
+            <h5>Sumur Village</h5>
+            <p>Sumur Village is a charming village located in Nubra Valley. 
+                It is known for its peaceful ambiance, lush gardens, and the ancient Samstanling Monastery. 
+                The village is an excellent spot for those looking to experience local life and enjoy the natural beauty of the valley.</p>
+            <h5>Pangong Tso Lake</h5>
+            <p>Though not part of Nubra Valley, Pangong Tso Lake is a nearby attraction that is often included in tours of Ladakh. 
+                The lake is famous for its changing colors and offers stunning views of the surrounding mountains. 
+                It is a great spot for a day trip or an overnight stay at the lakeside camps.</p>
+            <h2>Location</h2>
+            <p>Nubra Valley is located about 150 km from Leh, the capital of Ladakh. 
+                The journey to Nubra Valley is an adventure in itself, as it involves crossing the Khardung La Pass, which stands at an altitude of 5,359 meters (17,582 feet). 
+                The drive offers panoramic views of the Himalayas and the surrounding landscapes.</p>
+            <p>The climate in Nubra Valley is cold desert, with harsh winters and mild summers. 
+                Visitors should be prepared for cold temperatures, especially at higher altitudes, and carry appropriate clothing for the weather conditions.</p>
+            <h4>Reaching Nubra Valley</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Nubra Valley is in Leh. 
+                From Leh, you can hire a cab or take a shared taxi to Nubra Valley, which takes around 4-6 hours depending on the road conditions and traffic.</p>
+            <h6>Railways</h6>
+            <p>There are no direct railway connections to Nubra Valley. The nearest railway station is at Jammu Tawi, from where you can travel to Leh by road or air.</p>
+            <h6>Road</h6>
+            <p>The primary route to Nubra Valley is via the Khardung La Pass from Leh. 
+                The road journey is scenic but can be challenging due to the high altitude. 
+                It is recommended to travel during daylight hours and be prepared for changing road conditions.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Hunder Restaurant (Hunder)</li>
+                <li>Deskit Restaurant (Diskit)</li>
+                <li>Sumur Café (Sumur)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>Nubra Valley offers a range of activities for visitors to enjoy, from exploring historical sites to engaging in outdoor adventures.</p>
+            <ul>
+                <li>Camel Rides on the Sand Dunes</li>
+                <li>Visiting Monasteries</li>
+                <li>Trekking and Hiking</li>
+                <li>Exploring Local Villages</li>
+                <li>Photography</li>
+                <li>Camping</li>
+                <li>Exploring Markets and Souvenirs</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="nubra_valley_photo1.jpeg" alt="Nubra Valley Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="nubra_valley_photo2.jpeg" alt="Nubra Valley Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="nubra_valley_photo3.jpeg" alt="Nubra Valley Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Nubra_Valley" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Nubra Valley -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Nubra Valley</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+        document.getElementById('map-btn').addEventListener('click', function() {
+            // Check if geolocation is supported
+            if ("geolocation" in navigator) {
+                // Get current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Open Google Maps with directions
+                    var destination = "Nubra Valley, Ladakh, India";
+                    var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

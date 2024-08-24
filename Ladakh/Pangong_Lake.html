@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pangong Lake - Explore Ladakh</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('pangong_lake_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Pangong Lake</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Pangong Lake</h1>
+        <p class="lead">The Stunning Blue Jewel of Ladakh</p>
+    </div>
+    <div class="description">
+        <h2>About Pangong Lake</h2>
+        <p>Pangong Lake, also known as Pangong Tso, is a stunning high-altitude lake situated in the Himalayas, extending from India to the Tibetan Autonomous Region of China. 
+            This endorheic lake sits at an elevation of 4,350 meters (14,270 feet) and is renowned for its breathtaking beauty, with its water appearing to change colors throughout the day. 
+            Surrounded by rugged mountains, Pangong Lake is a popular destination for nature lovers, photographers, and adventure enthusiasts. 
+            Despite its remote location, the lake attracts numerous visitors who come to witness its pristine blue waters and tranquil ambiance.</p>
+        <p>Pangong Lake offers an exceptional opportunity to uncover hidden treasures and revel in nature's splendor. 
+            From the ethereal beauty of the lake to the surrounding landscapes, the area provides an array of captivating experiences sure to captivate travelers for years to come.</p>
+        <h2>Local Attractions</h2>
+        <p>Pangong Lake attracts tourists from all over the world because of its stunning beauty and the changing colors of the lake. 
+            The lake's crystal-clear waters and surrounding mountains create a breathtaking scenery. 
+            Besides being a delight to watch, Pangong Lake also serves as a significant ecological habitat. 
+            The area is not only blessed with natural beauty but also offers a serene and peaceful environment. 
+            An extensive road network connects Pangong Lake to Leh, making it accessible to tourists.</p>
+        <h5>Spangmik Village</h5>
+        <p>Spangmik Village, located near Pangong Lake, is a major attraction, drawing thousands of visitors each year from around the world to enjoy the stunning views and tranquility. 
+            The village is renowned for its traditional Ladakhi culture and hospitality, offering visitors a glimpse into the local way of life. 
+            The pristine natural splendor of the village acts as a soothing balm for the soul, melting away anxieties and leaving behind serenity and contentment. 
+            A visit to Spangmik Village, with its beautiful landscapes and friendly locals, is a must for all visitors. 
+            Interestingly, the village also offers opportunities for camping and outdoor activities, making it a perfect spot for adventure enthusiasts.</p>
+        <h5>Merak Village</h5>
+        <p>Merak Village, situated near Pangong Lake, is another notable attraction. 
+            The village is known for its scenic beauty and the warmth of its residents. 
+            Merak Village offers a unique vantage point for viewing Pangong Lake and its surroundings. 
+            A standout feature of Merak Village is the traditional Ladakhi houses and the peaceful environment. 
+            The area is surrounded by rugged mountains and the magnificent lake, adding to its allure. 
+            Visitors are often mesmerized by the natural beauty and the tranquil environment. For those planning a visit, it's advisable to carry warm clothing as temperatures can drop significantly, especially at night. 
+            Hiring a knowledgeable local guide can greatly enhance the experience, providing deeper insights into the region's cultural and natural attractions. 
+            The combination of natural beauty, cultural richness, and a touch of adventure makes Merak Village a must-visit destination for anyone exploring the Pangong Lake region.</p>
+        <h5>Man Village</h5>
+        <p>Pangong Lake is an enchanting destination that captivates all its visitors. 
+            Despite being a remote location, it is filled with hidden gems such as Man Village and remarkable campsites perfect for stargazers. 
+            The crisp air invigorates your body, while the cool waters of the lake refresh your spirit. 
+            In Man Village, the lake is spanned by beautiful landscapes and traditional Ladakhi architecture, adding a sense of adventure to the visit. 
+            The area is so captivating that visitors can spend days indulging in adventure sports like boating, swimming, camping, and trekking. 
+            To fully appreciate Pangong Lake, it's recommended to hire a local guide who can reveal its secrets and enhance your experience with insights into the local culture and natural wonders. 
+            Whether you're exploring the hidden villages or enjoying the thrill of outdoor activities, Pangong Lake promises a memorable and exhilarating visit.</p>
+        <h5>Chushul Village</h5>
+        <p>In Pangong Lake, about 150 km away from Leh, you can find Chushul Village. 
+            Chushul Village is known for its strategic location and historical significance. 
+            The village is a serene and peaceful place, offering stunning views of the surrounding mountains and the lake. 
+            Visiting this place enables travelers to experience the traditional Ladakhi culture and hospitality. 
+            It is also a great spot for photography, with numerous picturesque locations. 
+            The combination of natural beauty, cultural richness, and a touch of history makes Chushul Village a must-visit destination for anyone exploring the Pangong Lake region.</p>
+        <h2>Location</h2>
+        <p>Pangong Lake is approximately 160 km away from Leh, which is the capital of Ladakh. 
+            The path to Pangong Lake is full of beautiful landscapes, captivating views, and rugged mountains.</p>
+            <p>Pangong Lake is a year-round destination with beautiful climate all year. 
+                The area by virtue of being located at a high altitude is blessed with beauty and serenity. 
+                Winters are usually colder than summers and therefore warm clothing will be required, especially during night time. 
+                Otherwise, temperatures remain pleasant throughout.</p>
+        <h4>Reaching Pangong Lake</h4>
+        <h6>Air</h6>
+        <p>Nearest airport is at Leh which has direct flights to all other major cities of the country. 
+            Leh is about 160 km from Pangong Lake and can be reached by hiring a cab. 
+            Alternatively, there are bus services from Leh to Pangong Lake.</p>
+        <h6>Railways</h6>
+        <p>There are no direct railway connections to Pangong Lake. The nearest rail head is at Jammu Tawi from where one can either hire a cab or catch public or private buses till Leh and then to Pangong Lake.</p>
+        <h6>Road</h6>
+        <p>Pangong Lake is just 160 km from Leh and the route passes through beautiful landscapes and rugged mountains. It is connected by state buses as well as some private buses to Leh. 
+            One can easily get a bus or hire a cab for Pangong Lake from Leh.</p>
+        <h2>Restaurants</h2>
+        <ul>
+            <li>3 Idiots Café (Pangong Lake)</li>
+            <li>Yakmik Changla Guest House & Restaurant (Pangong Lake)</li>
+            <li>Home Stay Restaurant (Pangong Lake)</li>
+        </ul>
+        <h2>Activities</h2>
+        <p>Pangong Lake, a hidden gem in Ladakh, offers activities for nature lovers and adventure seekers. 
+            Known for its stunning landscapes, clear waters, and tranquil environment, Pangong Lake provides thrilling outdoor adventures and peaceful cultural interactions. 
+            Here are some must-try activities to enhance your visit to this enchanting destination.</p>
+            <ul>  
+                <li>Boat Ride</li>
+                <li>Kayaking</li>
+                <li>Swimming</li>
+                <li>Fishing</li>
+                <li>Trekking and Camping</li>
+                <li>Bird Watching</li>
+                <li>Visit Nearby Villages</li>
+                <li>Photography</li>
+            </ul>       
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="pangong_lake_photo1.jpeg" alt="Pangong Lake Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pangong_lake_photo2.jpeg" alt="Pangong Lake Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pangong_lake_photo3.jpeg" alt="Pangong Lake Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Pangong_Tso" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Pangong Lake -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Pangong Lake</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Pangong Lake, Ladakh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, h4, h5, h6, p, li, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+</body>
+</html>

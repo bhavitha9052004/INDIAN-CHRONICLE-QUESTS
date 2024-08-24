@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnetic Hill - Explore Ladakh</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('magnetic_hill_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Magnetic Hill</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Magnetic Hill</h1>
+            <p class="lead">A Natural Wonder of Ladakh's Landscape</p>
+        </div>
+        <div class="description">
+            <h2>About Magnetic Hill</h2>
+            <p>Magnetic Hill, located about 30 kilometers from Leh, Ladakh, is a unique and fascinating natural phenomenon known for its optical illusion that makes a slight downhill slope appear to be an uphill gradient. This enigmatic hill attracts visitors with its seemingly defying gravitational forces, where vehicles left in neutral gear appear to roll uphill. The area around Magnetic Hill offers stunning views of the barren yet beautiful landscape of Ladakh, with the rugged mountains and the serene Indus River in the backdrop. The hill is also a great spot for photography and enjoying the natural beauty of the high-altitude desert.</p>
+            <p>The phenomenon at Magnetic Hill is due to the layout of the surrounding land which creates an optical illusion, making the slope look like a gradient incline. Despite its name, the magnetic field of the hill does not actually defy gravity, but the visual effect is a result of the unique terrain and the surrounding landscape. Visitors can explore the area, take in the breathtaking views, and experience the wonder of this natural marvel.</p>
+            <h2>Local Attractions</h2>
+            <p>Magnetic Hill is surrounded by several notable attractions that offer a deeper exploration of Ladakh’s natural beauty and cultural heritage.</p>
+            <h5>Hemis Monastery</h5>
+            <p>Hemis Monastery, one of the largest and wealthiest monasteries in Ladakh, is located about 45 kilometers from Leh. Founded in the 11th century, this prominent Buddhist monastery is renowned for its annual Hemis Tsechu festival, which features colorful masked dances and traditional performances. The monastery complex includes beautiful temples, a museum showcasing ancient artifacts, and stunning murals depicting Buddhist deities. Hemis Monastery is an excellent place to learn about Tibetan Buddhism, experience local culture, and admire impressive architecture against the backdrop of the Himalayas.</p>
+            <h5>Pangong Lake</h5>
+            <p>Pangong Lake is a breathtaking high-altitude lake situated about 150 kilometers from Leh. Famous for its stunning blue waters and picturesque surroundings, the lake extends across the Indo-China border. Visitors can enjoy boat rides on the crystal-clear waters, take leisurely walks along the shore, and marvel at the changing colors of the lake's surface throughout the day. The serene environment and scenic beauty make Pangong Lake a must-visit destination for nature enthusiasts and photographers.</p>
+            <h5>Thiksey Monastery</h5>
+            <p>Thiksey Monastery is a prominent Tibetan Buddhist monastery located about 19 kilometers from Leh. Founded in the 15th century, the monastery is known for its impressive architecture, including a grand prayer hall and a massive statue of Maitreya Buddha. Visitors can explore the monastery's temples, admire the intricate murals, and enjoy panoramic views of the surrounding valley. Thiksey Monastery also offers a serene environment for meditation and spiritual reflection.</p>
+            <h5>Royal Leh Palace</h5>
+            <p>The Royal Leh Palace, built in the 17th century, was once the royal residence of the Ladakhi kings. Perched on a hilltop, the palace offers stunning views of the Leh Valley and the surrounding mountains. Visitors can explore the palace's rooms, which house a collection of artifacts, traditional costumes, and historical exhibits. The architecture of the palace reflects traditional Tibetan design, and the site provides insight into the royal heritage of Ladakh.</p>
+            <h2>Location</h2>
+            <p>Magnetic Hill is located about 30 kilometers from Leh, the capital of Ladakh. The hill is easily accessible by road and is a popular stop for visitors traveling to or from Leh. The surrounding landscape offers spectacular views of the Indus River and the majestic mountain ranges of Ladakh.</p>
+            <p>The climate in Magnetic Hill is cold desert, with very cold winters and mild summers. Visitors should be prepared for low temperatures and possible snowfall during the winter months.</p>
+            <h4>Reaching Magnetic Hill</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Magnetic Hill is Kushok Bakula Rimpochee Airport in Leh. Flights to Leh are available from major cities in India. From the airport, Magnetic Hill can be reached by a taxi or as part of a guided tour.</p>
+            <h6>Railways</h6>
+            <p>There are no direct railway connections to Magnetic Hill. The nearest major railway station is Jammu Tawi, from where you can travel to Leh by road or air.</p>
+            <h6>Road</h6>
+            <p>Magnetic Hill is accessible by road from Leh. The journey involves scenic drives through the rugged terrain of Ladakh, with well-maintained roads leading to the hill.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Sky Wok Restaurant (Leh)</li>
+                <li>Green Hotel Restaurant (Leh)</li>
+                <li>Chopsticks Noodle Bar (Leh)</li>
+                <li>Yama Coffee House (Leh)</li>
+                <li>Lamayuru Restaurant (Leh)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting Magnetic Hill, there are several activities and experiences you can enjoy:</p>
+            <ul>
+                <li>Experiencing the optical illusion of Magnetic Hill</li>
+                <li>Photography of the unique landscape and natural beauty</li>
+                <li>Exploring the nearby Hemis Monastery and participating in the Hemis Festival</li>
+                <li>Taking a day trip to Pangong Lake and enjoying a boat ride</li>
+                <li>Exploring Thiksey Monastery and learning about Tibetan Buddhist practices</li>
+                <li>Visiting the Royal Leh Palace and discovering the history of Ladakh's royal family</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="magnetic_hill_photo1.jpeg" alt="Magnetic Hill Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="magnetic_hill_photo2.jpeg" alt="Magnetic Hill Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="magnetic_hill_photo3.jpeg" alt="Magnetic Hill Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Magnetic_Hill" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Magnetic Hill -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Magnetic Hill</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+        document.getElementById('map-btn').addEventListener('click', function() {
+            // Check if geolocation is supported
+            if ("geolocation" in navigator) {
+                // Get current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Open Google Maps with directions
+                    var destination = "Magnetic Hill, Leh, Ladakh, India";
+                    var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

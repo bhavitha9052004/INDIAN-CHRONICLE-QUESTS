@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tso Moriri - Explore Ladakh</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('tso_moriri_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Tso Moriri</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Tso Moriri</h1>
+            <p class="lead">A Serene Alpine Lake in the Heart of Ladakh</p>
+        </div>
+        <div class="description">
+            <h2>About Tso Moriri</h2>
+            <p>Tso Moriri, located in the Changthang region of Ladakh, is a high-altitude lake nestled amidst majestic mountains and sprawling meadows. This pristine lake is known for its crystal-clear blue waters that reflect the surrounding snow-capped peaks, creating a picturesque landscape that mesmerizes visitors. The lake is an important breeding ground for various species of migratory birds, making it a haven for birdwatchers and nature enthusiasts. Surrounding Tso Moriri are traditional Changpa nomadic settlements, where visitors can experience the unique culture and lifestyle of the region. The serene atmosphere and breathtaking views make Tso Moriri a must-visit destination for those seeking tranquility and natural beauty in Ladakh.</p>
+            <h2>Local Attractions</h2>
+            <p>Explore nearby attractions that enhance the experience of visiting Tso Moriri:</p>
+            <h5>Korzok Monastery</h5>
+            <p>Korzok Monastery, situated on the northern banks of Tso Moriri, is one of the highest-altitude monasteries in India. Founded in the 17th century, this monastery is known for its ancient murals, Buddhist scriptures, and annual Korzok Gustor Festival, where monks perform sacred masked dances. The monastery offers panoramic views of Tso Moriri and serves as a spiritual center for the local community, preserving centuries-old traditions amidst the stunning Himalayan landscape.</p>
+            <h5>Changthang Wildlife Sanctuary</h5>
+            <p>Changthang Wildlife Sanctuary, surrounding Tso Moriri, is a sanctuary for endangered wildlife species such as Tibetan wild ass (kiang), Tibetan gazelle, snow leopard, and various migratory birds. The sanctuary offers opportunities for wildlife spotting and trekking amidst vast grasslands and rugged terrain, providing a glimpse into Ladakh’s diverse ecosystem and natural beauty.</p>
+            <h5>Namashang La Pass</h5>
+            <p>Namashang La Pass, located near Tso Moriri, is a scenic mountain pass offering breathtaking views of the Changthang Plateau and its surrounding peaks. The pass is a popular trekking route for adventurers seeking challenging trails and stunning vistas of Ladakh’s remote wilderness.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>The Changthang Kitchen (Korzok)</li>
+                <li>Blue Waters Restaurant (Changthang)</li>
+                <li>Mountain View Cafe (Puga)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>Enjoy various activities around Tso Moriri to make the most of your visit:</p>
+            <ul>
+                <li>Boating and photography at Tso Moriri Lake</li>
+                <li>Visiting Korzok Monastery and attending the annual festival</li>
+                <li>Trekking in Changthang Wildlife Sanctuary</li>
+                <li>Exploring nomadic settlements and interacting with Changpa herders</li>
+                <li>Stargazing and camping under the clear night sky</li>
+            </ul>
+            <h2>Location</h2>
+            <p>Tso Moriri is located in the Changthang region of Ladakh, approximately 250 kilometers southeast of Leh. It is accessible via a scenic drive through rugged mountain terrain and high-altitude passes, offering adventurous travelers a glimpse into Ladakh’s remote and untouched landscapes.</p>
+            <p>The climate around Tso Moriri is cold desert, characterized by harsh winters and mild summers. Visitors should prepare for fluctuating temperatures and carry adequate warm clothing, especially if traveling during the winter months.</p>
+            <h4>Reaching Tso Moriri</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Tso Moriri is Leh's Kushok Bakula Rimpochee Airport. From Leh, visitors can travel to Tso Moriri by road, which takes approximately 7-8 hours depending on road conditions and weather.</p>
+            <h6>Road</h6>
+            <p>Tso Moriri is accessible by road from Leh via Upshi and Mahe. The journey offers stunning views of Ladakh’s rugged landscapes and requires careful planning due to high-altitude conditions and limited facilities along the route.</p>
+            <h6>Trekking</h6>
+            <p>For adventurous travelers, trekking routes from Leh to Tso Moriri offer a unique experience to explore Ladakh’s remote wilderness on foot, passing through scenic valleys and high mountain passes.</p>
+            <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="tso_photo1.jpeg" alt="Tso Moriri Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="tso_photo2.jpeg" alt="Tso Moriri Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="tso_photo3.jpeg" alt="Tso Moriri Photo 3" class="img-fluid">
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Tso_Moriri" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Tso Moriri -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Tso Moriri</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+        document.getElementById('map-btn').addEventListener('click', function() {
+            // Check if geolocation is supported
+            if ("geolocation" in navigator) {
+                // Get current location
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    // Open Google Maps with directions
+                    var destination = "Tso Moriri Lake, Changthang, Ladakh, India";
+                    var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+            elements.forEach(function(element) {
+                var text = element.innerText || element.textContent;
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerText = translatedText; // Update text content with translated text
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
