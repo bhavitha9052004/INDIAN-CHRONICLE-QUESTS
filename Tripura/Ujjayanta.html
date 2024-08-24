@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ujjayanta Palace - Explore Tripura</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ujjayanta_palace_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ujjayanta Palace</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ujjayanta Palace</h1>
+        <p class="lead"> A Glorious Testament to Royal Splendor and Cultural Heritage</p>
+    </div>
+    <div class="description">
+        <h2>About Ujjayanta Palace</h2>
+        <p>The Ujjayanta Palace, formerly a royal residence of Tripura, is situated in Agartala. Built in 1901, it features magnificent tiled floors, carved wooden ceilings, and elegant doors. The name 'Ujjayanta Palace' was given by Rabindranath Tagore, a frequent visitor to Tripura. The palace encompasses various rooms including Public Halls, Throne Room, Durbar Hall, Library, The Chinese Room, and The Reception Hall. Previously, it served as the meeting place for the Tripura Legislative Assembly until 2011 and now functions as a museum and a tourist attraction in Agartala.</p>
+
+        <p>The palace stands on the banks of a small lake surrounded by lush Mughal gardens. Spread over 28 hectares of parkland, the palace houses several Hindu temples dedicated to deities such as Lakshmi Narayan, Uma-Maheshwari, Kali, and Jagannath. It is one of the largest museums in Northeast India, covering over 800 acres in the capital city, showcasing the lifestyle, art, culture, tradition, and utility crafts of various communities in Northeast India. Maharaja Radha Kishore Manikya, the King of Tripura, commissioned the construction of the palace from 1899 to 1901, and it was later acquired by the Tripura government in 1972-73 from the royal family.</p>
+        <h2>Architecture</h2>
+        <p>Ujjayanta Palace compound covers an area of approximately one km square. The main block covers 800 acres, comprising of the Throne room, the Durbar hall, Library and the Reception hall.
+            The Neoclassical palace was designed by Sir Alexander Martin. The ceiling of the Chinese Room was crafted by artisans who were brought from China. The palace has a mixed type of architecture. It has three large domes, the largest of which is 86 ft high from the ground and which rests atop a four-storied central tower. The palace has tiled floors and carved front doors.
+            Newer attractions are the musical fountain installed in front of the main entrance, and the night-time floodlights. The grounds are laid out as formal Mughal gardens adorned with fountains. There are two large artificial ponds in the garden which is decorated with pools and beautiful fountains.
+            The main block includes Throne room, Durbar hall, Library and the Reception hall. A Chinese room was built later in the palace. The Palace served as a home to many rulers of Tripura since the time of its construction. The palace was built in the Indo-Saracenic style with a Mughal inspired spacious garden and lake spread out in front. The interiors might be viewed upbringing beauty at its best. The palace and its vicinity housed numerous temples.</p>
+        <h2>Location</h2>
+        <p>Ujjayanta Palace is located in the heart of Agartala, the capital city of Tripura, India. It stands majestically on the banks of a small lake, surrounded by lush Mughal gardens, making it a prominent landmark in the city.</p>
+        <h2>How to reach Ujjayanta Palace</h2>
+        <h6>By Air</h6><p>The nearest airport is Maharaja Bir Bikram Airport in Agartala, approximately 12 km from the palace. Regular flights connect Agartala with major cities like Kolkata, Guwahati, and Delhi.</p>
+        <h6>By Rail</h6><p>The nearest railway station is Agartala Railway Station, located about 7 km from the palace. The station is well-connected with other parts of the country via several express and passenger trains.</p>
+        <h6>By Road</h6><p>Agartala is well-connected by road with major cities in the region. National Highway 8 connects Agartala with Assam, and regular bus services are available from cities like Guwahati, Shillong, and Silchar. Local transportation, including taxis, auto-rickshaws, and buses, makes it convenient to reach the palace from different parts of the city.</p>
+        
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="ujjayanta_palace_photo1.jpeg" alt="Ujjayanta Palace Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ujjayanta_palace_photo2.jpeg" alt="Ujjayanta Palace Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ujjayanta_palace_photo3.jpeg" alt="Ujjayanta Palace Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Ujjayanta_Palace" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Ujjayanta Palace -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ujjayanta Palace</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ujjayanta Palace, Tripura, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

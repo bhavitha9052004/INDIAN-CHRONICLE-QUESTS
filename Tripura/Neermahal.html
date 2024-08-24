@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neermahal - Explore Tripura</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('neermahal_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Neermahal</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Neermahal</h1>
+        <p class="lead">The Water Palace of Tripura</p>
+    </div>
+    <div class="description">
+        <h2>About Neermahal</h2>
+        <p>Neermahal, the grand water palace in Tripura, stands as a symbol of the region's royal heritage. Built in the early 20th century by Maharaja Bir Bikram Kishore Manikya Bahadur, this architectural marvel is located in the middle of the Rudrasagar Lake. The palace's blend of Hindu and Mughal architectural styles, along with its picturesque setting, makes it a unique and enchanting destination.</p>
+
+        <p>The name 'Neermahal' translates to 'Water Palace,' and it lives up to its name by providing a majestic view amidst the serene waters of the lake. The palace features a mix of open courtyards, pavilions, and gardens, offering visitors a glimpse into the opulent lifestyle of the Tripura royalty. The surrounding area is also home to a variety of flora and fauna, making it a paradise for nature lovers and photographers.</p>
+        <h2>Architecture</h2>
+        <p>Neermahal's architecture is a splendid fusion of Mughal and Hindu styles. The palace is divided into two parts: the Andar Mahal, which was used by the royal family, and the open-air theatre, where cultural events and performances were held. The intricate carvings, expansive balconies, and beautiful gardens reflect the grandeur and elegance of the period.</p>
+
+        <p>The use of marble and sandstone, along with the detailed craftsmanship, adds to the palace's aesthetic appeal. Visitors are often mesmerized by the blend of natural beauty and man-made splendor, making Neermahal a must-visit site in Tripura.</p>
+        <h2>Location</h2>
+        <p>Neermahal is located in the middle of the Rudrasagar Lake, about 53 kilometers from Agartala, the capital city of Tripura. The nearest town is Melaghar, which is approximately 1.5 kilometers from the lake. Visitors can reach Neermahal by boat from Melaghar, adding to the unique experience of visiting this water palace.</p>
+        <h2>How to reach Neermahal</h2>
+        <h6>By Air</h6><p>The nearest airport is Agartala Airport (IXA), around 53 kilometers from Neermahal.
+            From Agartala Airport, visitors can hire taxis or take buses to Melaghar, and then take a boat to Neermahal.</p>
+        <h6>By Train</h6><p>The closest railway station is in Agartala. From there, visitors can take a taxi or bus to Melaghar and then proceed by boat to Neermahal.</p>
+        <h6>By Road</h6><p>Neermahal is accessible by road via Melaghar. Visitors can take buses or taxis from Agartala to Melaghar, followed by a boat ride to the palace.</p>
+        <h2>Attractions</h2>
+        <h5>Neermahal Palace</h5><p>The main attraction, Neermahal itself, offers a stunning view of the royal palace amidst the tranquil waters of Rudrasagar Lake.
+            The blend of architectural styles and the serene setting make it a unique destination.</p>
+        <h5>Light and Sound Show</h5><p>A popular attraction is the evening light and sound show, which narrates the history and significance of Neermahal.
+            The show adds a magical touch to the palace experience, illuminating its beauty and heritage.</p>
+        <h5>Boating and Bird Watching</h5><p>Visitors can enjoy boating on Rudrasagar Lake, with options for paddle boats and larger boats.
+            The lake is also a haven for bird watchers, with a variety of migratory birds visiting the area.</p>
+        <h5>Gardens and Courtyards</h5><p>The palace gardens and courtyards are beautifully maintained, offering a peaceful retreat.
+            Visitors can stroll through these areas, enjoying the flora and the architectural details.</p>
+        <h5>Cultural Performances</h5><p>Neermahal hosts cultural performances and festivals, showcasing the rich cultural heritage of Tripura.
+            These events offer a deeper insight into the traditions and arts of the region.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="neermahal_photo1.jpeg" alt="Neermahal Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="neermahal_photo2.jpeg" alt="Neermahal Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="neermahal_photo3.jpeg" alt="Neermahal Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Neermahal" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Neermahal -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Neermahal</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Neermahal, Tripura, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

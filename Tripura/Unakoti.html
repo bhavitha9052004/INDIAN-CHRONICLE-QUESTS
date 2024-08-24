@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unakoti - Explore Tripura</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('unakoti_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Unakoti</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Unakoti</h1>
+        <p class="lead">Your trek to Indian Mythology</p>
+    </div>
+    <div class="description">
+        <h2>About Unakoti</h2>
+        <p>Unakoti, a prominent tourist destination in Tripura, is revered as an ancient pilgrimage center that draws visitors and devotees from across the country. Renowned for its rich cultural heritage, Unakoti is adorned with intricate rock carvings and sculptures depicting various gods and goddesses of Hindu mythology. These carvings offer a glimpse into the life and legends of Lord Shiva, alongside depictions of deities such as Nandi Bull, Lord Ram, Lord Ganesha, Lord Hanuman, and Lord Ganpati.</p>
+
+        <p>Nestled amidst lush greenery and natural splendor, Unakoti not only preserves India's artistic legacy but also captivates with its scenic beauty. Beyond its religious significance, the terrain surrounding Unakoti offers opportunities for hiking, trekking, and other outdoor activities, inviting visitors to explore the natural wonders of this historic site.</p>
+        <h2>Rock Carvings</h2>
+        <p>The rock carvings at Unakoti in Tripura are a testament to ancient artistry and religious devotion. Carved into the rocky cliffsides, these sculptures depict Hindu deities and mythological figures. The site is renowned for its colossal images of Shiva, Nandi Bull, Lord Ram, Lord Ganesha, Lord Hanuman, and Lord Ganpati, each intricately detailed and showcasing the skill of ancient artists.</p>
+
+        <p>These carvings not only serve as religious icons but also as historical artifacts, offering a glimpse into India's cultural and spiritual practices. Visitors are captivated by the scale and quality of these rock-cut sculptures, making Unakoti a significant pilgrimage site and a marvel of India's cultural heritage.</p>
+        <h2>Location</h2>
+        <p>Unakoti, located in Tripura, India, is primarily accessible by road, with no direct airport or railway station in close proximity. The nearest major city with air connectivity is Agartala, approximately 178 kilometers away. From Agartala, visitors can reach Unakoti by road, which takes around 4-5 hours by car or bus, passing through scenic landscapes and small towns.</p>
+        <h2>How to reach Unakoti</h2>
+        <h6>By Air</h6><p>The nearest airport is Agartala Airport (IXA), approximately 178 kilometers from Unakoti.
+            From Agartala Airport, visitors can hire taxis or take buses to reach Unakoti. The journey by road typically takes 4-5 hours.</p>
+        <h6>By Train</h6><p>The closest railway station to Unakoti is Kumarghat Railway Station, located about 20 kilometers away.
+            From Kumarghat Railway Station, travelers can continue their journey to Unakoti by taxi or local transport, which usually takes less than an hour.</p>
+        <h6>By Road</h6><p>Unakoti is well-connected by roadways. It is situated near the town of Kailashahar in Tripura.
+            Buses and taxis are available from major cities and towns in Tripura to Unakoti. The site is accessible via a short trek from the main road once visitors reach the vicinity.</p>
+        <h2>Attractions</h2>
+        <h5>Unakoti Rock Carvings</h5><p>Unakoti is renowned for its rock-cut sculptures and carvings dating back to the 7th-9th centuries.
+            These carvings depict various Hindu deities including Lord Shiva, Goddess Durga, Lord Ganesha, and others, making it a significant pilgrimage and cultural site.</p>
+        <h5>Giant Ganesha Statue</h5><p>One of the highlights is the colossal statue of Lord Ganesha, standing at 30 feet tall.
+            This impressive sculpture is a major draw for devotees and visitors alike, reflecting the artistic and religious fervor of the region.</p>
+        <h5>Waterfalls and Natural Beauty</h5><p>Unakoti is surrounded by lush greenery and natural landscapes, enhanced by nearby waterfalls.
+            Visitors can enjoy scenic views and tranquil surroundings while exploring the site, ideal for nature lovers and photographers.</p>
+        <h5>Hiking and Trekking Opportunities</h5><p>The terrain around Unakoti offers excellent hiking and trekking trails, appealing to adventure enthusiasts.
+            Trekking routes lead to scenic viewpoints and secluded spots amidst dense forests, providing a unique blend of adventure and natural beauty.</p>
+        <h5>Cultural and Historical Significance</h5><p>Beyond its natural and artistic allure, Unakoti holds immense historical and cultural significance.
+            It is believed to be a sacred site where Lord Shiva and other deities left their impressions, attracting pilgrims and historians alike to explore its mysteries.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="unakoti_photo1.jpeg" alt="Unakoti Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="unakoti_photo2.jpeg" alt="Unakoti Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="unakoti_photo3.jpeg" alt="Unakoti Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Unakoti" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Unakoti -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Unakoti</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Unakoti, Tripura, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
