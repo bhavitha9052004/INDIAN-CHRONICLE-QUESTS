@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tam Dil Lake - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('tam_dil_lake_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Tam Dil Lake</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Tam Dil Lake</h1>
+        <p class="lead">Where Tranquility Meets Nature's Canvas</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>The largest lake in the state of Mizoram, Tamdil Lake is a human-made lake exclusively to serve as a natural attraction for the state's tourism. Tamdil Lake, which translates into 'Lake of Mustard ' in Mizo, is a beautiful lake with the magnificent landscape, clear, blue water and serene environment. Tucked between evergreen forests and hills, the lake is located in the wilderness of the hills of Mizoram, some 100 km east of Aizawl.
+
+            The place is favorite for relaxation and gives one an opportunity to be away from the crowd, in the lap of nature. Besides being a tourist destination, Tamdil Lake is also very crucial for the fisherman in the locality. One can boat in the Lake, walk around its shores or just spread a carpet, lie down and read a book- there are one too many ways to spend some enjoyable time at the lake.</p>
+        <h2>History</h2>
+        <p>Tam Dil, also known as the "lake of mustard plant," is a natural lake located near Saitual in the northeastern state of Mizoram, India. The lake holds historical significance for the local Mizo people, as it is believed to have been created by a severe drought that struck the region in the late 19th century. According to legend, the drought was so severe that the villagers prayed to the spirit of the lake, Tam, for water. Moved by their prayers, Tam appeared in the form of a mustard plant and guided the villagers to a spot where they found a bamboo shoot. They dug at the spot and found water, which eventually filled up to form the lake.</p>
+        <p>The lake's clear blue waters, surrounded by lush greenery and hills, make it a picturesque spot for nature lovers and photographers. Over the years, it has become a must-visit place for tourists exploring the natural beauty and cultural heritage of Mizoram.</p>
+        <h2>Attractions</h2>
+        <p>Tamdil Lake, Mizoram's largest lake, offers a tranquil escape into nature with its scenic beauty and recreational activities. Here are some of the key attractions at Tamdil Lake:</p>
+        <ul>
+
+            <li><b>Boating: </b>The lake is perfect for boating, offering paddle boats and rowboats for visitors to explore its serene waters while soaking in the surrounding beauty.</li>
+            <li><b>Picnicking: </b>The lakeside area provides a picturesque setting for picnics. Visitors can relax on the grassy banks and enjoy a peaceful meal amidst nature.</li>
+            <li><b>Nature Walks: </b>Surrounding the lake are lush green hills and forests, ideal for nature walks. Visitors can take leisurely strolls and explore the rich flora and fauna of the region.</li>
+            <li><b>Bird Watching: </b>Tamdil Lake is a birdwatcher's paradise, with a variety of bird species to be spotted. Bird enthusiasts can enjoy watching these feathered creatures in their natural habitat.</li>
+            <li><b>Photography: </b>The scenic beauty of Tamdil Lake offers ample opportunities for photography. Visitors can capture stunning shots of the lake, hills, and forests that surround it.</li>
+            <li><b>Camping: </b> Camping is allowed near the lake, providing a unique opportunity to spend a night under the stars amidst the tranquil surroundings.</li>
+            <li><b>Local Culture: </b>Visitors can also experience the local Mizo culture around Tamdil Lake. The area is inhabited by the Mizo people, and visitors can learn about their traditions, customs, and way of life.</li>
+            
+        </ul>
+        <h2>Best Time to Visit</h2>
+        <p>The best time to visit Tam Dil Lake is during the winter months, from November to February, when the weather is cool and pleasant, making it ideal for outdoor activities like boating, picnicking, and nature walks. The monsoon season, from June to September, should be avoided due to heavy rainfall, which can make the area slippery and difficult to navigate.</p>
+        <h2>Location</h2>
+          <p>Tamdil Lake is nestled in the wilderness of Mizoram's hills, near Saitual, approximately 100 kilometers east of Aizawl. Surrounded by lush greenery, the lake offers a tranquil retreat with its clear blue waters and serene environment. Visitors can enjoy boating, picnicking, and nature walks in this picturesque setting, making it an ideal destination for relaxation and rejuvenation.</p> 
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="tam_dil_lake_photo1.jpeg" alt="Tam Dil Lake Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="tam_dil_lake_photo2.jpeg" alt="Tam Dil Lake Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="tam_dil_lake_photo3.jpeg" alt="Tam Dil Lake Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Tam_Dil" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Tam Dil Lake -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Tam Dil Lake</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Tam Dil Lake, Mizoram, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

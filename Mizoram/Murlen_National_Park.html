@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murlen National Park - Wildlife Sanctuary in Mizoram</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('murlen_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Murlen National Park</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Murlen National Park</h1>
+        <p class="lead">The Avian Paradise of Mizoram</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Located near the Indo-Myanmar border in Champhai District, approximately 245 km from Aizawl, Murlen National Park is renowned as one of the last sanctuaries for Mizoram's state bird, Vavu (Mrs. Hume's Pheasant). Spanning 100 sq.km of untouched forests, the park features sub-tropical evergreen and sub-montane forests, providing habitat to a variety of mammals and birds. The landscape includes steep rocky cliffs adorned with honeycombs and teeming with swifts and swallows. Murlen National Park is an excellent destination for bird-watching enthusiasts.</p>
+        <h2>History</h2>
+        <p>Murlen National Park, established in 1991, is a relatively young addition to Mizoram's conservation efforts. The park was created to protect the rich biodiversity of the region, including rare species of flora and fauna. Over the years, it has become known as a vital sanctuary for the state bird, Vavu (Mrs. Hume's Pheasant), which was facing threats of extinction. The park's history is a testament to Mizoram's commitment to preserving its natural heritage and promoting eco-tourism.It covers an area of approximately 200 square kilometers.</p>
+        <h2>Flora and Fauna</h2>
+        <p>Murlen National Park, sprawling over 100 square kilometers with altitudes ranging from 400 to 1900 meters, is a treasure trove of biodiversity. Its subtropical climate sees heavy rainfall from May to September and mild winters from November to February, nurturing six distinct forest types: tropical semi-evergreen, subtropical broadleaved, submontane, bamboo, grassland, and cliff vegetation. These forests provide a rich habitat for a diverse range of flora and fauna, including many endemic and endangered species.</p>
+
+        <p>    At lower altitudes, tropical semi-evergreen forests dominate, hosting a variety of wildlife such as tigers, leopards, bears, deer, and primates. As you ascend, subtropical broadleaved forests take over, featuring oak, laurel, and magnolia trees adorned with orchids and supporting numerous birds and insects. The highest altitudes are covered by submontane forests, characterized by coniferous and rhododendron trees, home to species like the red panda, Himalayan serow, black bear, and Himalayan monal.</p>
+            
+        <p>    Additionally, the park boasts bamboo forests vital for the region's ecology and economy, grasslands, and cliff vegetation. Notably, the discovery of the Murlen keelback snake in 2018 highlights the park's role in preserving unique and rare species. With about 150 species of orchids and a diverse array of epiphytic plants like ferns, mosses, and fungi, Murlen National Park is a haven for nature enthusiasts and researchers alike.</p>
+        <h2>Best Time to Visit</h2>
+        <p>The best time to visit Murlen National Park is during the winter months, from November to February, when the weather is mild and dry, making it ideal for exploring the park and spotting wildlife. This period also coincides with the post-monsoon season, ensuring lush greenery and abundant water sources in the park. It's advisable to avoid the monsoon season, from May to September, due to heavy rainfall and the possibility of landslides, which can make travel and trekking challenging.</p>
+        <h2>Location</h2>
+        <p>Murlen National Park is nestled in the northeastern region of India, in the picturesque state of Mizoram. It lies in the Champhai district, near the border with Myanmar, adding to its allure with a hint of exoticism. The park's remote location, about 245 kilometers away from Aizawl, the state capital, offers visitors a serene and untouched natural environment to explore. Accessible by road, the journey to Murlen is an adventure in itself, winding through the scenic beauty of Mizoram's hills and valleys.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="murlen_photo1.jpeg" alt="Murlen Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="murlen_photo2.jpeg" alt="Murlen Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="murlen_photo3.jpeg" alt="Murlen Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Murlen_National_Park" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Murlen National Park -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Murlen National Park</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Murlen National Park, Mizoram, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
