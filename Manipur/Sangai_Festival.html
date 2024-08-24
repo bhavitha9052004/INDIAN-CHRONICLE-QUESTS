@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sangai Festival - Cultural Extravaganza in Manipur, India</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('sangai_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Sangai Festival</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Sangai Festival</h1>
+        <p class="lead"></p>
+    </div>
+    <div class="description">
+        <h2>About Sangai Festival</h2>
+        <p>The Sangai Festival is a grand extravaganza celebrated every year from 21-30 November in the extremely beautiful region of Sangai in Manipur. 
+            The region is named so due to the rare species of deer that can be found only here. 
+            The Manipur Tourism Department makes sure that this eloquent celebration does not fall short on any terms as the primary goal of this festival is to promote Manipur as a promising upcoming tourist attraction.
+            The festival is celebrated all across the state and the primary locations comprise Mao, Ukhrul, Lamboikhongnangkhong, Uripok, KeibulLamjao, KhumanLampak, and HaptaKangjeibung.</p>
+        <h2>Cultural significance of Sangai Festival</h2>
+        <p>The main venue of the 10-day Sangai Festival is the HaptaKangjeibung and Bheigyachandra Open Air Theatre, known as the BOAT. 
+            The BOAT hosts various cultural programs, including traditional Manipuri dance and indigenous music, aiming to spread awareness and educate visitors about Manipur's rich cultural heritage. 
+            Additionally, the BOAT features specimen huts built by tribal locals, showcasing the unique architectural styles of different tribes. 
+            Sports events are organized at the KhumanLampak Sports Complex and Takmu Water Sports Complex, with local sports and boating at Loktak Lake, North-East India's largest freshwater lake, being major attractions.
+
+            Tourists can enjoy the beauty of Loktak Lake, with its intriguing 'Phumsangs' or floating huts built on 'Phumdis,' adding to the charm. 
+            Nearby, KeibulLamjao National Park, the world's only floating national park, located on Loktak Lake, serves as the last natural home of the endangered Sangai, a brow-antlered deer found only in Manipur. 
+            The Sangai Festival, through its vibrant cultural performances and unique showcases, highlights the diverse cultural heritage and natural beauty of Manipur, making it a significant event for both locals and visitors.</p>
+        <h2>More about Sangai Festival</h2>
+        <p>In 2017, the Sangai Festival celebrated its 17th year, and the Tourism Department aims to continue this legacy, constantly striving to enhance this tourist haven each year. 
+            The 2017 fiesta saw participation from numerous countries, including Nepal, Sri Lanka, Bangladesh, Bhutan, Myanmar, Thailand, Indonesia, Japan, South Korea, Cambodia, Vietnam, Singapore, Maldives, Malaysia, Mauritius, and Zimbabwe.
+
+            The Tourism Department has ensured comfortable accommodation options for all tourists. 
+            Hotels such as Hotel Imphal, Hotel Nirmala, The Classic Hotel, Hotel Bheigo, Hotel New Airlines, Hotel Anand Continental, Hotel Krishtina, Classic Grande, and Youth Hostel have been entrusted with the significant responsibility of handling the tourist influx.</p>
+        <h2>Location</h2>
+        <p>The Sangai Festival is celebrated all across the state and the primary locations comprise Mao, Ukhrul, Lamboikhongnangkhong, Uripok, KeibulLamjao, KhumanLampak, and HaptaKangjeibung.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="sangai_photo1.jpeg" alt="Sangai Festival Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sangai_photo2.jpeg" alt="Sangai Festival Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sangai_photo3.jpeg" alt="Sangai Festival Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Sangai_Festival" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Sangai Festival -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Sangai Festival</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Imphal, Manipur, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
