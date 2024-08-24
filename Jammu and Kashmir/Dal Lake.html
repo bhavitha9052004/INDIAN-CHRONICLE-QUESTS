@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dal Lake - Jewel of Srinagar</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('dal_lake_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Dal Lake</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Dal Lake</h1>
+        <p class="lead">The Jewel of Srinagar</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>Dal Lake, often referred to as the "Jewel of Srinagar," is a picturesque freshwater lake located in the heart of Srinagar, Jammu and Kashmir. Known for its stunning natural beauty, Dal Lake is surrounded by lush gardens, traditional houseboats, and charming Mughal architecture. The lake is a major tourist attraction, offering serene boat rides on Shikara boats and vibrant floating gardens. Visitors can enjoy the tranquil waters, explore the floating gardens, and experience the cultural heritage of the region. Dal Lake is not only a visual treat but also a symbol of the rich cultural and historical legacy of Srinagar.</p>
+        <h2>History</h2>
+        <p>Dal Lake has a rich history dating back to ancient times, often mentioned in historical texts and chronicles. The lake's origins are shrouded in legend and mythology, with historical accounts tracing its significance to the Mughal era. The Mughal emperors, particularly Jahangir and Shah Jahan, were known to have admired the beauty of Dal Lake and established the famous Mughal gardens along its banks. The lake served as a hub for royal retreats and recreational activities during the Mughal period. Today, Dal Lake continues to be a symbol of Srinagar's historical grandeur and cultural heritage.</p>
+        <h2>Places to Visit</h2>
+        <h5>Shikara Rides</h5>
+        <p>Shikara rides on Dal Lake offer a peaceful and picturesque experience, allowing visitors to enjoy the beauty of the lake and its surroundings from the comfort of a traditional wooden boat. The gentle ride on the calm waters provides stunning views of the lake, the floating gardens, and the distant mountains. Shikara rides are a popular way to explore the lake and experience the serene environment of Dal Lake.</p>
+        <h5>Floating Gardens</h5>
+        <p>The Floating Gardens of Dal Lake are a unique feature of the lake, where vibrant flowers and vegetables are cultivated on floating platforms. These gardens are maintained using traditional farming techniques and provide a colorful and fragrant experience for visitors. A walk or boat ride through the floating gardens offers a glimpse into the traditional agricultural practices of the region and the natural beauty of Dal Lake.</p>
+        <h5>Hazratbal Shrine</h5>
+        <p>Located on the northern shores of Dal Lake, Hazratbal Shrine is an important religious site for Muslims in Srinagar. The shrine is known for housing a relic believed to be a hair strand of the Prophet Muhammad. The white marble mosque offers a serene environment for prayer and reflection, and it provides stunning views of the lake and the surrounding mountains. The Hazratbal Shrine is a significant landmark and a peaceful spot for visitors seeking spiritual solace.</p>
+        <h5>Nishat Bagh</h5>
+        <p>Nishat Bagh, also known as the "Garden of Joy," is a historic Mughal garden located on the eastern banks of Dal Lake. The garden is known for its beautiful layout, featuring terraced levels, lush greenery, and intricate water channels. Visitors can explore the well-maintained gardens, enjoy the floral displays, and appreciate the Mughal garden design that has been preserved through the centuries. Nishat Bagh is a popular destination for those interested in Mughal architecture and horticulture.</p>
+        <h2>Conservation Efforts in Dal Lake</h2>
+        <p>Dal Lake is the focus of several conservation efforts aimed at preserving its natural beauty and ecological balance. Initiatives include the cleaning and maintenance of the lake's waters, the control of invasive plant species, and the protection of local wildlife. The Srinagar Municipal Corporation and various environmental organizations work together to address pollution, promote sustainable tourism, and manage waste. Educational programs and community involvement are integral to these efforts, emphasizing the importance of environmental stewardship for the preservation of Dal Lake's unique ecosystem.</p>
+        <h2>Best Time to Visit</h2>
+        <p>The best time to visit Dal Lake is during the spring and summer months, from March to August, when the weather is pleasant and ideal for boat rides and outdoor activities. During this period, visitors can enjoy the blooming flowers, clear skies, and the lush greenery surrounding the lake. Autumn (September to November) offers beautiful fall colors and mild temperatures. Winter (December to February) is also a time to experience the snowy landscape and enjoy the serene beauty of the lake under a blanket of snow.</p>
+        <h2>Location</h2>
+        <p>Dal Lake is situated in Srinagar, the summer capital of Jammu and Kashmir, India. The lake is centrally located and easily accessible from various parts of the city. Visitors can reach Dal Lake by taxi, local transport, or even on foot from many of Srinagar's popular accommodations. The scenic beauty of the lake and its surroundings makes it a prominent landmark and a must-visit destination in Srinagar.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="dal_lake_photo1.jpeg" alt="Dal Lake Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dal_lake_photo2.jpeg" alt="Dal Lake Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dal_lake_photo3.jpeg" alt="Dal Lake Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Dal_lake" style="color:red;">Wikipedia</a>
+    </div><br>
+<div class="container mt-4 text-center">
+    <a href="https://www.google.com/maps/dir/?api=1&origin=Your+Location&destination=Dal+Lake,+Srinagar,+Jammu+and+Kashmir,+India" class="btn btn-primary" target="_blank">Get Directions to Dal Lake</a>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Geolocation functionality for directions
+    document.querySelector('.btn-primary').addEventListener('click', function() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                // Open Google Maps with directions
+                window.open(`https://www.google.com/maps/dir/?api=1&origin=${latitude},${longitude}&destination=Dal+Lake,+Srinagar,+Jammu+and+Kashmir,+India`, '_blank');
+            }, function(error) {
+                alert("Unable to retrieve your location.");
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    });
+
+    // Google Translate Functionality
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+        var textElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        textElements.forEach(function(element) {
+            var text = element.innerText;
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                if (element.tagName === 'SELECT') {
+                    element.querySelectorAll('option').forEach(function(option, index) {
+                        option.innerText = data[0][0][index];
+                    });
+                } else {
+                    element.innerText = translatedText;
+                }
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
