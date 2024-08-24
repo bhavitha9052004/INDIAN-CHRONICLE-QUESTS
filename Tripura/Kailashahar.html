@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kailashahar - Explore Tripura</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('kailashahar_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Kailashahar</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Kailashahar</h1>
+        <p class="lead">A Cultural Hub in Tripura</p>
+    </div>
+    <div class="description">
+        <h2>About Kailashahar</h2>
+        <p>Kailashahar, a serene town in the Unakoti district of Tripura, is known for its rich cultural heritage and historical significance. Once the capital of the ancient kingdom of Tripura, Kailashahar is dotted with temples, ancient ruins, and scenic landscapes that attract history enthusiasts and nature lovers alike.</p>
+
+        <p>The town's tranquil ambiance, coupled with its cultural and historical landmarks, offers a unique experience for visitors. Whether exploring the ancient temples or taking in the natural beauty of the region, Kailashahar provides a glimpse into the rich heritage and traditions of Tripura.</p>
+        <h2>Historical Significance</h2>
+        <p>Kailashahar holds a significant place in Tripura's history, with numerous ancient temples and ruins that reflect the region's past glory. The town is believed to have been an important center during the reign of the Manikya dynasty, and its historical landmarks continue to draw visitors from near and far.</p>
+
+        <p>One of the notable sites in Kailashahar is the Unakoti hill, which features rock-cut sculptures and carvings dating back to the 8th-9th centuries. These intricate artworks, depicting Hindu deities and mythological scenes, are a testament to the region's artistic and cultural heritage.</p>
+        <h2>Location</h2>
+        <p>Kailashahar is located in the Unakoti district of Tripura, approximately 140 kilometers from Agartala, the capital city. The town is well-connected by road and can be easily accessed by buses and taxis from various parts of the state.</p>
+        <h2>How to reach Kailashahar</h2>
+        <h6>By Air</h6><p>The nearest airport is Agartala Airport (IXA), around 140 kilometers from Kailashahar. From Agartala Airport, visitors can hire taxis or take buses to Kailashahar.</p>
+        <h6>By Train</h6><p>The closest railway station is Kumarghat Railway Station, which is approximately 25 kilometers from Kailashahar. From there, visitors can take a taxi or bus to Kailashahar.</p>
+        <h6>By Road</h6><p>Kailashahar is accessible by road from various parts of Tripura. Visitors can take buses or taxis from Agartala and other major towns to reach Kailashahar.</p>
+        <h2>Attractions</h2>
+        <h5>Unakoti Hill</h5><p>The main attraction near Kailashahar is Unakoti Hill, known for its ancient rock-cut sculptures and carvings.
+            These artworks, dating back to the 8th-9th centuries, depict various Hindu deities and mythological scenes, offering a fascinating glimpse into the region's past.</p>
+        <h5>Chouddo Devotar Temple</h5><p>This ancient temple, dedicated to the 14 deities worshipped by the Tripuri community, is a significant religious site.
+            The temple's unique architecture and cultural importance make it a must-visit for those exploring Kailashahar.</p>
+        <h5>Lakshminarayan Bari Temple</h5><p>Located in the heart of Kailashahar, this temple is dedicated to Lord Vishnu.
+            The temple's serene ambiance and architectural beauty attract devotees and tourists alike.</p>
+        <h5>Darchoi Tea Estate</h5><p>For nature enthusiasts, the Darchoi Tea Estate offers a picturesque landscape and a glimpse into the tea production process.
+            Visitors can enjoy a peaceful walk through the lush tea gardens and learn about the region's tea heritage.</p>
+        <h5>Festival Celebrations</h5><p>Kailashahar is known for its vibrant festivals and cultural celebrations.
+            Events like Durga Puja and Kharchi Puja are celebrated with great enthusiasm, offering visitors a chance to experience the local culture and traditions.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="kailashahar_photo1.jpeg" alt="Kailashahar Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="kailashahar_photo2.jpeg" alt="Kailashahar Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="kailashahar_photo3.jpeg" alt="Kailashahar Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Kailashahar" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Kailashahar -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Kailashahar</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Kailashahar, Tripura, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
