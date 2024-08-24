@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziro Valley - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ziro_image.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ziro Valley</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ziro Valley</h1>
+        <p class="lead">Discover the Natural Beauty and Cultural Heritage of Ziro Valley</p>
+    </div>
+    <div class="description">
+        <h2>Overview</h2>
+        <p>
+            Ziro Valley, located in the northeastern state of Arunachal Pradesh, India, is renowned for its enchanting landscapes and rich cultural heritage. Situated at an elevation of approximately 1,500 meters above sea level, this picturesque valley is characterized by its lush green paddy fields, verdant hills, and tranquil rivers. The valley’s natural beauty is complemented by its cool climate and serene environment, making it an ideal destination for nature lovers, photographers, and adventure enthusiasts. The unique landscape is shaped by traditional Apatani tribal agriculture, which creates a visually stunning patchwork of fields and hamlets. Visitors can explore the scenic beauty of the valley, immerse themselves in the local culture, and enjoy a peaceful retreat from the hustle and bustle of city life.
+        </p>
+        <h2>Other Tourist Attractions</h2>
+        <p>
+            Apart from the mesmerizing natural beauty of Ziro Valley, there are several notable tourist attractions that visitors can explore. The Kardo Hills offer breathtaking panoramic views of the valley and are a great spot for hiking and photography. The Talley Valley, a pristine wilderness area, is home to diverse flora and fauna and provides excellent opportunities for wildlife enthusiasts. The Talley Valley Wildlife Sanctuary is a protected area where visitors can observe rare and endangered species in their natural habitat. Another significant site is the Shiva Lingam at Kardo Hills, a sacred pilgrimage spot that attracts both spiritual seekers and curious travelers. Each of these attractions offers a unique experience, from serene landscapes to cultural and spiritual significance.
+        </p>
+        <h2>Special Features</h2>
+        <p>
+            Ziro Valley stands out for its remarkable combination of natural splendor and cultural richness. One of the valley’s special features is its inclusion in the UNESCO World Heritage tentative list, recognized for its unique Apatani tribal culture and sustainable agricultural practices. The traditional Apatani village layout, with its distinctive bamboo houses and terraced fields, offers a rare glimpse into a way of life that has remained largely unchanged for centuries. The valley also boasts a diverse range of rare flora and fauna, including several endemic species. Visitors have the opportunity to experience the traditional festivals of the Apatani tribe, such as the Myoko Festival, which showcases the vibrant cultural practices and rituals of the local community.</p>
+            <h2>Accommodation</h2>
+        <p>
+            Ziro Valley offers a range of accommodation options for visitors, catering to various preferences and budgets. For those seeking a comfortable stay, there are several well-established hotels and resorts such as Hotel Ziro and the Aspen Guest House, which offer modern amenities and beautiful views of the valley. Alternatively, visitors can opt for more rustic and authentic experiences by staying in local homestays and eco-lodges, which provide a closer connection to the Apatani culture and traditional lifestyle. These homestays offer warm hospitality and opportunities to experience local cuisine and customs firsthand. It is advisable to book accommodations in advance, especially during peak tourist seasons, to ensure availability and secure the best rates.
+        </p>
+        <h2>Traveling to Ziro Valley</h2>
+        <p>
+            Traveling to Ziro Valley can be an adventurous and scenic journey. The nearest airport is located in Tezpur, which is about 320 kilometers from Ziro Valley, and can be reached from major cities like Guwahati. From Tezpur, visitors can take a taxi or state-run bus to cover the distance to Ziro Valley. Alternatively, travelers can take a train to Rangapara Railway Station, which is approximately 380 kilometers away, and then proceed to Ziro Valley by taxi or bus. The road journey from Tezpur or Rangapara to Ziro Valley is filled with breathtaking views of the Himalayan foothills and lush green landscapes. It is recommended to check the weather and road conditions before traveling, as the mountainous terrain can be challenging, particularly during the monsoon season.
+        </p>
+        <h2>Photography and Sightseeing Tips</h2>
+        <p>
+            Ziro Valley offers ample opportunities for photography and sightseeing, thanks to its stunning natural beauty and unique cultural heritage. To capture the best photos, plan your visits to various attractions during the golden hours of early morning or late afternoon, when the natural light enhances the scenery. Bring a good quality camera and a variety of lenses to capture wide landscapes, close-up details, and vibrant cultural events. It’s also helpful to carry a tripod for stable shots in low light conditions. Respect the local customs and traditions, especially when photographing people or visiting sacred sites. Engaging with local guides can provide valuable insights and enhance your overall experience of the valley’s beauty and cultural significance.
+        </p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="ziro_photo1.jpeg" alt="Ziro Valley Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ziro_photo2.jpeg" alt="Ziro Valley Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ziro_photo3.jpeg" alt="Ziro Valley Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Ziro" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Ziro Valley -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ziro Valley</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ziro Valley, Arunachal Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6,p,li, a, button, select, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
