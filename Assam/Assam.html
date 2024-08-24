@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Assam</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('assam.jpeg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Assam</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Assam</h1>
+      <p class="lead">Discover the land of tea gardens and wildlife sanctuaries</p>
+    </div>
+    <div class="description">
+      <h2>About Assam</h2>
+      <p>Assam, located in northeastern India, is known for its picturesque landscapes, rich biodiversity, and vibrant culture. It is famous for its tea gardens, wildlife sanctuaries, and the mighty Brahmaputra River.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Kaziranga.html'">
+            <img src="kaziranga_image.jpg" alt="Kaziranga National Park" class="img-fluid mb-2">
+            Kaziranga National Park
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Manas National Park.html'">
+            <img src="manas_image.jpg" alt="Manas National Park" class="img-fluid mb-2">
+            Manas National Park
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Majuli.html'">
+            <img src="majuli_image.jpg" alt="Majuli Island" class="img-fluid mb-2">
+            Majuli Island
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Kamakhya.html'" >
+            <img src="kamakhya_photo1.jpeg" alt="Kamakhya Temple" class="img-fluid mb-2">
+            Kamakhya Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Sivasagar.html'">
+            <img src="sivasagar_image.jpg" alt="Sivasagar" class="img-fluid mb-2">
+            Sivasagar
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Guwahati.html'" >
+            <img src="guwahati_image.jpg" alt="Guwahati" class="img-fluid mb-2">
+            Guwahati
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
