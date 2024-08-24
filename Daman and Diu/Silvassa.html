@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silvassa - Explore Dadra and Nagar Haveli</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('silvassa_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Silvassa</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Silvassa</h1>
+            <p class="lead">A Gateway to Natural Beauty and Tribal Heritage</p>
+        </div>
+        <div class="description">
+            <h2>About Silvassa</h2>
+            <p>Silvassa, the capital of the Union Territory of Dadra and Nagar Haveli and Daman and Diu, is a city known for its natural beauty, vibrant culture, and historical significance. Surrounded by lush greenery and serene landscapes, Silvassa offers a perfect blend of traditional charm and modern amenities.</p>
+            <p>Silvassa is renowned for its diverse attractions, including beautiful gardens, lakes, and cultural sites. Visitors can explore the rich tribal heritage of the region, enjoy various outdoor activities, and experience the tranquil ambiance that Silvassa has to offer.</p>
+            <h2>Local Attractions</h2>
+            <p>Silvassa is home to several attractions that showcase the natural beauty and cultural heritage of the region.</p>
+            <h5>Lion Safari Wildlife Park</h5>
+            <p>The Lion Safari Wildlife Park in Silvassa is a thrilling experience where visitors can see lions in their natural habitat. The park offers a guided tour and a chance to observe these majestic creatures up close.</p>
+            <h5>Vasona Park</h5>
+            <p>Vasona Park, located near Silvassa, is a beautiful park known for its lush greenery, scenic landscapes, and a variety of flora and fauna. It's an ideal spot for picnics, leisurely walks, and enjoying nature.</p>
+            <h5>Our Lady of Piety Church</h5>
+            <p>Our Lady of Piety Church is a historical church located in Silvassa. Built during the Portuguese era, the church features beautiful architecture and a peaceful atmosphere, making it a popular spot for visitors.</p>
+            <h5>Hirwa Van Garden</h5>
+            <p>Hirwa Van Garden is another beautiful garden in Silvassa, known for its lush greenery, fountains, and scenic landscapes. It's a perfect place for a leisurely stroll and enjoying nature.</p>
+            <h5>Silvassa Tribal Museum</h5>
+            <p>The Silvassa Tribal Museum is a must-visit destination in Silvassa. The museum exhibits the rich tribal culture and heritage of the local tribes, offering insights into their traditional lifestyle and crafts.</p>
+            <h2>Location</h2>
+            <p>Silvassa is situated in the Union Territory of Dadra and Nagar Haveli and Daman and Diu. The city is easily accessible from Daman and other nearby cities, making it a convenient destination for visitors.</p>
+            <p>The best time to visit Silvassa is during the cooler months from October to March, when the weather is pleasant and ideal for outdoor activities and exploration.</p>
+            <h4>Reaching Silvassa</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Silvassa is Chhatrapati Shivaji International Airport in Mumbai. From Mumbai, you can drive to Silvassa or take a domestic flight to the nearest airport in Surat.</p>
+            <h6>Railways</h6>
+            <p>Vapi Railway Station is the closest major railway station to Silvassa, located about 18 kilometers away. Regular train services connect Vapi to various cities, and from Vapi, you can reach Silvassa by taxi or bus.</p>
+            <h6>Road</h6>
+            <p>Silvassa is easily accessible by road from nearby cities. You can drive from Mumbai, Surat, or Ahmedabad, or take a bus to Silvassa and then use local transportation to explore the city.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Rasoi Restaurant (Silvassa)</li>
+                <li>Gopal’s Restaurant (Silvassa)</li>
+                <li>Woodland Restaurant (Silvassa)</li>
+                <li>Valentino Restaurant (Silvassa)</li>
+                <li>Silvassa Café (Silvassa)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting Silvassa, you can enjoy various activities and experiences:</p>
+            <ul>
+                <li>Walking and jogging on scenic paths</li>
+                <li>Boating on the lake</li>
+                <li>Relaxing in the gardens and parks</li>
+                <li>Exploring local attractions and historical sites</li>
+                <li>Enjoying picnics and photography</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="silvassa_photo1.jpeg" alt="Silvassa Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="silvassa_photo2.jpeg" alt="Silvassa Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="silvassa_photo3.jpeg" alt="Silvassa Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Silvassa" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Silvassa -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Silvassa</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Location Script -->
+    <script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Silvassa, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+    </script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p ,li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

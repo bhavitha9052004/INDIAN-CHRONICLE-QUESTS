@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Paul's Church - Explore Daman</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('st_pauls_church_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">St. Paul's Church</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">St. Paul's Church</h1>
+            <p class="lead">A Historical Gem in Daman</p>
+        </div>
+        <div class="description">
+            <h2>About St. Paul's Church</h2>
+            <p>St. Paul's Church, located in the heart of Daman, is a magnificent example of Portuguese colonial architecture. Built in the 17th century, this historic church is known for its stunning façade, intricate woodwork, and beautiful stained glass windows. The church holds great religious significance and is a popular destination for both tourists and worshippers. Its serene ambiance and historical charm make it a must-visit site in Daman.</p>
+            <p>The church is renowned for its architectural beauty, with a combination of Gothic and Baroque styles evident in its design. Visitors can explore the church's impressive interiors, admire the detailed carvings, and appreciate the peaceful surroundings. The church also hosts regular services and events, offering a glimpse into the local religious traditions and community life.</p>
+            <h2>Local Attractions</h2>
+            <p>St. Paul's Church is surrounded by several attractions that showcase the cultural and historical richness of Daman.</p>
+            <h5>Somnath Temple</h5>
+            <p>Somnath Temple is a prominent Hindu temple located in Daman. Dedicated to Lord Shiva, the temple features beautiful architecture and a tranquil environment for worship and meditation.</p>
+            <h5>Jampore Beach</h5>
+            <p>Jampore Beach is a serene and less crowded beach near St. Paul's Church. It offers a peaceful retreat with clean sands and gentle waves, making it an ideal spot for relaxation and enjoying the sunset.</p>
+            <h5>St. Jerome Fort</h5>
+            <p>St. Jerome Fort, situated in Nani Daman, is another historical site in Daman. Built in the 17th century, the fort features robust walls and a panoramic view of the surrounding area, providing insight into the region’s colonial past.</p>
+            <h5>Daman Ganga Tourist Complex</h5>
+            <p>Daman Ganga Tourist Complex is a popular recreational area that includes parks, gardens, and a lake. It's a great place for a leisurely stroll, picnics, and enjoying nature.</p>
+            <h2>Location</h2>
+            <p>St. Paul's Church is situated in the city center of Daman, making it easily accessible for visitors. The church's central location allows for convenient exploration of nearby attractions and landmarks.</p>
+            <p>The best time to visit the church is during the cooler months from October to March, when the weather is pleasant and ideal for sightseeing and exploration.</p>
+            <h4>Reaching St. Paul's Church</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to St. Paul's Church is Chhatrapati Shivaji International Airport in Mumbai. From Mumbai, you can drive to Daman or take a domestic flight to the nearest airport in Surat.</p>
+            <h6>Railways</h6>
+            <p>Vapi Railway Station is the closest major railway station to St. Paul's Church, located about 12 kilometers away. Regular train services connect Vapi to various cities, and from Vapi, you can reach Daman by taxi or bus.</p>
+            <h6>Road</h6>
+            <p>St. Paul's Church is easily accessible by road from nearby cities. You can drive from Mumbai, Surat, or Ahmedabad, or take a bus to Daman and then use local transportation to reach the church.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Rasoi Restaurant (Daman)</li>
+                <li>Gopal’s Restaurant (Daman)</li>
+                <li>Sandipani Restaurant (Daman)</li>
+                <li>Shree Pooja Restaurant (Daman)</li>
+                <li>Hotel Ashoka (Daman)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting St. Paul's Church, you can enjoy various activities and experiences:</p>
+            <ul>
+                <li>Exploring the architectural beauty of the church</li>
+                <li>Admiring the intricate woodwork and stained glass windows</li>
+                <li>Attending religious services and events</li>
+                <li>Exploring nearby historical sites and attractions</li>
+                <li>Relaxing at the nearby beaches and parks</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="st_pauls_church_photo1.jpeg" alt="St. Paul's Church Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="st_pauls_church_photo2.jpeg" alt="St. Paul's Church Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="st_pauls_church_photo3.jpeg" alt="St. Paul's Church Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/St._Paul%27s_Church,_Daman" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to St. Paul's Church -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to St. Paul's Church</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <!-- Location Script -->
+   <script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "St. Paul's Church, Daman, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p ,li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diu Fort - Explore Diu</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('diu_fort_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Diu Fort</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Diu Fort</h1>
+            <p class="lead">A Historic Seaside Fortress</p>
+        </div>
+        <div class="description">
+            <h2>About Diu Fort</h2>
+            <p>Diu Fort, located on the coast of Diu Island, is a remarkable example of Portuguese colonial architecture. Built in the 16th century, this fort stands as a testament to the strategic maritime prowess of the Portuguese. The fort offers stunning views of the Arabian Sea and houses numerous cannons, a lighthouse, and several chapels. Its well-preserved structure and rich history make it a must-visit destination in Diu.</p>
+            <p>The fort is known for its expansive bastions, intricately carved gateways, and underground tunnels. Visitors can explore the fort's various sections, including the old barracks, powder magazines, and the remains of a once-thriving settlement. The fort also provides a serene atmosphere to enjoy the natural beauty of the surrounding seascape.</p>
+            <h2>Local Attractions</h2>
+            <p>Diu Fort is surrounded by several attractions that offer a blend of history, culture, and natural beauty.</p>
+            <h5>Nagoa Beach</h5>
+            <p>Nagoa Beach is a popular beach in Diu, known for its palm-fringed shorelines and crystal-clear waters. It is perfect for swimming, sunbathing, and water sports.</p>
+            <h5>St. Thomas Church</h5>
+            <p>St. Thomas Church, now a museum, is a beautiful example of Portuguese architecture. It houses an impressive collection of artifacts and exhibits depicting the history of Diu.</p>
+            <h5>Gangeshwar Temple</h5>
+            <p>Gangeshwar Temple is a revered Hindu temple dedicated to Lord Shiva. It is situated by the sea, with five Shivalingas submerged in the water during high tide.</p>
+            <h5>Naida Caves</h5>
+            <p>Naida Caves are a network of underground tunnels and caves located near Diu Fort. These naturally formed caves are a fascinating site for exploration and photography.</p>
+            <h5>INS Khukri Memorial</h5>
+            <p>INS Khukri Memorial is a tribute to the naval ship and its brave crew who perished during the Indo-Pak war of 1971. The memorial is situated on a hill overlooking the sea, offering a tranquil spot for reflection.</p>
+            <h5>Zampa Gateway</h5>
+            <p>Zampa Gateway is an ancient gateway that marks the entrance to Diu. It features beautiful carvings and serves as a reminder of Diu’s historical significance.</p>
+            <h2>Location</h2>
+            <p>Diu Fort is located on the eastern end of Diu Island, making it easily accessible for visitors. The fort's coastal location offers breathtaking views and convenient access to other local attractions.</p>
+            <p>The best time to visit the fort is during the cooler months from October to March, when the weather is pleasant and suitable for outdoor exploration.</p>
+            <h4>Reaching Diu Fort</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Diu Fort is Diu Airport, which is well-connected to major cities like Mumbai. From the airport, you can take a taxi or local transportation to reach the fort.</p>
+            <h6>Railways</h6>
+            <p>Veraval Railway Station is the closest major railway station to Diu, located about 90 kilometers away. Regular train services connect Veraval to various cities, and from Veraval, you can reach Diu by taxi or bus.</p>
+            <h6>Road</h6>
+            <p>Diu Fort is easily accessible by road from nearby cities. You can drive from Ahmedabad, Rajkot, or Bhavnagar, or take a bus to Diu and then use local transportation to reach the fort.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>O'Coqueiro Restaurant (Diu)</li>
+                <li>Apana Foodland (Diu)</li>
+                <li>Shree Ram Vijay Refreshment (Diu)</li>
+                <li>Khajura Bar & Restaurant (Diu)</li>
+                <li>The Cats Eye Restaurant (Diu)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting Diu Fort, you can enjoy various activities and experiences:</p>
+            <ul>
+                <li>Exploring the historical architecture and fortifications</li>
+                <li>Enjoying panoramic views of the Arabian Sea</li>
+                <li>Visiting nearby beaches and relaxing by the sea</li>
+                <li>Exploring the Naida Caves and taking photographs</li>
+                <li>Visiting local museums and historical sites</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="diu_fort_photo1.jpg" alt="Diu Fort Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="diu_fort_photo2.jpg" alt="Diu Fort Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="diu_fort_photo3.jpg" alt="Diu Fort Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Diu_Fort" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Diu Fort -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Diu Fort</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <!-- Location Script -->
+   <script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Diu Fort, Diu, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. ');
+                var translatedParagraph = '';
+                var count = 0;
+
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p ,li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

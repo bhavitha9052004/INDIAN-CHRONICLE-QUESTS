@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jampore Beach - Explore Daman</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('jampore_beach_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Jampore Beach</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Jampore Beach</h1>
+            <p class="lead">A Tranquil Beach Escape in Daman</p>
+        </div>
+        <div class="description">
+            <h2>About Jampore Beach</h2>
+            <p>Jampore Beach, located near the city of Daman, is a serene and picturesque beach known for its calm waters and stunning views. The beach is an ideal destination for those seeking a peaceful getaway, offering a perfect setting for relaxation and leisure activities. The expansive sandy shores are great for a leisurely walk, sunbathing, or enjoying a beachside picnic. The shallow waters make it safe for swimming and wading, and the gentle sea breeze creates a refreshing ambiance.</p>
+            <p>Visitors can engage in various activities at Jampore Beach, such as horse riding, camel rides, and beach volleyball. The beach is also known for its beautiful sunsets, providing a perfect backdrop for photography enthusiasts. The nearby shacks and eateries offer a variety of local and seafood delicacies, adding to the overall beach experience. Jampore Beach is a great place to unwind and enjoy the natural beauty of Daman.</p>
+            <h2>Local Attractions</h2>
+            <p>Jampore Beach is surrounded by several notable attractions that offer a deeper exploration of Daman’s cultural heritage and scenic beauty.</p>
+            <h5>Moti Daman Fort</h5>
+            <p>Moti Daman Fort, a prominent historical site in Daman, showcases the region's colonial past with its impressive Portuguese architecture. The fort, built in the 16th century, houses several ancient churches, a lighthouse, and government buildings. Visitors can explore the fort's ramparts, enjoy panoramic views of the Arabian Sea, and learn about Daman's rich history through the artifacts and exhibits displayed within the fort premises.</p>
+            <h5>Devka Beach</h5>
+            <p>Devka Beach is another popular beach in Daman, known for its black sand and scenic beauty. The beach features an amusement park with fun rides and entertainment for visitors of all ages. Devka Beach is a great place for a day trip, where you can enjoy a leisurely stroll along the shoreline, take in the beautiful ocean views, and indulge in delicious snacks from the beachside stalls.</p>
+            <h5>Cathedral of Bom Jesus</h5>
+            <p>The Cathedral of Bom Jesus, also known as the Bom Jesus Church, is a historical church located in the heart of Daman. Built in the 16th century, the church features stunning Portuguese architecture with intricate woodwork and beautiful stained glass windows. The church is an important religious site and a popular attraction for visitors interested in exploring the colonial heritage of Daman.</p>
+            <h5>Gangeshwar Temple</h5>
+            <p>The Gangeshwar Temple, dedicated to Lord Shiva, is located in the nearby town of Nani Daman. The temple is known for its unique setting, with five lingas situated amidst the rocks on the beach. During high tide, the lingas are partially submerged by the sea, creating a fascinating sight. The temple is a serene place for worship and offers stunning views of the ocean.</p>
+            <h2>Location</h2>
+            <p>Jampore Beach is located about 6 kilometers from the city center of Daman. The beach is easily accessible by road and is a popular spot for both locals and tourists. The surrounding landscape offers beautiful views of the Arabian Sea and the lush greenery of the coastal region.</p>
+            <p>The climate at Jampore Beach is tropical, with warm temperatures throughout the year. The best time to visit is during the winter months from October to March, when the weather is pleasant and ideal for beach activities.</p>
+            <h4>Reaching Jampore Beach</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Jampore Beach is Chhatrapati Shivaji International Airport in Mumbai. From Mumbai, you can travel to Daman by road or take a domestic flight to the nearest airport in Surat.</p>
+            <h6>Railways</h6>
+            <p>The nearest railway station to Jampore Beach is Vapi Railway Station, located about 12 kilometers away. Regular trains connect Vapi to major cities like Mumbai, Ahmedabad, and Surat. From Vapi, you can hire a taxi or take a bus to reach Jampore Beach.</p>
+            <h6>Road</h6>
+            <p>Jampore Beach is well-connected by road. You can drive from nearby cities like Mumbai, Surat, and Ahmedabad, or take a bus to Daman and then a local taxi or auto-rickshaw to the beach.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Veera da Dhaba (Daman)</li>
+                <li>Spice Galleon (Daman)</li>
+                <li>Oye Daman (Daman)</li>
+                <li>Gurukripa Restaurant (Daman)</li>
+                <li>Daman Delite (Daman)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting Jampore Beach, there are several activities and experiences you can enjoy:</p>
+            <ul>
+                <li>Relaxing on the sandy shores of Jampore Beach</li>
+                <li>Swimming and wading in the calm waters</li>
+                <li>Enjoying horse riding and camel rides</li>
+                <li>Playing beach volleyball with friends and family</li>
+                <li>Exploring the historic Moti Daman Fort</li>
+                <li>Visiting Devka Beach and its amusement park</li>
+                <li>Discovering the colonial architecture of the Cathedral of Bom Jesus</li>
+                <li>Experiencing the unique setting of Gangeshwar Temple</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="jampore_beach_photo1.jpeg" alt="Jampore Beach Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="jampore_beach_photo2.jpeg" alt="Jampore Beach Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="jampore_beach_photo3.jpeg" alt="Jampore Beach Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Jampore_Beach" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Jampore Beach -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Jampore Beach</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <!-- Location Script -->
+   <script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Jampore Beach, Daman, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+        </script>
+
+        <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p ,li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

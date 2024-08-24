@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dudhni Lake - Explore Daman</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px; /* To accommodate the fixed navbar */
+        }
+        .jumbotron {
+            background-image: url('dudhni_lake_image.jpg');
+            background-size: cover;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .description {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Dudhni Lake</a>
+        <!-- Language Selector -->
+        <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+            <option value="" disabled selected>Select Language</option>
+            <option value="en">English</option>
+            <option value="te">Telugu</option>
+            <option value="hi">Hindi</option>
+            <option value="ta">Tamil</option>
+            <option value="ml">Malayalam</option>
+            <option value="fr">French</option>
+            <!-- Add more languages as needed -->
+        </select>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Dudhni Lake</h1>
+            <p class="lead">A Serene Getaway in Daman</p>
+        </div>
+        <div class="description">
+            <h2>About Dudhni Lake</h2>
+            <p>Dudhni Lake, located in the picturesque region of Daman, is a serene and tranquil destination perfect for nature lovers and adventure enthusiasts. Surrounded by lush greenery and rolling hills, the lake offers breathtaking views and a peaceful environment. Visitors can enjoy various water activities such as boating, kayaking, and jet skiing, making it a popular spot for both relaxation and adventure.</p>
+            <p>The lake is also an excellent place for picnics, with several spots around its shores offering scenic views and a relaxing atmosphere. The natural beauty and calm waters of Dudhni Lake make it a must-visit destination in Daman, providing a perfect escape from the hustle and bustle of city life.</p>
+            <h2>Local Attractions</h2>
+            <p>Dudhni Lake is surrounded by several attractions that showcase the natural beauty and cultural richness of Daman.</p>
+            <h5>Lion Safari Wildlife Park</h5>
+            <p>Lion Safari Wildlife Park is a unique attraction near Dudhni Lake, offering visitors a chance to see lions and other wildlife in their natural habitat. The park is a great place for a family outing and to learn about wildlife conservation.</p>
+            <h5>Vasona Park</h5>
+            <p>Vasona Park is a beautiful recreational area near Dudhni Lake, featuring lush gardens, walking trails, and picnic spots. It’s an ideal place for a leisurely stroll and to enjoy the natural surroundings.</p>
+            <h5>Tribal Museum</h5>
+            <p>The Tribal Museum in Silvassa showcases the rich cultural heritage and traditions of the local tribal communities. Visitors can explore various exhibits, including traditional artifacts, clothing, and tools.</p>
+            <h5>Satmaliya Deer Park</h5>
+            <p>Satmaliya Deer Park is home to a variety of deer species and other wildlife. The park provides a great opportunity to observe animals in a natural setting and is a popular spot for nature enthusiasts.</p>
+            <h2>Location</h2>
+            <p>Dudhni Lake is situated in the serene region of Daman, making it easily accessible for visitors. The lake's location allows for convenient exploration of nearby attractions and natural landscapes.</p>
+            <p>The best time to visit Dudhni Lake is during the cooler months from October to March, when the weather is pleasant and ideal for outdoor activities and exploration.</p>
+            <h4>Reaching Dudhni Lake</h4>
+            <h6>Air</h6>
+            <p>The nearest airport to Dudhni Lake is Chhatrapati Shivaji International Airport in Mumbai. From Mumbai, you can drive to Daman or take a domestic flight to the nearest airport in Surat.</p>
+            <h6>Railways</h6>
+            <p>Vapi Railway Station is the closest major railway station to Dudhni Lake, located about 12 kilometers away. Regular train services connect Vapi to various cities, and from Vapi, you can reach Daman by taxi or bus.</p>
+            <h6>Road</h6>
+            <p>Dudhni Lake is easily accessible by road from nearby cities. You can drive from Mumbai, Surat, or Ahmedabad, or take a bus to Daman and then use local transportation to reach the lake.</p>
+            <h2>Restaurants</h2>
+            <ul>
+                <li>Rasoi Restaurant (Daman)</li>
+                <li>Gopal’s Restaurant (Daman)</li>
+                <li>Sandipani Restaurant (Daman)</li>
+                <li>Shree Pooja Restaurant (Daman)</li>
+                <li>Hotel Ashoka (Daman)</li>
+            </ul>
+            <h2>Activities</h2>
+            <p>While visiting Dudhni Lake, you can enjoy various activities and experiences:</p>
+            <ul>
+                <li>Boating and kayaking on the lake</li>
+                <li>Jet skiing and other water sports</li>
+                <li>Picnicking by the lakeside</li>
+                <li>Exploring nearby parks and wildlife</li>
+                <li>Relaxing and enjoying the natural beauty</li>
+            </ul>
+            <h2>Professional Photos</h2>
+            <!-- Photo Gallery -->
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="dudhni_lake_photo1.jpeg" alt="Dudhni Lake Photo 1" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="dudhni_lake_photo2.jpeg" alt="Dudhni Lake Photo 2" class="img-fluid">
+                </div>
+                <div class="col-md-4">
+                    <img src="dudhni_lake_photo3.jpeg" alt="Dudhni Lake Photo 3" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 text-center">
+        <a href="https://en.wikipedia.org/wiki/Dudhni_Lake" style="color:red;">Wikipedia</a>
+    </div><br>
+    <!-- Button to Get Directions to Dudhni Lake -->
+    <div class="container mt-4 text-center">
+        <button id="map-btn" class="btn btn-primary">Get Directions to Dudhni Lake</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <!-- Location Script -->
+   <script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Dudhni Lake, Daman, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+    <!-- Language Translator Script -->
+    <script>
+        function translatePage() {
+            var targetLanguage = document.getElementById('languageSelect').value;
+
+            // Check if a language is selected
+            if (!targetLanguage) {
+                alert('Please select a language.');
+                return;
+            }
+
+            // Translate all paragraphs
+            var paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+                var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+                var translatedParagraph = '';
+                var count = 0;
+                sentences.forEach(function(sentence) {
+                    fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                    .then(response => response.json())
+                    .then(data => {
+                        var translatedSentence = data[0][0][0];
+                        translatedParagraph += translatedSentence + '. ';
+                        count++;
+                        if (count === sentences.length) {
+                            paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                            // Hide the language selection dropdown
+                            document.getElementById('languageSelect').style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Translation Error:', error);
+                    });
+                });
+            });
+
+            // Translate all headings, links, buttons, and options
+            var elements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, p ,li, a, span, button, option');
+            elements.forEach(function(element) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedText = data[0][0][0];
+                    element.innerHTML = translatedText;
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
