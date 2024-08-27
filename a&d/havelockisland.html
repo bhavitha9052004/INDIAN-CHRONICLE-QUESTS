@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Havelock Island - Paradise in the Andaman Islands</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('hi1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Havelock Island</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Havelock Island</h1>
+        <p class="lead">A Tropical Paradise in the Andaman and Nicobar Islands</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Havelock Island, officially known as Swaraj Dweep, is one of the most popular tourist destinations in the Andaman and Nicobar Islands. Renowned for its pristine beaches, crystal-clear waters, and lush greenery, the island offers a perfect escape for nature lovers and adventure enthusiasts alike.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Located approximately 57 kilometers northeast of Port Blair, Havelock Island is part of Ritchie's Archipelago. The island spans an area of about 92 square kilometers and is characterized by its dense tropical forests, coral reefs, and stunning coastline. The island's geographical features make it an ideal location for a variety of water activities, including snorkeling, scuba diving, and kayaking.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Named after British General Sir Henry Havelock, the island has a rich historical background. During the colonial period, it served as a settlement for Indian freedom fighters who were exiled by the British. The island's history is also intertwined with the indigenous tribes who have lived here for centuries, maintaining their unique culture and traditions.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Havelock Island is a melting pot of cultures, with a diverse population comprising settlers from mainland India and indigenous tribes. The local culture is reflected in the island's festivals, cuisine, and handicrafts. Visitors can experience the traditional lifestyle of the islanders and witness their vibrant cultural heritage.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>Havelock Island is home to some of the most beautiful beaches in the world. Radhanagar Beach, also known as Beach No. 7, has been consistently ranked among the best beaches globally for its turquoise waters and white sandy shores. Other notable beaches include Elephant Beach, known for its coral reefs, and Kalapathar Beach, famous for its black rocks and serene environment.</p>
+
+        <h2>Marine Biodiversity</h2>
+        <p>The waters surrounding Havelock Island are teeming with marine life, making it a haven for divers and snorkelers. The coral reefs here are home to a wide variety of fish, sea turtles, and other marine creatures. The island's rich marine biodiversity is a key attraction for eco-tourists and marine researchers.</p>
+
+        <h2>Adventure Activities</h2>
+        <p>Havelock Island offers a range of adventure activities for thrill-seekers. Scuba diving is a popular activity, with several dive centers offering courses and guided dives to explore the underwater world. Snorkeling, kayaking, and fishing are other popular activities that allow visitors to immerse themselves in the island's natural beauty.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are underway to preserve the natural beauty and biodiversity of Havelock Island. Conservation programs aim to protect the coral reefs, marine life, and forested areas from environmental degradation. Sustainable tourism practices are encouraged to ensure that the island remains a pristine paradise for future generations.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Havelock Island offers a range of accommodation options, from luxury resorts to budget-friendly guesthouses. The island's hospitality industry is well-developed, providing visitors with a comfortable and memorable stay. Guided tours, boat trips, and nature walks are available to help visitors explore the island's attractions.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="hi1.jpg" alt="Havelock Island Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="hi2.jpg" alt="Havelock Island Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="hi3.jpg" alt="Havelock Island Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Havelock_Island" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Havelock Island -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Havelock Island</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Havelock Island, Andaman and Nicobar Islands, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

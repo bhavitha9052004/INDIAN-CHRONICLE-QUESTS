@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neil Island - The Gem of Andaman</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('no1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Neil Island</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Neil Island</h1>
+        <p class="lead">A Tranquil Haven in the Andaman Archipelago</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Neil Island, also known as Shaheed Dweep, is a small but picturesque island in the Andaman and Nicobar archipelago. Known for its stunning coral reefs, lush green forests, and vibrant marine life, Neil Island is a perfect destination for travelers seeking tranquility and natural beauty.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Situated approximately 37 kilometers northeast of Port Blair, Neil Island spans an area of about 13.7 square kilometers. The island is characterized by its sandy beaches, clear blue waters, and abundant greenery. Its flat terrain makes it an ideal spot for cycling and leisurely walks.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Neil Island was named after British Brigadier General James Neil, a significant figure during the colonial period. The island's history is intertwined with the broader history of the Andaman Islands, including its role as a settlement for convicts during the British rule. Despite its small size, the island holds historical value and has seen various phases of development over the years.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>The island is home to a small but diverse population, comprising settlers from different parts of India. The local culture is a blend of various Indian traditions, reflected in the island's festivals, cuisine, and everyday life. The islanders' hospitality and simple lifestyle offer a unique cultural experience for visitors.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>Neil Island is renowned for its beautiful beaches. Laxmanpur Beach, Bharatpur Beach, and Sitapur Beach are among the most popular spots, offering pristine sandy shores and breathtaking sunsets. The island's natural beauty is complemented by its vibrant coral reefs and rich marine biodiversity, making it a haven for nature enthusiasts.</p>
+
+        <h2>Marine Biodiversity</h2>
+        <p>The waters around Neil Island are home to a diverse array of marine life, including colorful corals, fish, and sea turtles. The island's coral reefs are among the best-preserved in the Andaman Islands, offering excellent opportunities for snorkeling and scuba diving. The rich marine biodiversity is a major draw for eco-tourists and marine researchers.</p>
+
+        <h2>Adventure Activities</h2>
+        <p>Neil Island offers a range of adventure activities for visitors. Scuba diving and snorkeling are popular activities, with several dive centers offering guided tours to explore the underwater world. The island's calm waters are also ideal for kayaking, while its scenic landscapes are perfect for cycling and trekking.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are being made to preserve the natural beauty and ecological balance of Neil Island. Conservation programs focus on protecting the coral reefs, marine life, and forested areas from environmental degradation. Sustainable tourism practices are encouraged to ensure that the island's pristine environment is maintained for future generations.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Neil Island offers a range of accommodation options, from eco-friendly resorts to budget guesthouses. The island's hospitality industry is well-developed, providing visitors with a comfortable and memorable stay. Guided tours, boat trips, and nature walks are available to help visitors explore the island's attractions and experience its natural beauty.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="no1.jpg" alt="Neil Island Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="no2.jpg" alt="Neil Island Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="no3.webp" alt="Neil Island Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Neil_Island" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Neil Island -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Neil Island</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Neil Island, Andaman and Nicobar Islands, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

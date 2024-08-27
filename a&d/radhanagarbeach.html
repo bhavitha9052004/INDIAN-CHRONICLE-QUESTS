@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhanagar Beach - The Jewel of Havelock</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('rb1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Radhanagar Beach</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Radhanagar Beach</h1>
+        <p class="lead">A Tropical Paradise on Havelock Island</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Radhanagar Beach, often referred to as Beach No. 7, is one of the most stunning beaches in Asia, located on Havelock Island in the Andaman and Nicobar archipelago. Known for its pristine white sands, clear turquoise waters, and lush greenery, Radhanagar Beach offers a perfect blend of natural beauty and tranquility.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Situated on the western coast of Havelock Island, Radhanagar Beach stretches over 2 kilometers. The beach is bordered by the azure waters of the Bay of Bengal on one side and dense tropical forests on the other, providing a serene and picturesque setting for visitors.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Radhanagar Beach has been a popular destination for travelers and nature enthusiasts for many years. Its recognition as Asia's Best Beach by Time Magazine in 2004 brought it into the global spotlight, attracting tourists from all over the world. The beach has a history of minimal human intervention, preserving its natural charm and beauty.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>The beach is part of the rich cultural tapestry of the Andaman Islands, home to indigenous tribes and a melting pot of cultures from the Indian mainland. The local communities on Havelock Island are known for their warm hospitality and sustainable living practices, offering visitors a glimpse into a way of life that is closely connected to nature.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>Radhanagar Beach is renowned for its natural beauty. The soft white sands and clear blue waters make it an ideal spot for swimming, sunbathing, and beachcombing. The surrounding forests are home to diverse flora and fauna, adding to the beach's allure. The sunsets at Radhanagar Beach are particularly spectacular, drawing visitors for evening strolls and photography sessions.</p>
+
+        <h2>Marine Biodiversity</h2>
+        <p>The waters around Radhanagar Beach are teeming with marine life, making it a great location for snorkeling and diving. Visitors can explore vibrant coral reefs and encounter various species of fish, sea turtles, and other marine creatures. The beach's calm and shallow waters are perfect for snorkeling, offering a safe and enjoyable experience for all.</p>
+
+        <h2>Adventure Activities</h2>
+        <p>Radhanagar Beach offers a range of adventure activities for visitors. In addition to snorkeling and diving, kayaking and paddleboarding are popular activities. The beach is also a great starting point for trekking and nature walks, allowing visitors to explore the island's interior and discover its hidden gems.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are being made to preserve the pristine environment of Radhanagar Beach. Conservation programs focus on protecting the beach's natural habitats and marine ecosystems. Sustainable tourism practices are encouraged, and visitors are urged to respect the environment by avoiding littering and minimizing their impact on the beach's delicate ecosystem.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Radhanagar Beach offers a range of accommodation options, from luxury resorts to budget guesthouses. The beach is easily accessible from the main jetty on Havelock Island, with regular ferry services connecting it to Port Blair and other islands. Local eateries and cafes provide a variety of dining options, allowing visitors to enjoy delicious seafood and other local delicacies.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="rb1.jpg" alt="Radhanagar Beach Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="rb2.jpg" alt="Radhanagar Beach Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="rb3.jpg" alt="Radhanagar Beach Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Radhanagar_Beach" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Radhanagar Beach -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Radhanagar Beach</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Radhanagar Beach, Havelock Island, Andaman and Nicobar Islands, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

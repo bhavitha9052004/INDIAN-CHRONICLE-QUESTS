@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ross Island - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ross1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ross Island</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ross Island</h1>
+        <p class="lead">The former administrative headquarters of the British in the Andaman Islands</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Ross Island, located in the Andaman and Nicobar Islands, served as the administrative headquarters for the British during their rule over the islands. Named after marine surveyor Sir Daniel Ross, the island became the seat of power for the British colony in 1858. The island witnessed the rise and fall of British colonialism, serving as a microcosm of the larger imperial enterprise in India.</p>
+        
+        <p>The island was equipped with all the amenities and facilities of a British township, including a church, hospital, bakery, press, swimming pool, and even a cemetery. However, the island was abandoned after an earthquake in 1941, and subsequent Japanese occupation during World War II left it in ruins. Today, it stands as a testament to the colonial past and the resilience of nature reclaiming its space.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Ross Island holds immense cultural significance as a relic of the British era in India. The remnants of British architecture and infrastructure on the island provide a glimpse into the colonial lifestyle and administration. The island's history is intertwined with the broader narrative of India's struggle for independence and the eventual departure of the British from Indian soil.</p>
+
+        <p>Despite its abandonment, the island continues to attract visitors who are keen to explore its ruins and learn about its storied past. The island also hosts a light and sound show that narrates the history of Ross Island, bringing to life the stories of its former inhabitants and their experiences.</p>
+
+        <h2>Architectural Design</h2>
+        <p>The architecture of Ross Island reflects the grandeur and elegance of British colonial design. The island was meticulously planned and constructed to replicate the comforts and lifestyle of a British town. The buildings, though now in ruins, still showcase the architectural style of the period, with brick structures, arched doorways, and spacious layouts.</p>
+        
+        <p>Key structures on the island include the Chief Commissioner's residence, the church, the bakery, and the barracks. These buildings were constructed using locally sourced materials and were designed to withstand the tropical climate of the region. The remnants of these structures offer a fascinating insight into the architectural and engineering practices of the time.</p>
+
+        <h2>Natural Reclamation</h2>
+        <p>One of the most striking aspects of Ross Island is the way nature has reclaimed the space over the years. The once-thriving township is now overgrown with dense vegetation, and tree roots have enveloped the ruins, creating a hauntingly beautiful landscape. This natural reclamation serves as a poignant reminder of the impermanence of human endeavors and the enduring power of nature.</p>
+
+        <p>The island is home to various species of flora and fauna, including deer, peacocks, and numerous bird species. The blend of historical ruins and lush greenery makes Ross Island a unique destination for nature lovers and history enthusiasts alike.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Today, Ross Island is a popular tourist destination, accessible by boat from Port Blair. Visitors can explore the ruins, walk through the overgrown pathways, and take in the serene beauty of the island. The light and sound show, conducted in the evenings, offers an immersive experience, narrating the history and significance of Ross Island through captivating visuals and audio.
+        
+        <br>Guided tours are available, providing detailed information about the island's history, architecture, and natural features. The island's tranquil atmosphere and scenic views make it a perfect spot for photography and leisurely exploration.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="ross1.jpg" alt="Ross Island Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ross2.jpg" alt="Ross Island Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ross3.jpg" alt="Ross Island Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Ross_Island_(Andaman)" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Ross Island -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ross Island</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ross Island, Port Blair, Andaman and Nicobar Islands, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
