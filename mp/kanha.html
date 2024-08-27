@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanha National Park</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('kana.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Kanha National Park</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Kanha National Park</h1>
+        <p class="lead">A spectacular haven for wildlife and natural beauty</p>
+    </div>
+    <div class="description">
+        <h2>About Kanha National Park</h2>
+        <p>Kanha National Park, located in the heart of Madhya Pradesh, India, is one of the largest and most picturesque national parks in the country. Established in 1955, it is part of the larger Kanha Tiger Reserve, which was created in 1973 as a part of Project Tiger, India's most important wildlife conservation project. Covering an area of over 940 square kilometers, the park boasts a stunning landscape of lush sal and bamboo forests, grassy meadows, and meandering streams.</p>
+        
+        <h2>Wildlife</h2>
+        <p>Kanha is renowned for its rich and diverse wildlife. It is home to the majestic Bengal tiger, the park's most famous inhabitant, along with leopards, wild dogs, and the rare hardground barasingha, also known as the swamp deer, which is the park's mascot. Visitors can also spot a variety of other mammals, including sloth bears, Indian wild dogs (dhole), gaur (Indian bison), and several species of deer, such as spotted deer (chital) and sambar.</p>
+        
+        <h2>Bird Watching</h2>
+        <p>Bird enthusiasts will find Kanha a paradise, with over 300 species of birds recorded in the park. From the vibrant Indian roller to the elusive crested serpent eagle, the park offers excellent bird-watching opportunities. The varied habitat, including dense forests, open meadows, and water bodies, supports a wide array of avian life, making it a prime location for bird photographers and nature lovers alike.</p>
+        
+        <h2>Flora</h2>
+        <p>The flora of Kanha National Park is equally impressive. The dense forests are predominantly composed of sal trees, but the park also features a rich variety of other vegetation, including bamboo thickets, grasslands, and mixed forests. The diverse plant life not only provides a habitat for wildlife but also contributes to the park's stunning scenic beauty, particularly during the monsoon season when the entire landscape turns lush and green.</p>
+        
+        <h2>Conservation Efforts</h2>
+        <p>Kanha has been at the forefront of wildlife conservation in India. The successful efforts to save the barasingha from extinction are a testament to the park's dedication to preserving its natural heritage. Ongoing conservation projects focus on habitat restoration, anti-poaching measures, and community involvement to ensure the long-term survival of the park's diverse ecosystems and resident species.</p>
+        
+        <h2>Visitor Experience</h2>
+        <p>Visiting Kanha National Park offers a unique and unforgettable experience. Safaris are conducted in open jeeps, allowing visitors to get up close and personal with the park's wildlife while guided by experienced naturalists. The park's well-maintained infrastructure includes several visitor facilities, such as accommodation options ranging from luxury resorts to budget lodges, ensuring a comfortable stay amidst nature. Additionally, the park's interpretive center provides educational exhibits about the park's flora, fauna, and conservation history.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="kana.jpg" alt="Kanha National Park Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="kana2.jpg" alt="Kanha National Park Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="kana3.jpeg" alt="Kanha National Park Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Kanha_National_Park" style="color:red;">Wikipedia</a>
+</div>
+
+
+<!-- Button to Get Directions to Kanha National Park -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Kanha National Park</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Kanha National Park, Madhya Pradesh, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

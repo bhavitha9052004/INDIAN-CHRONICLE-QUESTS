@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanchi Stupa - Ancient Monument</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('https://2.bp.blogspot.com/-G-MMfFR3WII/VU889HaSJvI/AAAAAAAAA8s/raH5Y_VrkTg/s1600/sanchi.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+    .photo-gallery img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Sanchi Stupa</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Sanchi Stupa</h1>
+        <p class="lead">Ancient monument of Buddhist architecture</p>
+    </div>
+    <div class="description">
+        <h2>History</h2>
+        <p>The Sanchi Stupa, located in Sanchi, Madhya Pradesh, India, is one of the oldest stone structures in India and an important monument of Buddhist architecture. Constructed under the patronage of Emperor Ashoka in the 3rd century BCE, the Great Stupa at Sanchi is a hemispherical brick structure built over the relics of the Buddha. Sanchi became an important pilgrimage site and a center for Buddhist learning and culture. Ashoka’s wife, Devi, is said to have been born in nearby Vidisha and played a significant role in promoting Buddhism in the region. Over the centuries, the site developed with the addition of several stupas, temples, monasteries, and other structures, spanning from the Mauryan period through the Gupta period, thus reflecting the evolution of Indian art and architecture.
+
+The significance of the Sanchi Stupa goes beyond its role as a religious site. It symbolizes the spread of Buddhism from India to other parts of Asia and embodies the principles of Dhamma. The stupa, which served as a physical manifestation of Buddha's presence, was intended to inspire spiritual reflection and meditation. The inscriptions found at Sanchi provide valuable insights into the history, culture, and socio-political conditions of ancient India. They reveal the generosity of numerous patrons, including kings, monks, nuns, and laypeople, who contributed to the construction and maintenance of the site. The Sanchi Stupa also played a crucial role in the revival of Buddhist architecture and heritage in the modern period, after its rediscovery in the early 19th century by British archaeologist Sir Alexander Cunningham.</p>
+        <h2>Architecture</h2>
+        <p>The stupa is a hemispherical dome built over a raised platform, adorned with intricate carvings and sculptures depicting scenes from the life of Buddha. It is surrounded by a railing with four gateways, known as toranas, each intricately carved with Buddhist motifs.</p>
+        <h2>Significance</h2>
+        <p>The architectural splendor of the Sanchi Stupa is a testament to the ingenuity and craftsmanship of ancient Indian builders. The Great Stupa (Stupa No. 1) is the most prominent structure, featuring a massive dome (anda) symbolizing the infinite sky and the cosmic nature of Buddha's teachings. This dome is topped by a square railing (harmika), which encases a central pillar supporting three-tiered umbrellas (chattra), representing the Three Jewels of Buddhism: Buddha, Dharma, and Sangha. Surrounding the stupa is a stone balustrade with four intricately carved gateways (toranas) oriented towards the cardinal points. Each torana is adorned with elaborate carvings depicting scenes from the Jataka tales, which narrate the previous lives of the Buddha, and other significant events from his life.
+
+The carvings on the toranas are remarkable for their detailed narrative quality and artistic finesse. They showcase a variety of motifs, including mythological beings, animals, plants, and geometric patterns, all interwoven to convey religious and moral stories. These gateways serve both a symbolic and functional purpose, guiding pilgrims around the stupa in a clockwise direction (pradakshina) as part of their ritual practice. The site also includes other stupas, monolithic pillars, temples, and monasteries. Notable among them is Stupa No. 2, which features more austere decorative elements, and Stupa No. 3, which houses relics of two of Buddha's chief disciples, Sariputra and Mahamoggallana. The Ashokan pillar, with its finely polished sandstone and a four-lion capital, stands as a testament to Mauryan art and serves as an important edict-bearing structure, emphasizing Ashoka’s commitment to the spread of Buddhism and ethical governance.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="https://th.bing.com/th/id/R.50018bf1e007ce2d6d592b44c7cbbe45?rik=ghgFEsdBqJgu0g&riu=http%3a%2f%2fwww.hlimg.com%2fimages%2fplaces2see%2f738X538%2f7_1488022061m.jpg&ehk=DS%2bsbdQRFgPWO22oIGp8bjp4quF8ZQxYxlUXEYTyUkw%3d&risl=&pid=ImgRaw&r=0" alt="Sanchi Stupa Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="https://i.pinimg.com/736x/26/7e/08/267e08139e4f20f9340ed62553f7c5bf.jpg" alt="Sanchi Stupa Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="https://th.bing.com/th/id/R.f2d3d5f26fa888a0375c367be06bafe1?rik=mP1suSfmyiYuAg&riu=http%3a%2f%2fwww.topindiantours.com%2fimages%2fcity%2fgreat-stupa.jpg&ehk=2Ni4ytYU82D30Y5Tk8%2fopaaAm0VYW6b8WOMTRBacNnw%3d&risl=&pid=ImgRaw&r=0" alt="Sanchi Stupa Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Sanchi" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Sanchi Stupa -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Sanchi Stupa</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Sanchi Stupa, Madhya Pradesh, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html> 

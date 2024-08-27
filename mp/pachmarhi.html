@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pachmarhi</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('p1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Pachmarhi</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Pachmarhi</h1>
+        <p class="lead">The Queen of Satpura, a hill station rich in history and natural beauty</p>
+    </div>
+    <div class="description">
+        <h2>About Pachmarhi</h2>
+        <p>Pachmarhi, nestled in the heart of Madhya Pradesh, India, is a charming hill station known as the "Queen of Satpura." With its lush greenery, waterfalls, caves, and serene environment, Pachmarhi offers a perfect escape for nature lovers and adventure enthusiasts. The town is situated at an elevation of 1,067 meters (3,501 feet) in the Satpura Range, making it a cool and refreshing retreat.</p>
+        
+        <h2>Natural Wonders</h2>
+        <p>Pachmarhi is renowned for its stunning natural landscapes. The Apsara Vihar waterfall, also known as Fairy Pool, is a popular spot for visitors to enjoy a refreshing dip. Bee Falls, with its cascading waters, provides a picturesque setting for picnics and relaxation. The Handi Khoh, a deep ravine with steep cliffs, offers breathtaking views and is a favorite among trekkers and photographers.</p>
+        
+        <h2>Historical Significance</h2>
+        <p>Besides its natural beauty, Pachmarhi is steeped in history. The Pandav Caves, believed to have been carved by the Pandavas during their exile, are a major attraction. These five ancient rock-cut caves are now a protected monument. The town's colonial heritage is evident in its architecture, with several buildings and churches dating back to the British era, including the charming Christ Church.</p>
+        
+        <h2>Adventure and Activities</h2>
+        <p>Pachmarhi offers a range of adventure activities for thrill-seekers. Trekking through the dense forests and rugged terrains is a popular activity, with trails leading to scenic viewpoints such as Dhoopgarh, the highest point in the Satpura range. The Satpura Adventure Club organizes activities like paragliding, rock climbing, and camping, providing an adrenaline rush for adventure enthusiasts.</p>
+        
+        <h2>Flora and Fauna</h2>
+        <p>The rich biodiversity of Pachmarhi is a treat for nature enthusiasts. The Pachmarhi Biosphere Reserve, a UNESCO-designated site, is home to a variety of flora and fauna. Visitors can spot species like leopards, bison, and various birds in their natural habitat. The diverse plant life, including rare orchids and medicinal herbs, adds to the ecological significance of the region.</p>
+        
+        <h2>Cultural Heritage</h2>
+        <p>Pachmarhi also has a rich cultural heritage. The town hosts several festivals and events that showcase the local traditions and customs. The Pachmarhi Utsav, held annually in December, features folk dances, music performances, and a vibrant display of local crafts. The local markets are perfect for buying souvenirs and handicrafts that reflect the region's artistic heritage.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="p1.jpg" alt="Pachmarhi Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="p2.jpeg" alt="Pachmarhi Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="panchmarhi.jpg" alt="Pachmarhi Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Pachmarhi" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Pachmarhi -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Pachmarhi</button>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Pachmarhi, Madhya Pradesh, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
