@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhopal</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('bhopal2.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Bhopal</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Bhopal</h1>
+        <p class="lead">The City of Lakes, blending historical grandeur with urban charm</p>
+    </div>
+    <div class="description">
+        <h2>About Bhopal</h2>
+        <p>Bhopal, the capital city of Madhya Pradesh, India, is a fascinating blend of history, culture, and modernity. Known as the City of Lakes, Bhopal boasts a rich history that dates back to the 11th century when it was founded by Raja Bhoj. Today, it is a bustling metropolis that seamlessly merges its historic past with contemporary development, offering visitors a unique and enriching experience.</p>
+        
+        <h2>Historical Significance</h2>
+        <p>Bhopal's historical significance is evident in its numerous monuments, palaces, and mosques that stand as a testament to its glorious past. The city's most iconic landmark is the Taj-ul-Masajid, one of the largest mosques in India, known for its stunning architecture and spiritual significance. Other notable historical sites include the Shaukat Mahal, a blend of Indo-Islamic and European styles, and the Bharat Bhavan, a multi-arts complex showcasing the city's cultural heritage.</p>
+        
+        <h2>Natural Beauty</h2>
+        <p>Bhopal is renowned for its natural beauty, with numerous lakes and green spaces that offer a tranquil escape from the city's hustle and bustle. The Upper Lake, also known as Bhojtal, is a major attraction, providing opportunities for boating and picnicking against the backdrop of the cityscape. The adjacent Lower Lake, along with Van Vihar National Park, adds to the city's scenic charm, making it a perfect destination for nature lovers.</p>
+        
+        <h2>Culture and Cuisine</h2>
+        <p>The cultural tapestry of Bhopal is as diverse as its history. The city hosts numerous cultural events, including classical music and dance performances, theater, and art exhibitions. Bhopal's cuisine is a delightful mix of Mughlai and local flavors, with dishes like biryani, kebabs, and the famous Bhopali paan offering a culinary treat to visitors. The bustling bazaars of Bhopal, such as Chowk Bazaar and New Market, are perfect for shopping and experiencing the local way of life.</p>
+        
+        <h2>Modern Bhopal</h2>
+        <p>Modern Bhopal is a rapidly growing urban center with a strong industrial base, educational institutions, and infrastructural development. The city is home to several prestigious institutions, including the Indian Institute of Science Education and Research (IISER) and the Maulana Azad National Institute of Technology (MANIT). Bhopal's modern amenities and facilities ensure a comfortable and convenient stay for both residents and visitors.</p>
+        
+        <h2>Tourist Attractions</h2>
+        <p>Bhopal offers a variety of tourist attractions that cater to diverse interests. The State Museum, with its extensive collection of artifacts, sculptures, and paintings, provides insight into the region's rich history and culture. The Tribal Museum showcases the art and traditions of Madhya Pradesh's indigenous communities. Other popular attractions include the Van Vihar National Park, the Regional Science Centre, and the beautiful Birla Mandir.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="bhopal2.jpg" alt="Bhopal Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="bhopal.jpeg" alt="Bhopal Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="bhopal4.jpeg" alt="Bhopal Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Bhopal" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Bhopal -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Bhopal</button>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Bhopal, Madhya Pradesh, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
