@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lingaraja Temple</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('l2.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Lingaraja Temple</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Lingaraja Temple</h1>
+        <p class="lead">An architectural marvel and sacred Shiva temple in Bhubaneswar, Odisha</p>
+    </div>
+    <div class="description">
+        <h2>About Lingaraja Temple</h2>
+        <p>The Lingaraja Temple is one of the oldest and largest temples in Bhubaneswar, Odisha. It is dedicated to Harihara, a form of Shiva and Vishnu. The temple was constructed by the rulers of the Somavamsi dynasty in the 11th century and represents the epitome of Kalinga architecture. The temple complex spans over 250,000 square feet and houses over 150 smaller shrines.</p>
+        
+        <h2>History and Construction</h2>
+        <p>The temple's construction began during the 6th century CE and continued into the 11th century. The main structure of the temple stands at 180 feet tall, making it a prominent landmark in the city. The temple complex includes a large courtyard, numerous smaller temples, and a sacred tank known as Bindu Sagar.</p>
+        
+        <h2>Architectural Style</h2>
+        <p>The Lingaraja Temple is a quintessential example of the Kalinga style of architecture, characterized by its curvilinear spire over the sanctum sanctorum (deul) and the assembly hall (jagamohana). The temple is built with laterite and sandstone and adorned with intricate carvings and sculptures depicting various mythological stories and deities. The central tower (vimana) is surrounded by smaller subsidiary shrines that enhance the temple's grandeur.</p>
+        
+        <h2>Religious Significance</h2>
+        <p>The Lingaraja Temple holds immense religious significance for Hindus, particularly for devotees of Lord Shiva. The temple is a major pilgrimage site and attracts thousands of devotees during the annual festivals of Shivaratri and Ratha Yatra. It is believed that the temple was built on the spot where Lord Shiva appeared as a linga to fulfill the wishes of a devotee. The main deity, Lingaraja, is worshipped in the form of a phallic symbol, symbolizing both creation and destruction.</p>
+        
+        <h2>Festivals and Celebrations</h2>
+        <p>The temple is renowned for its grand celebrations of various Hindu festivals. The most significant of these is the Mahashivaratri, which involves elaborate rituals, offerings, and cultural performances. The Chandan Yatra, where the deities are smeared with sandalwood paste, and the Ratha Yatra, where the deities are taken out in chariots, are also major attractions. These festivals not only draw large crowds but also showcase the rich cultural heritage of Odisha.</p>
+        
+        <h2>Cultural Impact</h2>
+        <p>The Lingaraja Temple has had a profound impact on the cultural and religious life of Bhubaneswar. The temple's architecture and art have inspired many other temples in the region. The temple also serves as a center for various cultural and religious activities, including classical music and dance performances. The temple's management supports the preservation and promotion of traditional Odishan art forms.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="l2.jpg" alt="Lingaraja Temple Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="l1.jpeg" alt="Lingaraja Temple Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="l3.jpeg" alt="Lingaraja Temple Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Lingaraja Temple -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Lingaraja Temple</button>
+</div>
+
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Lingaraja_Temple" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Lingaraja Temple, Bhubaneswar, Odisha, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
