@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Garden - Chandigarh's Artistic Marvel</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('rkc2.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Rock Garden</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Rock Garden</h1>
+        <p class="lead">Chandigarh's Artistic Marvel</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>The Rock Garden of Chandigarh is a unique and mesmerizing sculpture garden created by the self-taught artist Nek Chand. This garden is famous for its exquisite sculptures made from recycled materials, discarded items, and industrial waste, transforming trash into artistic treasures.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Situated near Sukhna Lake in Chandigarh, the Rock Garden spans over 40 acres. This expansive garden is divided into various sections, each showcasing different themes and artistic expressions. The garden is a labyrinth of interconnected courtyards, winding pathways, and artistic sculptures, making it a must-visit destination for art and nature lovers.</p>
+
+        <h2>Historical Significance</h2>
+        <p>The Rock Garden was the brainchild of Nek Chand, who began constructing it secretly in 1957. Using materials collected from demolished sites, Chand created a stunning landscape of sculptures and installations. The garden was officially inaugurated in 1976 and has since become a symbol of creativity, resilience, and the transformative power of art.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>The Rock Garden is not just a tourist attraction but a cultural landmark that represents the ingenuity and sustainability of art. It demonstrates how waste materials can be repurposed into beautiful and meaningful art pieces. The garden attracts artists, environmentalists, and tourists from around the world, inspiring them with its message of creativity and sustainability.</p>
+
+        <h2>Artistic Marvel</h2>
+        <p>The garden's sculptures are crafted from a variety of discarded items, including broken ceramics, glass bangles, tiles, and electrical waste. Each sculpture tells a story, reflecting Nek Chand's vision and artistic brilliance. The garden features a diverse range of art pieces, from human figures and animals to abstract designs, all created from recycled materials.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>In addition to its artistic sculptures, the Rock Garden boasts a serene natural environment. The garden is adorned with waterfalls, streams, and lush greenery, creating a tranquil and picturesque setting. Visitors can enjoy the soothing sounds of water, the beauty of nature, and the captivating art installations as they explore the garden.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>The Rock Garden is open to visitors throughout the year, offering a unique and immersive experience. The garden is designed to be explored at a leisurely pace, allowing visitors to appreciate the intricate details of the sculptures and the overall ambiance. Guided tours are available for those who wish to learn more about the history and significance of the garden. The garden also hosts cultural events and art exhibitions, providing a platform for local and international artists to showcase their work.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="rkc1.jpg" alt="Rock Garden Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="rkc2.jpg" alt="Rock Garden Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="rkc3.jpg" alt="Rock Garden Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Rock_Garden_of_Chandigarh" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Rock Garden -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Rock Garden</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Rock Garden, Chandigarh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementId('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

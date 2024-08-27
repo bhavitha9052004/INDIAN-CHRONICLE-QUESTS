@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sukhna Lake - Chandigarh's Serene Retreat</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('skc1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Sukhna Lake</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Sukhna Lake</h1>
+        <p class="lead">Chandigarh's Serene Retreat</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Sukhna Lake is a picturesque man-made reservoir located at the foothills of the Himalayas in Chandigarh. This serene lake is a popular destination for locals and tourists, offering a peaceful retreat from the bustling city life.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Sukhna Lake is spread over an area of approximately 3 square kilometers and is surrounded by the lush greenery of the Shivalik Hills. The lake is fed by seasonal streams and provides a stunning backdrop for a variety of recreational activities, making it an integral part of Chandigarh's landscape.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Constructed in 1958, Sukhna Lake was designed by the famous architect Le Corbusier and the Chief Engineer P.L. Verma. The lake was created by damming the Sukhna Choe, a seasonal stream that flows down from the Shivalik Hills. Over the years, it has become a cherished landmark of Chandigarh, known for its beauty and tranquility.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Sukhna Lake is not just a scenic spot but also a cultural hub of Chandigarh. It hosts various cultural and recreational events, including boating festivals, music performances, and art exhibitions. The lake area is a popular gathering place for morning joggers, yoga enthusiasts, and families looking for a peaceful outing.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>The lake is home to a variety of flora and fauna. The surrounding area is a haven for bird watchers, with numerous migratory birds visiting the lake during the winter months. The lake's calm waters and scenic surroundings offer a perfect setting for nature walks, picnics, and photography.</p>
+
+        <h2>Recreational Activities</h2>
+        <p>Sukhna Lake offers a range of recreational activities, including boating, kayaking, and paddle boating. The lake's promenade is ideal for a leisurely stroll or a bike ride, providing picturesque views of the water and the surrounding hills. The nearby Garden of Silence is a tranquil spot for meditation and reflection.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are ongoing to preserve the ecological balance of Sukhna Lake. Conservation programs focus on maintaining the water quality, preventing soil erosion, and protecting the wildlife habitat. Sustainable tourism practices are encouraged to ensure that the lake remains a pristine and enjoyable destination for future generations.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Sukhna Lake is easily accessible from various parts of Chandigarh. The lake area features well-maintained pathways, benches, and picnic spots, providing a comfortable environment for visitors. Local vendors offer snacks and refreshments, making it a perfect spot for an afternoon outing or an evening walk.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="skc1.jpg" alt="Sukhna Lake Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="skc2.jpg" alt="Sukhna Lake Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="skc3.jpg" alt="Sukhna Lake Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Sukhna_Lake" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Sukhna Lake -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Sukhna Lake</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Sukhna Lake, Chandigarh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementId('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

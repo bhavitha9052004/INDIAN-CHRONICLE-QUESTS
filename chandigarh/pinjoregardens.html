@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinjore Gardens - A Tranquil Retreat</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('pj1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Pinjore Gardens</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Pinjore Gardens</h1>
+        <p class="lead">A Tranquil Retreat in Haryana</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Pinjore Gardens, also known as Yadavindra Gardens, is a historic garden located in Pinjore, Haryana. Spread over an extensive area, these Mughal-style gardens are renowned for their architectural beauty, lush greenery, and serene ambiance.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Pinjore Gardens are situated at the foothills of the Shivalik Range, providing a scenic backdrop of the mountains. The gardens are laid out in terraces, with cascading fountains, flowering plants, and ancient trees adding to their charm.</p>
+
+        <h2>Historical Significance</h2>
+        <p>The gardens were built in the 17th century by Nawab Fidai Khan, a foster brother of Mughal Emperor Aurangzeb. They were later renovated and expanded by Maharaja Yadavindra Singh of the princely state of Patiala. The gardens reflect a blend of Mughal and Rajasthani architectural styles, making them a unique historical landmark.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Pinjore Gardens are not only a popular tourist attraction but also hold cultural significance. They serve as a venue for cultural events, including music concerts, dance performances, and traditional festivals. The gardens are frequented by locals and tourists alike, offering a tranquil retreat and a glimpse into the region's cultural heritage.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>The gardens boast a diverse range of flora, including rare plant species and ornamental flowers. Visitors can explore the various terraces, each adorned with manicured lawns, colorful flowerbeds, and shady trees. The natural beauty of the gardens attracts nature enthusiasts, photographers, and picnickers throughout the year.</p>
+
+        <h2>Architectural Marvels</h2>
+        <p>Pinjore Gardens feature several architectural marvels, including the Sheesh Mahal (Palace of Mirrors), Rang Mahal (Painted Palace), and Jal Mahal (Water Palace). These structures showcase intricate carvings, beautiful frescoes, and reflective pools, reflecting the grandeur of Mughal and Rajasthani architecture.</p>
+
+        <h2>Recreational Activities</h2>
+        <p>Visitors to Pinjore Gardens can enjoy a range of recreational activities, such as boating in the central water channel, strolling along the pathways, and relaxing in the shaded pavilions. The gardens provide a peaceful environment for meditation, yoga, and leisurely walks amidst scenic surroundings.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are underway to preserve the historical and ecological integrity of Pinjore Gardens. Conservation initiatives focus on maintaining the gardens' heritage structures, protecting rare plant species, and promoting sustainable tourism practices. Visitors are encouraged to respect the gardens' natural environment and contribute to their preservation.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Pinjore Gardens offer a serene escape from urban life, with amenities such as cafes, souvenir shops, and guided tours enhancing the visitor experience. The gardens are easily accessible from Chandigarh and other nearby cities, making them a popular day trip destination for families, history buffs, and nature lovers.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="pj1.jpg" alt="Pinjore Gardens Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pj2.jpg" alt="Pinjore Gardens Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pj3.jpg" alt="Pinjore Gardens Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Pinjore_Gardens" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Pinjore Gardens -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Pinjore Gardens</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Pinjore Gardens, Pinjore, Haryana, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementId('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

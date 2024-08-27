@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elante Mall - Chandigarh's Premier Shopping Destination</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('em1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Elante Mall</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Elante Mall</h1>
+        <p class="lead">Chandigarh's Premier Shopping Destination</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Elante Mall is the largest shopping mall in Chandigarh, known for its upscale shopping experience, entertainment options, and dining establishments. It attracts visitors from across the region, offering a blend of international and domestic brands under one roof.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Located in the industrial and business hub of Chandigarh, Elante Mall spans over 20 acres and features over 1.1 million square feet of retail space. Its strategic location near major highways and residential areas makes it easily accessible to shoppers and tourists alike.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Elante Mall opened its doors to the public in 2013 and has since become a landmark in Chandigarh's retail landscape. Developed by L&T Realty, the mall's architecture and design reflect modern aesthetics and functional efficiency, catering to the evolving tastes of consumers.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Elante Mall reflects Chandigarh's cosmopolitan culture and lifestyle. It serves as a social hub where people gather not only for shopping but also for socializing, dining, and entertainment. The mall hosts cultural events, fashion shows, and art exhibitions, adding vibrancy to the city's cultural scene.</p>
+
+        <h2>Retail Experience</h2>
+        <p>Elante Mall houses a diverse range of retail outlets, including luxury brands, fashion boutiques, electronics stores, and lifestyle outlets. Shoppers can explore the latest trends in fashion, accessories, beauty products, and home furnishings, offering something for every taste and budget.</p>
+
+        <h2>Dining and Entertainment</h2>
+        <p>The mall features a variety of dining options, from casual eateries to fine dining restaurants, offering cuisines from around the world. Visitors can also enjoy entertainment facilities such as a multiplex cinema, gaming zones, and indoor amusement parks, making it a preferred destination for families and friends.</p>
+
+        <h2>Community Engagement</h2>
+        <p>Elante Mall actively engages with the local community through various initiatives and CSR activities. It supports local artisans, promotes sustainable practices, and contributes to social welfare programs, fostering a sense of responsibility and goodwill among its patrons.</p>
+
+        <h2>Visitor Amenities</h2>
+        <p>The mall provides convenient amenities such as ample parking space, wheelchair accessibility, rest areas, and customer service desks. It ensures a comfortable and enjoyable shopping experience for visitors of all ages and backgrounds.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="em1.jpg" alt="Elante Mall Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="em2.jpg" alt="Elante Mall Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="em3.jpg" alt="Elante Mall Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Elante_Mall" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Elante Mall -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Elante Mall</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Elante Mall, Chandigarh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

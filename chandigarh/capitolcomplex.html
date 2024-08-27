@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capitol Complex - Architectural Marvel of Chandigarh</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ccp1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Capitol Complex</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Capitol Complex</h1>
+        <p class="lead">Architectural Marvel of Chandigarh</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>The Capitol Complex in Chandigarh is a UNESCO World Heritage site known for its exemplary modernist architecture and urban planning. Designed by the renowned architect Le Corbusier, along with his team of architects, the complex symbolizes Chandigarh's vision of a futuristic city.</p>
+
+        <h2>Architectural Significance</h2>
+        <p>The Capitol Complex comprises three main buildings: the Secretariat, the Legislative Assembly, and the High Court. Each building showcases Le Corbusier's principles of design, including open spaces, geometric forms, and functionality. The buildings are characterized by their clean lines, use of raw concrete (béton brut), and minimalistic aesthetics.</p>
+
+        <h2>Historical Context</h2>
+        <p>Construction of the Capitol Complex began in the 1950s, following India's independence, as part of Chandigarh's master plan. The complex was envisioned as the administrative center of the city, reflecting the aspirations of a newly independent nation to blend modernity with tradition.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>The Capitol Complex holds cultural significance as a symbol of Chandigarh's identity and heritage. It embodies the city's commitment to modernist ideals and serves as a cultural hub for artistic events, exhibitions, and architectural tours. The Open Hand Monument, designed by Le Corbusier, stands as a symbol of peace and unity.</p>
+
+        <h2>Natural Environment</h2>
+        <p>The Capitol Complex is set amidst landscaped gardens and open spaces, blending architecture with nature. The expansive grounds around the buildings provide a serene environment for visitors to explore and appreciate the integration of built and natural elements.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are underway to preserve and restore the Capitol Complex, ensuring its architectural integrity and historical significance are maintained for future generations. Conservation projects focus on maintaining the buildings' structural stability, preserving original materials, and promoting sustainable tourism practices.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>The Capitol Complex offers guided tours for visitors to explore its architectural marvels and learn about its historical and cultural significance. Tourists can visit the main buildings, experience panoramic views from the rooftop of the Secretariat, and admire the craftsmanship of the Open Hand Monument.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="ccp1.jpg" alt="Capitol Complex Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ccp2.jpg" alt="Capitol Complex Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ccp3.jpg" alt="Capitol Complex Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Capitol_Complex,_Chandigarh" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Capitol Complex -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Capitol Complex</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Capitol Complex, Chandigarh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

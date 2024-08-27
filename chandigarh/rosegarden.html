@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose Garden - Beauty in Bloom</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('roseg1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Rose Garden</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Rose Garden</h1>
+        <p class="lead">Beauty in Bloom</p>
+    </div>
+    <div class="description">
+        <h2>Introduction</h2>
+        <p>Rose Garden, officially known as Zakir Hussain Rose Garden, is a stunning botanical garden located in Chandigarh. Spanning over 30 acres, it is Asia's largest rose garden and a renowned tourist attraction famous for its mesmerizing collection of roses.</p>
+
+        <h2>Geographical Significance</h2>
+        <p>Situated in Sector 16 of Chandigarh, Rose Garden is nestled amidst the urban landscape and provides a tranquil oasis for visitors. The garden is meticulously landscaped with winding paths, lush green lawns, and over 1,600 different species of roses, making it a paradise for nature lovers and photographers alike.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Established in 1967 under the guidance of Dr. M.S. Randhawa, the then Chief Commissioner of Chandigarh, Rose Garden has grown into a symbol of Chandigarh's dedication to horticulture and urban planning. It serves as a living testament to the city's commitment to preserving natural beauty amidst modern development.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Rose Garden holds immense cultural significance in Chandigarh's identity. It hosts the annual Rose Festival, a vibrant celebration that attracts visitors from around the world. The festival features competitions, cultural performances, and exhibitions, showcasing the diverse cultural heritage and artistic talents of the region.</p>
+
+        <h2>Natural Attractions</h2>
+        <p>The garden not only boasts a spectacular display of roses but also houses numerous other botanical treasures. Visitors can admire a variety of trees, shrubs, and seasonal flowers that complement the enchanting ambiance of the rose beds. The serene environment and fresh floral fragrances create a sensory delight for all who visit.</p>
+
+        <h2>Recreational Activities</h2>
+        <p>Rose Garden offers a range of recreational activities for visitors of all ages. Families can enjoy picnics on the lawns, children can play in designated play areas, and enthusiasts can indulge in photography sessions amidst the colorful blooms. The garden's well-maintained pathways are perfect for leisurely walks and morning jogs.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are continuously made to preserve and enhance the biodiversity of Rose Garden. The garden's management focuses on sustainable gardening practices, water conservation, and eco-friendly initiatives to maintain its ecological balance and scenic beauty. Visitors are encouraged to contribute to these efforts by respecting the garden's rules and natural habitats.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Rose Garden offers a delightful experience for visitors throughout the year. The garden is easily accessible from various parts of Chandigarh and provides ample parking facilities. Local vendors offer refreshments and souvenirs, adding to the overall charm of the place. Whether you're a nature enthusiast, a photography enthusiast, or simply seeking a peaceful retreat, Rose Garden promises a memorable visit.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="roseg1.jpg" alt="Rose Garden Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="roseg2.jpg" alt="Rose Garden Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="roseg3.jpg" alt="Rose Garden Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Rose_Garden,_Chandigarh" style="color:red;">Wikipedia</a>
+</div><br>
+<!-- Button to Get Directions to Rose Garden -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Rose Garden</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Rose Garden, Chandigarh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementId('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
