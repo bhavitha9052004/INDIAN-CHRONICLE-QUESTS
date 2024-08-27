@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faridabad - Discover the City</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('faridabad_photo3.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Faridabad</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Faridabad</h1>
+        <p class="lead">Explore the vibrant city of Faridabad</p>
+    </div>
+    <div class="description">
+        <h2>About Faridabad</h2>
+        <p>Faridabad is a bustling industrial city located in the Indian state of Haryana. Situated in the National Capital Region (NCR), Faridabad is known for its thriving manufacturing sector, commercial centers, and educational institutions. The city offers a blend of modern amenities and cultural heritage, making it a dynamic destination for residents and visitors alike.</p>
+        <h2>History and Heritage</h2>
+        <p>Faridabad has a rich historical heritage dating back to ancient times. The city's name is derived from Baba Farid, a revered Sufi saint who is believed to have visited the region. Over the centuries, Faridabad has witnessed the rise and fall of various dynasties, leaving behind a legacy of architectural marvels and cultural landmarks.</p>
+        <h2>Economic Hub</h2>
+        <p>As one of the leading industrial hubs in India, Faridabad plays a vital role in the country's economy. The city is home to numerous manufacturing units, industrial estates, and business parks, contributing significantly to employment generation and economic growth. Faridabad's strategic location, well-developed infrastructure, and skilled workforce make it an attractive destination for investment and business development.</p>
+        <h2>Attractions</h2>
+        <p>Faridabad offers a variety of attractions for visitors to explore. From historical monuments and religious sites to modern shopping malls and entertainment complexes, the city has something for everyone. Popular attractions include the Surajkund Lake, Raja Nahar Singh Palace, Badkhal Lake, and Town Park, among others.</p>
+        <h2>Cultural Diversity</h2>
+        <p>Faridabad is known for its cultural diversity, with people from various backgrounds and ethnicities living harmoniously in the city. The vibrant cultural scene includes festivals, music, dance, and culinary traditions that reflect the rich heritage of the region. Visitors can experience the warmth and hospitality of the locals while immersing themselves in the cultural tapestry of Faridabad.</p>
+        <h2>Connectivity</h2>
+        <p>Faridabad enjoys excellent connectivity to neighboring cities and states through road, rail, and air transport. The city is well-connected to New Delhi and other parts of the NCR via a network of highways and expressways. The Faridabad Metro provides convenient transportation within the city, enhancing connectivity and accessibility for commuters.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="faridabad_photo1.jpeg" alt="Faridabad City Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="faridabad_photo2.jpeg" alt="Faridabad City Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="faridabad_photo3.jpeg" alt="Faridabad City Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Faridabad" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Faridabad -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Faridabad</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Faridabad, Haryana, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
