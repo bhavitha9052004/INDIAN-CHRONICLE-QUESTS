@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botanical Garden - Puducherry</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('botanical_garden.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Botanical Garden</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Botanical Garden</h1>
+        <p class="lead">A Green Haven in Puducherry</p>
+    </div>
+    <div class="description">
+        <h2>About the Botanical Garden</h2>
+        <p>The Botanical Garden in Puducherry is a lush green paradise spread over 22 acres. Established in 1826, this garden is a sanctuary of exotic plants, beautiful flowers, and rare trees. It offers a serene environment, making it a perfect place for nature lovers, families, and tourists to explore the rich biodiversity of the region.</p>
+
+        <h2>Historical Significance</h2>
+        <p>The Botanical Garden was created by C.S. Perrottet, a French botanist, during the colonial era. Initially developed as an experimental garden for agricultural crops, it gradually evolved into a full-fledged botanical garden showcasing a wide variety of plant species from different parts of the world. The garden has historical structures, including fountains and statues, that reflect its colonial heritage.</p>
+
+        <h2>Features and Attractions</h2>
+        <p>The garden is divided into 28 plots, each dedicated to different plant species. Visitors can explore various sections such as the Japanese Garden, the Medicinal Plants Garden, the Rose Garden, and the Fern House. The garden also features musical fountains, a toy train for children, and a small aquarium showcasing aquatic life.</p>
+
+        <h2>Flora and Fauna</h2>
+        <p>The Botanical Garden is home to over 1,500 species of plants, including rare and endangered species. Visitors can find a diverse range of flora such as orchids, cacti, bonsai, and tropical plants. The garden also attracts various bird species, butterflies, and small animals, making it a thriving ecosystem.</p>
+
+        <h2>Educational Value</h2>
+        <p>The Botanical Garden serves as an educational hub for students, researchers, and nature enthusiasts. It provides valuable information about different plant species, their uses, and conservation efforts. Educational programs, workshops, and guided tours are organized regularly to raise awareness about the importance of biodiversity and environmental protection.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Visitors to the Botanical Garden can enjoy a peaceful and rejuvenating experience. The well-maintained pathways, shaded benches, and scenic spots provide a perfect setting for relaxation and leisurely walks. The garden is a popular spot for picnics, photography, and bird-watching. Guided tours and informational boards offer insights into the various plants and their significance.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Conservation is a key focus of the Botanical Garden. Efforts are made to protect and preserve rare and endangered plant species. The garden participates in seed exchange programs, plant propagation, and research activities aimed at promoting sustainable horticulture practices. Environmental awareness campaigns and tree-planting drives are also conducted to engage the local community.</p>
+
+        <h2>Visitor Facilities</h2>
+        <p>The Botanical Garden offers a range of facilities to enhance the visitor experience. There are clean restrooms, drinking water stations, and seating areas throughout the garden. A cafeteria serves refreshments and snacks. Souvenir shops offer a variety of botanical products and mementos. The garden is wheelchair accessible, ensuring that it is inclusive for all visitors.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="botanical1.jpg" alt="Botanical Garden Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="botanical2.jpg" alt="Botanical Garden Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="botanical3.jpg" alt="Botanical Garden Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Wikipedia Link -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Botanical_Garden,_Puducherry" target="_blank" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Botanical Garden -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Botanical Garden</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Botanical Garden, Puducherry, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paradise Beach - Puducherry</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('pbb1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Paradise Beach</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Paradise Beach</h1>
+        <p class="lead">A Serene Escape in Puducherry</p>
+    </div>
+    <div class="description">
+        <h2>About Paradise Beach</h2>
+        <p>Paradise Beach, also known as Plage Paradiso, is a pristine and tranquil beach located in the coastal town of Puducherry. This idyllic beach, with its golden sands and clear blue waters, offers a perfect escape from the hustle and bustle of city life. Accessible primarily by boat from the Chunnambar Boat House, Paradise Beach is a haven for nature lovers and peace seekers.</p>
+
+        <h2>Attractions and Activities</h2>
+        <p>Paradise Beach offers a range of attractions and activities for visitors. The serene environment is ideal for sunbathing, beachcombing, and picnicking. The calm waters make it a perfect spot for swimming and wading. Additionally, water sports such as kayaking, canoeing, and fishing are popular activities here. The beach is also a great place for bird watching, as it is home to a variety of migratory birds.</p>
+
+        <h2>Cultural Significance</h2>
+        <p>Paradise Beach holds cultural significance as it reflects the rich heritage and natural beauty of Puducherry. The beach is a part of the larger Chunnambar backwaters, which are an integral part of the region's ecosystem and cultural landscape. The backwaters and the beach together offer a unique blend of coastal and aquatic experiences that are central to the local way of life.</p>
+
+        <h2>Natural Beauty and Environment</h2>
+        <p>One of the standout features of Paradise Beach is its stunning natural beauty. The beach is lined with swaying palm trees and lush greenery, creating a picturesque and tranquil environment. The clear blue waters of the Bay of Bengal provide a refreshing contrast to the golden sands, making it an ideal spot for relaxation and rejuvenation.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Conservation efforts are in place to preserve the pristine condition of Paradise Beach. Regular clean-up drives are conducted to maintain the cleanliness of the beach and its surroundings. Sustainable tourism practices are encouraged to ensure that the natural beauty of the beach is preserved for future generations. Efforts are also made to protect the local flora and fauna that thrive in this coastal habitat.</p>
+
+        <h2>Visitor Facilities</h2>
+        <p>Paradise Beach is well-equipped with facilities to ensure a comfortable and enjoyable visit. There are clean restrooms, changing rooms, and shower facilities available for visitors. Several shacks and stalls offer refreshments and snacks. There are also designated areas for picnics and relaxation, complete with seating arrangements and umbrellas. Lifeguards are stationed at the beach to ensure the safety of visitors.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="pbb1.jpg" alt="Paradise Beach Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pbb2.jpg" alt="Paradise Beach Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pbb3.jpg" alt="Paradise Beach Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Wikipedia Link -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Paradise_Beach,_Puducherry" target="_blank" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Paradise Beach -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Paradise Beach</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Paradise Beach, Puducherry, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

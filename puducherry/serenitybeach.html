@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serenity Beach - Puducherry</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('sbi1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Serenity Beach</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Serenity Beach</h1>
+        <p class="lead">A Tranquil Escape in Puducherry</p>
+    </div>
+    <div class="description">
+        <h2>About Serenity Beach</h2>
+        <p>Serenity Beach, located just a few kilometers north of Puducherry, is a pristine and tranquil beach that offers a serene escape from the hustle and bustle of city life. Known for its golden sands and clear blue waters, Serenity Beach is a popular destination for both locals and tourists looking for a peaceful retreat.</p>
+
+        <h2>Historical Significance</h2>
+        <p>Serenity Beach, once a quiet and secluded spot, has gradually gained popularity over the years. While it may not have a storied history like some of the other landmarks in Puducherry, it has become an important part of the local community. The beach has witnessed various cultural and recreational activities that have contributed to its growing significance as a tourist attraction.</p>
+
+        <h2>Activities and Attractions</h2>
+        <p>Serenity Beach offers a wide range of activities for visitors to enjoy. The calm waters are perfect for swimming, while the steady waves attract surfers from around the world. Surfing lessons and equipment rentals are available for those looking to try their hand at this exhilarating sport. Additionally, visitors can indulge in beach volleyball, sunbathing, and leisurely walks along the shoreline.</p>
+
+        <h2>Natural Beauty</h2>
+        <p>The natural beauty of Serenity Beach is truly captivating. The beach is surrounded by lush greenery, swaying palm trees, and vibrant tropical flora. The breathtaking views of the sunrise and sunset over the Bay of Bengal add to the beach's charm, making it a photographer's paradise. The tranquil ambiance and the sound of the waves create a soothing and rejuvenating atmosphere.</p>
+
+        <h2>Cultural Importance</h2>
+        <p>Serenity Beach holds cultural significance for the people of Puducherry. It is a place where locals gather to celebrate festivals, enjoy family outings, and partake in traditional rituals. The beach is also a hub for cultural events, including music and dance performances, art exhibitions, and food festivals. These events provide a glimpse into the rich cultural heritage of the region.</p>
+
+        <h2>Visitor Experience</h2>
+        <p>Visitors to Serenity Beach can expect a memorable and relaxing experience. The beach is well-maintained, with clean sands and clear waters. There are several beachside cafes and shacks where visitors can enjoy delicious seafood and local delicacies. The friendly and welcoming nature of the locals adds to the overall charm of the place.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are being made to preserve the natural beauty and ecological balance of Serenity Beach. Conservation projects focus on beach clean-up drives, waste management, and promoting eco-friendly tourism practices. The local community, along with environmental organizations, works together to protect the beach and its surroundings for future generations to enjoy.</p>
+
+        <h2>Visitor Facilities</h2>
+        <p>Serenity Beach offers several facilities to ensure a comfortable and enjoyable visit. There are clean restrooms, changing rooms, and showers available for visitors. Beach umbrellas and lounge chairs can be rented for a relaxing day by the sea. Lifeguards are present to ensure the safety of swimmers. Ample parking space is also available for those arriving by car.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="sbi1.jpg" alt="Serenity Beach Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sbi2.jpg" alt="Serenity Beach Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="sbi3.jpg" alt="Serenity Beach Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Wikipedia Link -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Serenity_Beach" target="_blank" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Serenity Beach -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Serenity Beach</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Serenity Beach, Puducherry, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
