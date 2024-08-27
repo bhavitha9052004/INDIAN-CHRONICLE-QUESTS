@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agra Fort - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('agra_fort_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Agra Fort</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Agra Fort</h1>
+        <p class="lead">A symbol of power and resilience</p>
+    </div>
+    <div class="description">
+        
+<h2>Historical Significance</h2>
+        <p>Agra Fort, also known as the Red Fort of Agra, is a historical fortress located in the city of Agra, India. It served as the main residence of the emperors of the Mughal Dynasty until 1638 when the capital was shifted from Agra to Delhi. The fort was originally a brick fort, rebuilt in red sandstone during the reign of Akbar the Great. It encompasses several impressive structures, including the Jahangir Palace, Khas Mahal, and Diwan-i-Khas.</p>
+        <h2>Cultural Significance</h2>
+        <p>Agra Fort is not only a symbol of Mughal architecture but also a testament to India's rich cultural heritage. It reflects the fusion of Persian, Turkish, and Indian architectural styles, representing the zenith of Mughal creativity. The fort has been recognized as a UNESCO World Heritage Site since 1983, attracting millions of visitors annually who come to marvel at its grandeur and historical significance.</p>
+        <h2>Architectural Features</h2>
+        <p>The fort is enclosed by massive red sandstone walls, reaching a height of 70 feet and stretching over 1.5 miles. It features numerous impressive structures, including palaces, audience halls, and mosques. The Jahangir Palace, built by Akbar for his son Jahangir, is renowned for its intricate frescoes and marble lattice work. The Khas Mahal, or Private Palace, was used by the emperor for private audiences and is distinguished by its elegant marble balconies and delicate carvings.</p>
+        <h2>Conservation Efforts</h2>
+        <p>Efforts have been made to preserve and restore Agra Fort to ensure its integrity and authenticity. Conservation work has included structural repairs, cleaning of facades, and installation of monitoring systems to assess environmental impacts. The fort continues to be a prominent cultural attraction, offering visitors a glimpse into India's rich history and architectural heritage.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="agra_fort_photo1.jpg" alt="Agra Fort Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="agra_fort_photo2.jpeg" alt="Agra Fort Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="agra_fort_photo3.jpg" alt="Agra Fort Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Agra Fort -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Agra Fort</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Agra Fort, Agra, Uttar Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate the document body
+        var elements = document.querySelectorAll('h1, h2, h3, p, a, span, button, option');
+        elements.forEach(function(element) {
+            var text = element.innerText;
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerText = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
