@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allahabad - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('allahabad_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Allahabad</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Allahabad</h1>
+        <p class="lead">The confluence of cultures</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Allahabad, also known as Prayagraj, holds immense historical significance in India. Situated at the confluence of the Ganges, Yamuna, and Saraswati rivers, it has been a center of cultural and political activities for centuries. The city has witnessed various historical events, including the Kumbh Mela, the Triveni Sangam, and the formation of the Indian National Congress in 1885.</p>
+        <h2>Cultural Significance</h2>
+        <p>Prayagraj is renowned for its vibrant cultural heritage. The Kumbh Mela, held every twelve years, attracts millions of pilgrims from around the world to take a dip in the holy waters of the Triveni Sangam. The city is also known for its rich literary and artistic traditions, with prominent poets, writers, and musicians hailing from Allahabad.</p>
+        <h2>Landmarks</h2>
+        <p>Allahabad boasts several architectural marvels and historical landmarks. The Allahabad Fort, built by Emperor Akbar in 1583, stands as a symbol of Mughal architecture. The Anand Bhavan, once the ancestral home of the Nehru-Gandhi family, has been converted into a museum showcasing India's freedom struggle.</p>
+        <h2>Modern Developments</h2>
+        <p>In recent years, Allahabad has undergone significant modernization while preserving its historical and cultural heritage. The city has witnessed infrastructural developments, educational advancements, and the establishment of industries, making it a key hub in Uttar Pradesh.</p>        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="allahabad_photo1.jpeg" alt="Allahabad Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="allahabad_photo2.jpeg" alt="Allahabad Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="allahabad_photo3.jpeg" alt="Allahabad Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Allahabad -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Allahabad</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Allahabad, Uttar Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate the document body
+        var elements = document.querySelectorAll('h1, h2, h3, p, a, span, button, option');
+        elements.forEach(function(element) {
+            var text = element.innerText;
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerText = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
