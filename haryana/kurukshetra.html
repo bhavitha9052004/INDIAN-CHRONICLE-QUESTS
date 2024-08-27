@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kurukshetra - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('kurukshetra_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Kurukshetra</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Kurukshetra</h1>
+        <p class="lead">An ancient city with profound historical significance</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Kurukshetra, located in the Indian state of Haryana, is renowned for its immense historical significance, particularly as the battlefield of the epic Mahabharata. It is believed to be the place where the legendary battle between the Pandavas and Kauravas took place, as described in Hindu scriptures.</p>
+        <h2>Cultural Significance</h2>
+        <p>Aside from its association with the Mahabharata, Kurukshetra is also a center of pilgrimage and cultural activities. It hosts numerous temples, ghats, and sacred sites that attract devotees and tourists alike. The city's rich cultural heritage and religious diversity make it a fascinating destination for travelers.</p>
+        <h2>Detailed Synthesis</h2>
+        <p>Kurukshetra, situated in the fertile plains of northern India, holds a special place in Hindu mythology and history. According to legend, it was here that Lord Krishna delivered the Bhagavad Gita to Arjuna on the eve of the great battle. The city is dotted with numerous landmarks associated with this epic tale, including the famous Brahma Sarovar, where devotees gather for holy dips during religious festivals.</p>
+        <p>The significance of Kurukshetra extends beyond its mythological roots. It has been a center of learning and spiritual enlightenment for centuries, attracting scholars, saints, and seekers from across the country. The city's vibrant culture is reflected in its festivals, fairs, and rituals, which celebrate the diversity and unity of Indian society.</p>
+        <h2>Attractions</h2>
+        <p>Kurukshetra boasts a wealth of attractions for visitors to explore. From ancient temples and sacred lakes to modern museums and cultural centers, there's something for everyone in this historic city. Some must-visit places include the Bhadrakali Temple, Jyotisar, and the Kurukshetra Panorama and Science Center.</p>
+        <h2>Integrity</h2>
+        <p>The integrity of Kurukshetra's historical and cultural heritage is carefully preserved through conservation efforts and heritage management initiatives. Efforts are made to maintain the authenticity of ancient sites while providing visitors with informative and immersive experiences.</p>
+        <h2>Authenticity</h2>
+        <p>Authenticity is paramount in Kurukshetra, where every effort is made to preserve the original character and significance of historical landmarks. Restoration projects adhere to strict guidelines to ensure that the city's heritage remains intact for future generations to appreciate and cherish.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="kurukshetra_photo1.jpeg" alt="Kurukshetra Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="kurukshetra_photo2.jpeg" alt="Kurukshetra Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="kurukshetra_photo3.jpeg" alt="Kurukshetra Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Kurukshetra" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Kurukshetra -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Kurukshetra</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Kurukshetra, Haryana, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

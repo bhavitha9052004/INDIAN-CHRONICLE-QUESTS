@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hissar - Discover the City</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('hissar_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Hissar</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Hissar</h1>
+        <p class="lead">Explore the historical city of Hissar</p>
+    </div>
+    <div class="description">
+        <h2>About Hissar</h2>
+        <p>Hissar, also spelled as Hisar, is a historic city located in the Indian state of Haryana. With a rich cultural heritage and a legacy dating back to ancient times, Hissar is renowned for its historical monuments, vibrant bazaars, and traditional cuisine. The city serves as a melting pot of history, culture, and modernity, attracting visitors from far and wide.</p>
+        <h2>Historical Monuments</h2>
+        <p>Hissar is home to several historical monuments that reflect its illustrious past. The Hissar Fort, originally built by Firoz Shah Tughlaq in the 14th century, stands as a testament to the city's strategic importance during medieval times. Other notable landmarks include the Jahaj Kothi, Gujri Mahal, and Pranpir Badshah Tomb, each offering insights into Hissar's architectural heritage.</p>
+        <h2>Cultural Diversity</h2>
+        <p>The cultural fabric of Hissar is woven with threads of diversity, as the city is inhabited by people from various religious and ethnic backgrounds. Festivals such as Diwali, Eid, and Holi are celebrated with great fervor, highlighting the city's spirit of unity in diversity. Traditional art forms, music, and dance performances add to the vibrant cultural landscape of Hissar.</p>
+        <h2>Local Cuisine</h2>
+        <p>Hissar is a paradise for food lovers, offering a delectable array of local delicacies and traditional dishes. From mouth-watering street food to sumptuous thalis, the city's culinary scene is sure to tantalize your taste buds. Popular dishes include kadhi, kachori, and bajra roti served with tangy chutneys and spicy curries.</p>
+        <h2>Shopping and Markets</h2>
+        <p>Exploring the bustling bazaars and markets of Hissar is an experience in itself. From vibrant textiles and handcrafted artifacts to aromatic spices and local produce, the markets offer a treasure trove of goods. Visitors can shop for souvenirs, handicrafts, and traditional attire while immersing themselves in the vibrant atmosphere of Hissar's shopping districts.</p>
+        <h2>Connectivity</h2>
+        <p>Hissar is well-connected to major cities and towns in Haryana and neighboring states through a network of roadways and railways. The city's central location makes it easily accessible from Delhi, Chandigarh, and other key urban centers in the region. Hissar Railway Station serves as a major transportation hub, providing convenient connectivity for travelers.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="hissar_photo1.jpeg" alt="Hissar City Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="hissar_photo2.jpeg" alt="Hissar City Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="hissar_photo3.jpeg" alt="Hissar City Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Hisar,_Haryana" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Hissar -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Hissar</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Hisar, Haryana, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

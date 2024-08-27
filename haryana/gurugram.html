@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gurugram City - Information & Attractions</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('gurugram_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Gurugram City</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Gurugram City</h1>
+        <p class="lead">A bustling metropolitan city</p>
+    </div>
+    <div class="description">
+        <h2>About Gurugram</h2>
+        <p>Gurugram, also known as Gurgaon, is a thriving city located in the state of Haryana, India. It is situated in the National Capital Region (NCR) and is one of the major financial and technological hubs of the country. Gurugram is renowned for its modern infrastructure, skyscrapers, and multinational corporations.</p>
+        <h2>Historical Background</h2>
+        <p>Originally a small agricultural village, Gurugram witnessed rapid urbanization and development in the late 20th century. Its proximity to New Delhi, the capital of India, attracted businesses and industries, transforming it into a bustling metropolis. Today, Gurugram is home to numerous Fortune 500 companies and has emerged as a key player in India's economy.</p>
+        <h2>Key Features</h2>
+        <p>Gurugram boasts a wide range of attractions and amenities for residents and visitors alike. The city is known for its modern shopping malls, entertainment centers, and luxury hotels. Additionally, Gurugram offers abundant green spaces, recreational parks, and cultural venues, making it a dynamic and vibrant destination.</p>
+        <h2>Corporate Landscape</h2>
+        <p>With its thriving business environment, Gurugram has become a preferred destination for multinational corporations and start-ups. The city hosts numerous corporate offices, IT parks, and business districts, attracting professionals from various industries. Gurugram's strategic location, coupled with its world-class infrastructure, makes it a prime location for investment and business expansion.</p>
+        <h2>Local Cuisine</h2>
+        <p>Gurugram offers a diverse culinary scene with a wide range of dining options catering to different tastes and preferences. From traditional Indian cuisine to international delicacies, the city's restaurants and eateries offer an eclectic mix of flavors. Street food stalls and food markets add to the culinary experience, allowing visitors to savor local delicacies and culinary delights.</p>
+        <h2>Connectivity</h2>
+        <p>Gurugram is well-connected to major cities in India through a network of highways, expressways, and metro rail. The Indira Gandhi International Airport, located nearby, serves as a gateway to the city for domestic and international travelers. Gurugram's efficient transportation system ensures seamless connectivity and accessibility for commuters.</p>
+        <h2>Recreational Activities</h2>
+        <p>Residents and visitors can indulge in a variety of recreational activities in Gurugram. The city offers options for shopping, entertainment, sports, and cultural events. From golf courses and amusement parks to art galleries and theaters, Gurugram provides ample opportunities for leisure and enjoyment.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="gurugram_photo1.jpeg" alt="Gurugram City Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="gurugram_photo2.jpeg" alt="Gurugram City Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="gurugram_photo3.jpeg" alt="Gurugram City Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Gurgaon" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Gurugram -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Gurugram</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Gurugram, Haryana, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

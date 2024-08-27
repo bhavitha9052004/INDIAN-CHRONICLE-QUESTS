@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panipat Battlefield - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('panipat_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Panipat Battlefield</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Panipat Battlefield</h1>
+        <p class="lead">A site of historical significance</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>The Panipat Battlefield is a site of immense historical significance, known for being the location of three major battles in Indian history: the First Battle of Panipat (1526), the Second Battle of Panipat (1556), and the Third Battle of Panipat (1761). These battles had far-reaching consequences for the Indian subcontinent, shaping its political landscape for centuries.</p>
+        <h2>Cultural Significance</h2>
+        <p>The battlefield holds cultural significance as a symbol of valor, sacrifice, and resilience. It serves as a reminder of the bravery of soldiers who fought for their respective causes, as well as the impact of these conflicts on the diverse cultures and communities of India. The Panipat Battlefield is revered by historians, scholars, and visitors alike for its historical and cultural importance.</p>
+        <h2>Brief Synthesis</h2>
+        <p>The Panipat Battlefield spans across vast plains in the state of Haryana, offering visitors a glimpse into the strategic importance of the region during medieval times. The battles fought here witnessed the clash of mighty empires, including the Mughals, the Afghans, and the Marathas, each vying for supremacy and control over northern India.</p>
+        <h2>Attractions</h2>
+        <p>Visitors to the Panipat Battlefield can explore various attractions, including historical monuments, museums, and memorials dedicated to the fallen soldiers. These sites offer insights into the tactics, weaponry, and strategies employed during the battles, as well as the socio-political dynamics of the era.</p>
+        <h2>Integrity</h2>
+        <p>The integrity of the Panipat Battlefield is carefully preserved through conservation efforts and heritage management initiatives. Archaeological surveys, restoration projects, and educational programs aim to safeguard the site's authenticity and promote awareness about its historical significance.</p>
+        <h2>Authenticity</h2>
+        <p>Authenticity is paramount at the Panipat Battlefield, where every effort is made to preserve the original character and significance of historical landmarks. Restoration work follows strict guidelines to ensure that the battlefield's archaeological remains, artifacts, and landscapes remain true to their historical context.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="panipat_photo1.jpeg" alt="Panipat Battlefield Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="panipat_photo2.jpeg" alt="Panipat Battlefield Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="panipat_photo3.jpeg" alt="Panipat Battlefield Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Battles_of_Panipat" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Panipat Battlefield -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Panipat Battlefield</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Panipat Battlefield, Panipat, Haryana, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
