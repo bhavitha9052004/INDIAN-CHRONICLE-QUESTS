@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chilika Lake</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('c1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Chilika Lake</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Chilika Lake</h1>
+        <p class="lead">Asia's largest brackish water lagoon, located in Odisha, India</p>
+    </div>
+    <div class="description">
+        <h2>About Chilika Lake</h2>
+        <p>Chilika Lake, spread across the Puri, Khurda, and Ganjam districts of Odisha, India, is the largest brackish water lagoon in Asia. It is renowned for its rich biodiversity and is home to a variety of aquatic species, including fish, birds, and plants. The lake is an important habitat for migratory birds and has been designated as a Ramsar site, recognizing its international significance as a wetland ecosystem.</p>
+        
+        <h2>Flora and Fauna</h2>
+        <p>The ecosystem of Chilika Lake supports a wide range of flora and fauna. The lake's waters are inhabited by over 160 species of fish, making it a crucial fishing ground for local communities. The surrounding wetlands are home to various plant species, including aquatic grasses and mangroves. The lake also provides a wintering ground for thousands of migratory birds, including flamingos, pelicans, and herons, making it a paradise for birdwatchers.</p>
+        
+        <h2>Tourism</h2>
+        <p>Chilika Lake is a popular tourist destination, attracting visitors with its scenic beauty and wildlife. Boat rides on the lake offer a unique opportunity to explore its many islands, such as the Nalabana Bird Sanctuary, Kalijai Island, and the Satapada area, where one can spot the endangered Irrawaddy dolphins. The picturesque sunrise and sunset views over the lake are a highlight for tourists.</p>
+        
+        <h2>Conservation Efforts</h2>
+        <p>Conservation of Chilika Lake is vital for maintaining its ecological balance and supporting the livelihoods of local communities. Various initiatives have been undertaken to protect the lake's biodiversity, manage water quality, and promote sustainable fishing practices. The Chilika Development Authority (CDA) plays a key role in coordinating conservation efforts and ensuring the sustainable use of the lake's resources.</p>
+        
+        <h2>Culture and Community</h2>
+        <p>The communities living around Chilika Lake have a rich cultural heritage, closely linked to the lake's resources. Traditional fishing practices, local festivals, and folklore reflect the deep connection between the people and the lake. Efforts to promote eco-tourism aim to provide sustainable livelihoods for these communities while preserving their cultural identity.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="c2.jpeg" alt="Chilika Lake Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="c1.jpg" alt="Chilika Bird Sanctuary" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="c2.jpeg" alt="Irrawaddy Dolphin in Chilika Lake" class="img-fluid">
+        </div>
+    </div>
+</div>
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Chilika_Lake" style="color:red;">Wikipedia</a>
+</div>
+<!-- Button to Get Directions to Chilika Lake -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Chilika Lake</button>
+</div>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Chilika Lake, Odisha, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
