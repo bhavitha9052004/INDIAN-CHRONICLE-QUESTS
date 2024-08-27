@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promenade Beach - Puducherry</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('pbns1.jpg'); /* Update with appropriate image */
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Promenade Beach</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Promenade Beach</h1>
+        <p class="lead">Picturesque Beach in Puducherry</p>
+    </div>
+    <div class="description">
+        <h2>About Promenade Beach</h2>
+        <p>Promenade Beach, also known as Rock Beach, is one of the most popular and scenic beaches in Puducherry. Stretching along the vibrant Promenade Street, this beach offers a serene escape with its golden sands and beautiful waterfront.</p>
+
+        <h2>Attractions and Activities</h2>
+        <p>The beach is perfect for leisurely walks, jogging, and enjoying the sunset. Visitors can explore nearby cafes, restaurants, and handicraft shops lining the promenade. Water sports such as boating and jet skiing are also available during peak seasons.</p>
+
+        <h2>Local Culture and Heritage</h2>
+        <p>Promenade Beach reflects Puducherry's unique blend of French and Indian cultures. The promenade is dotted with colonial-era buildings, statues, and monuments, offering glimpses into the city's rich heritage and architectural splendor.</p>
+
+        <h2>Natural Beauty and Environment</h2>
+        <p>The beach is renowned for its tranquil atmosphere and scenic views of the Bay of Bengal. Coconut palms and lush greenery line the promenade, enhancing the beach's natural charm and providing shade for visitors.</p>
+
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are underway to preserve and maintain the ecological balance of Promenade Beach. Conservation projects focus on coastal clean-up drives, waste management, and promoting sustainable tourism practices to protect the beach's natural beauty.</p>
+
+        <h2>Visitor Facilities</h2>
+        <p>The beach offers facilities such as clean restrooms, parking areas, and designated spots for picnics and recreational activities. Tourists can also find information centers and guided tour services to explore nearby attractions.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="pbns1.jpg" alt="Promenade Beach Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pbns2.jpg" alt="Promenade Beach Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="pbns3.jpg" alt="Promenade Beach Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Wikipedia Link -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Promenade_Beach" target="_blank" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Button to Get Directions to Promenade Beach -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Promenade Beach</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Promenade Beach, Puducherry, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
