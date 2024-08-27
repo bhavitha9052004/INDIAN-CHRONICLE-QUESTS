@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gangtok, Sikkim</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('gs1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Gangtok, Sikkim</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Gangtok, Sikkim</h1>
+        <p class="lead">Picturesque hill station and capital city of Sikkim, nestled in the Himalayas</p>
+    </div>
+    <div class="description">
+        <h2>About Gangtok</h2>
+        <p>Gangtok is the capital city of the Indian state of Sikkim, situated in the eastern Himalayan range at an altitude of 1,650 meters (5,410 ft). Known for its stunning natural beauty and Buddhist pilgrimage sites, Gangtok is a popular tourist destination. The city is surrounded by majestic mountains, including the iconic Kangchenjunga, the third highest peak in the world.</p>
+        
+        <h2>Tourist Attractions</h2>
+        <p>Gangtok offers a variety of attractions for visitors. Some of the popular places to visit include the Enchey Monastery, Rumtek Monastery (Dharma Chakra Centre), Tsomgo Lake, Hanuman Tok, and Tashi View Point. These sites offer panoramic views of the Himalayas, serene lakes, and opportunities to explore Tibetan Buddhist culture and architecture.</p>
+        
+        <h2>Cultural Diversity</h2>
+        <p>Gangtok is known for its cultural diversity, with a mix of indigenous Sikkimese people and communities from other parts of India. The city celebrates various festivals throughout the year, including Losar (Tibetan New Year), Saga Dawa (Buddha Purnima), and Dasain (Dashain), reflecting its rich cultural heritage and religious tolerance.</p>
+        
+        <h2>Adventure and Nature</h2>
+        <p>Adventure enthusiasts can indulge in trekking, river rafting, paragliding, and mountain biking in and around Gangtok. The nearby Himalayan ranges and lush green valleys provide ample opportunities for nature lovers to explore and experience the biodiversity of the region.</p>
+        
+        <h2>Local Cuisine</h2>
+        <p>Gangtok offers a delightful culinary experience with its traditional Sikkimese cuisine, which includes dishes like momos (dumplings), thukpa (noodle soup), gundruk (fermented leafy greens), and sel roti (traditional bread). Visitors can also enjoy a variety of Tibetan, Nepali, and Indian cuisines in local restaurants and eateries.</p>
+    </div>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="gs1.jpeg" alt="Gangtok Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="gs2.jpeg" alt="Gangtok Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="gs3.jpeg" alt="Gangtok Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Gangtok -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Gangtok</button>
+</div>
+
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Gangtok" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Gangtok, Sikkim, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
