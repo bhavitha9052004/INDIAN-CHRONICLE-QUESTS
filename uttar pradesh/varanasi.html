@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varanasi - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('varanasi_photo1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Varanasi</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Varanasi</h1>
+        <p class="lead">The spiritual capital of India</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Varanasi, one of the oldest continuously inhabited cities in the world, is a sacred pilgrimage site for Hindus. Located on the banks of the Ganges River in Uttar Pradesh, India, it has been a center of religious, cultural, and artistic activities for thousands of years. The city is mentioned in ancient texts such as the Rigveda and the Mahabharata, reflecting its deep historical roots.</p>
+        <h2>Cultural Significance</h2>
+        <p>Varanasi is renowned for its rich cultural heritage and spiritual significance. The city is home to numerous temples, ghats, and ashrams, attracting millions of pilgrims and tourists every year. It is believed that taking a dip in the holy waters of the Ganges River at Varanasi can cleanse one's sins and lead to spiritual enlightenment.</p>
+        <h2>Landmarks</h2>
+        <p>Some of the most prominent landmarks in Varanasi include the Kashi Vishwanath Temple, dedicated to Lord Shiva; the Dashashwamedh Ghat, where the famous Ganga Aarti ceremony takes place; and the Sarnath Stupa, where Lord Buddha is said to have preached his first sermon.</p>
+        <h2>Art and Music</h2>
+        <p>Varanasi is known for its vibrant arts and music scene. The city has been a hub for classical music, dance, and traditional crafts for centuries. Visitors can experience the soul-stirring sounds of sitar and tabla, witness mesmerizing dance performances, and explore the colorful markets selling handwoven silk sarees and other handicrafts.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="varanasi_photo1.jpg" alt="Varanasi Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="varanasi_photo2.jpg" alt="Varanasi Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="varanasi_photo3.jpg" alt="Varanasi Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Varanasi -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Varanasi</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Varanasi, Uttar Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate the document body
+        var elements = document.querySelectorAll('h1, h2, h3, p, a, span, button, option');
+        elements.forEach(function(element) {
+            var text = element.innerText;
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerText = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>

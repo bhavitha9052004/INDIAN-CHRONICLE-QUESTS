@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fatehpur Sikri - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('fatehpur_sikri_photo3.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Fatehpur Sikri</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Fatehpur Sikri</h1>
+        <p class="lead">A city of architectural brilliance</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Fatehpur Sikri, a city in Uttar Pradesh, India, served as the capital of the Mughal Empire from 1571 to 1585. It was built by Emperor Akbar the Great, who was known for his architectural patronage and religious tolerance. The city was abandoned shortly after its completion due to water scarcity but remains an important historical and cultural site.</p>
+        <h2>Cultural Significance</h2>
+        <p>Fatehpur Sikri is renowned for its blend of Mughal, Persian, and Indian architectural styles. The city houses numerous palaces, mosques, and other structures, including the Buland Darwaza, Jama Masjid, and Panch Mahal. It is a testament to the grandeur and sophistication of Mughal urban planning and design.</p>
+        <h2>Architectural Features</h2>
+        <p>One of the most iconic features of Fatehpur Sikri is the Buland Darwaza, or "Gate of Magnificence," which stands at a height of 54 meters and is adorned with intricate carvings and inscriptions. The Jama Masjid, built by Akbar, is one of the largest mosques in India and features a grand courtyard and a central prayer hall.</p>
+        <h2>Conservation Efforts</h2>
+        <p>Efforts have been made to preserve and restore Fatehpur Sikri's architectural heritage. Conservation work has included structural repairs, cleaning of facades, and documentation of historical features. The site continues to attract visitors from around the world, offering a glimpse into India's rich cultural and architectural history.</p>        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="fatehpur_sikri_photo1.jpg" alt="Fatehpur Sikri Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="fatehpur_sikri_photo2.jpg" alt="Fatehpur Sikri Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="fatehpur_sikri_photo3.jpg" alt="Fatehpur Sikri Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Fatehpur Sikri -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Fatehpur Sikri</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Fatehpur Sikri, Agra, Uttar Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate the document body
+        var elements = document.querySelectorAll('h1, h2, h3, p, a, span, button, option');
+        elements.forEach(function(element) {
+            var text = element.innerText;
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(text))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerText = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
