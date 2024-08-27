@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Char Dham - Sacred Pilgrimage Sites</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('char_dham_photo3.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Char Dham</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Char Dham</h1>
+        <p class="lead">Embark on a spiritual journey</p>
+    </div>
+    <div class="description">
+        <h2>About Char Dham</h2>
+        <p>The Char Dham, meaning "Four Abodes," refers to four sacred pilgrimage sites in India. These sites are revered by Hindus and are believed to be the abodes of Hindu gods and goddesses.</p>
+
+        <h2>Pilgrimage Sites</h2>
+        <p>The Char Dham pilgrimage circuit includes the following sites:</p>
+        <ul>
+            <li><strong>Yamunotri:</strong> Located in the Garhwal Himalayas, Yamunotri is the source of the Yamuna River and is dedicated to Goddess Yamuna.</li>
+            <li><strong>Gangotri:</strong> Situated in the Uttarkashi district of Uttarakhand, Gangotri is the origin of the Ganges River and is dedicated to Goddess Ganga.</li>
+            <li><strong>Kedarnath:</strong> Nestled in the Rudraprayag district, Kedarnath is dedicated to Lord Shiva and is one of the 12 Jyotirlingas.</li>
+            <li><strong>Badrinath:</strong> Located in the Chamoli district, Badrinath is dedicated to Lord Vishnu and is one of the Char Dham pilgrimage sites.</li>
+        </ul>
+
+        <h2>Significance</h2>
+        <p>The Char Dham pilgrimage is considered highly auspicious and is believed to provide spiritual upliftment and liberation from the cycle of birth and death.</p>
+
+        <h2>Accessibility</h2>
+        <p>The Char Dham sites are located in the Himalayan region of Uttarakhand, India. They are accessible by road and trekking routes, although some sites may require a strenuous trek.</p>
+
+        <h2>Accommodation</h2>
+        <p>Accommodation options are available near the Char Dham sites, ranging from budget guesthouses to luxury hotels. Pilgrims can also find dharamshalas (pilgrims' rest houses) for a more economical stay.</p>
+
+        <h2>Best Time to Visit</h2>
+        <p>The Char Dham sites are usually open to visitors from April to November, with the peak pilgrimage season being during the summer months of May to June and the autumn months of September to October.</p>
+
+        <h2>Precautions</h2>
+        <p>Pilgrims are advised to check weather conditions and road conditions before embarking on the Char Dham yatra. It is also essential to carry necessary medications, warm clothing, and adequate supplies.</p>
+
+        <h2>Integrity</h2>
+        <p>The Char Dham pilgrimage sites are well-maintained by the local authorities and religious organizations to ensure the safety and comfort of pilgrims. Conservation efforts are also undertaken to preserve the natural beauty and sanctity of these sacred sites.</p>
+
+        <h2>Authenticity</h2>
+        <p>The Char Dham sites retain their authenticity as sacred pilgrimage destinations, with rituals, ceremonies, and traditions being practiced as per ancient customs and beliefs. Pilgrims can experience the rich cultural and spiritual heritage of India during their visit to these revered sites.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="char_dham_photo1.jpeg" alt="Char Dham Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="char_dham_photo2.jpeg" alt="Char Dham Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="char_dham_photo3.jpeg" alt="Char Dham Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Char_Dham" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Char Dham -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Char Dham</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Char Dham, Uttarakhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
