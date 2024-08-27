@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahabodhi Temple, Bodh Gaya - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('dudh3.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Mahabodhi Temple, Bodh Gaya</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Mahabodhi Temple, Bodh Gaya</h1>
+        <p class="lead">A sacred site of Buddhist pilgrimage</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>The Mahabodhi Temple, located in Bodh Gaya, Bihar, India, is one of the most important Buddhist pilgrimage sites in the world. It marks the spot where Siddhartha Gautama, the Buddha, attained enlightenment under the Bodhi Tree around 2,500 years ago. Emperor Ashoka is credited with building the original temple at this site in the 3rd century BCE.</p>
+        <h2>Cultural Significance</h2>
+        <p>The Mahabodhi Temple is a symbol of global Buddhist heritage and serves as a center for meditation, study, and worship. It represents the birth of Buddhism and attracts millions of pilgrims and tourists from around the world every year. The temple complex is surrounded by monasteries and meditation centers, fostering a vibrant spiritual community.</p>
+        <h2>Brief Synthesis</h2>
+        <p>The Mahabodhi Temple complex is characterized by its towering pyramidal spire, which rises over 55 meters high and is adorned with intricate carvings depicting scenes from the life of the Buddha. The temple itself houses a large gilded image of the Buddha in the pose of meditation, known as the Mahabodhi Buddha, along with other sacred relics and artifacts.</p>
+        <p>The temple complex also includes the sacred Bodhi Tree, a descendant of the original tree under which the Buddha attained enlightenment. Pilgrims from all over the world gather beneath its branches to pay homage and offer prayers. Surrounding the temple are various shrines, stupas, and meditation gardens, creating a serene atmosphere conducive to spiritual practice.</p>
+        <h2>Integrity</h2>
+        <p>The integrity of the Mahabodhi Temple complex is carefully maintained through ongoing conservation efforts and strict regulations to protect its historical and cultural significance. Measures are in place to prevent damage from natural disasters, pollution, and tourism while ensuring that the site remains accessible to pilgrims and visitors.</p>
+        <h2>Authenticity</h2>
+        <p>The Mahabodhi Temple complex retains its authenticity as a sacred pilgrimage site and architectural marvel. Conservation work is carried out using traditional methods and materials to preserve the original character of the structures while ensuring their structural integrity. Efforts are made to uphold the spiritual and cultural significance of the site for future generations.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="dudh2.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dudh1.jpg" alt="Mahabodhi Temple Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="dudh3.jpg" alt="Mahabodhi Temple Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Mahabodhi_Temple" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Mahabodhi Temple -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Mahabodhi Temple</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Mahabodhi Temple, Bodh Gaya, Bihar, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
