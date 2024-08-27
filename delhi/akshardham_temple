@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshardham Temple - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('akshardham_temple_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Akshardham Temple</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Akshardham Temple</h1>
+        <p class="lead">A symbol of spirituality and architectural grandeur</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>Akshardham Temple, also known as Swaminarayan Akshardham, is a Hindu temple complex located in Delhi, India. Built in 2005, the temple is dedicated to Bhagwan Swaminarayan and showcases the rich cultural and spiritual heritage of India. Akshardham Temple represents a blend of traditional Indian architecture, craftsmanship, and spirituality.</p>
+
+<h2>Cultural Significance</h2>
+<p>Akshardham Temple serves as a center for spiritual enlightenment, cultural education, and social harmony. It attracts millions of visitors from around the world who come to admire its stunning architecture, intricate carvings, and vibrant exhibitions. The temple complex celebrates the values of peace, harmony, and universal brotherhood, promoting cultural understanding and religious tolerance.</p>
+
+<h2>Brief Synthesis</h2>
+<p>Designed in the architectural style of ancient Hindu temples, Akshardham Temple features intricately carved sandstone and marble structures adorned with sculptures, domes, and spires. The central monument of the temple complex is the Akshardham Mandir, which houses the sacred idol of Bhagwan Swaminarayan. Surrounding the mandir are expansive gardens, water bodies, and themed exhibitions that showcase the essence of Indian spirituality, art, and culture.<br>
+
+The temple complex also includes attractions such as the Yagnapurush Kund, a musical fountain that narrates Vedic legends through water, light, and sound; the Sahaj Anand Water Show, an immersive multimedia experience depicting an ancient Indian story of devotion and compassion; and the Sanskruti Vihar, an exhibition highlighting India's cultural diversity and contributions to humanity.</p>
+
+<h2>Integrity</h2>
+<p>Akshardham Temple is meticulously maintained to preserve its architectural integrity, spiritual sanctity, and cultural significance. Conservation efforts include regular upkeep of the temple structures, gardens, and exhibitions, as well as measures to ensure the safety and security of visitors. The temple complex remains a symbol of excellence in craftsmanship and devotion to God.</p>
+
+<h2>Authenticity</h2>
+<p>Akshardham Temple remains authentic to its spiritual and cultural roots, embodying the timeless values of Hinduism and the teachings of Bhagwan Swaminarayan. Conservation initiatives focus on maintaining the authenticity of the temple's architectural elements, sacred rituals, and religious traditions, ensuring that it continues to inspire and uplift devotees and visitors alike.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="akshardham_temple_photo1.jpeg" alt="Akshardham Temple Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="akshardham_temple_photo2.jpeg" alt="Akshardham Temple Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="akshardham_temple_photo3.jpeg" alt="Akshardham Temple Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Akshardham_(Delhi)" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Akshardham Temple -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Akshardham Temple</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Akshardham Temple, New Delhi, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
