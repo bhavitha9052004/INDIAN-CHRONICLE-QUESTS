@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirpur - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('sirpur.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Sirpur</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Sirpur</h1>
+        <p class="lead">An ancient town known for its archaeological sites</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Sirpur, located in the Mahasamund district of Chhattisgarh, India, is famous for its archaeological sites dating back to the 6th century AD. It was an important center of Buddhist, Shaivite, and Vaishnavite cultures during ancient times.</p>
+        <h2>Cultural Significance</h2>
+        <p>The cultural heritage of Sirpur includes ancient temples, monasteries, and sculptures reflecting Buddhist and Hindu architectural styles. The town's archaeological remains are of great historical and cultural significance.</p>
+        <h2>Key Attractions</h2>
+        <p>Major attractions in Sirpur include the Laxman Temple, Gandheshwar Temple, and Buddha Vihar, which showcase exquisite carvings and sculptures. Visitors can explore the ancient ruins and learn about Sirpur's rich history.</p>
+        <h2>Conservation Efforts</h2>
+        <p>Efforts are underway to preserve and protect Sirpur's archaeological sites and monuments. Conservation projects aim to maintain the integrity of these ancient structures and promote tourism in the region.</p>
+        <h2>Tourism</h2>
+        <p>Sirpur attracts tourists interested in history, archaeology, and spirituality. Visitors can explore the town's ancient relics, participate in cultural events, and experience the serene ambiance of its surroundings.</p>
+    </div>
+</div>
+
+<!-- Wikipedia Section -->
+<div class="container mt-4 text-center">
+    <a href="https://en.wikipedia.org/wiki/Sirpur_(Chhattisgarh)" style="color:red;">Wikipedia</a>
+</div>
+
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="sirpur_photo1.jpg" alt="Sirpur Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="sirpur_photo2.jpg" alt="Sirpur Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="sirpur_photo3.jpg" alt="Sirpur Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Sirpur -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Sirpur</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Sirpur, Mahasamund, Chhattisgarh, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
