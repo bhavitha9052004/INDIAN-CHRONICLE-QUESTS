@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Andhra Pradesh</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('andhrapradesh_banner.jpg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Andhra Pradesh</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Andhra Pradesh</h1>
+      <p class="lead">Discover the land of temples and scenic beauty</p>
+    </div>
+    <div class="description">
+      <h2>About Andhra Pradesh</h2>
+      <p>Andhra Pradesh, located in southern India, is known for its rich cultural heritage, ancient temples, serene beaches, and picturesque landscapes.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='SrikalahasthiTemple.html'">
+            <img src="srikalahasthi_temple_photo.jpg" alt="Srikalahasthi Temple" class="img-fluid mb-2">
+            Srikalahasthi Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='KanakaDurgaTemple.html'">
+            <img src="kanakadurga_temple_photo.jpg" alt="Kanakadurga Temple" class="img-fluid mb-2">
+            Kanakadurga Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='ArakuValley.html'">
+            <img src="araku_valley_photo.jpg" alt="Araku Valley" class="img-fluid mb-2">
+            Araku Valley
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='TirupatiBalajiTemple.html'" >
+            <img src="tirupati_balaji_temple_photo.jpg" alt="Tirupati Balaji Temple" class="img-fluid mb-2">
+            Tirupati Balaji Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='srisailam.html'">
+            <img src="srisailam_photo.jpg" alt="Srisailam" class="img-fluid mb-2">
+            Srisailam
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='BelumCaves.html'" >
+            <img src="belum_caves_photo.jpg" alt="Belum Caves" class="img-fluid mb-2">
+            Belum Caves
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
