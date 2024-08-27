@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Chandigarh</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('rkc1.jpg'); /* Update with appropriate image */
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Chandigarh</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Chandigarh</h1>
+      <p class="lead">The City Beautiful</p>
+    </div>
+    <div class="description">
+      <h2>About Chandigarh</h2>
+      <p>Chandigarh, the capital of both Punjab and Haryana, is known for its modern architecture and urban design. It's a city that offers a unique blend of culture, history, and contemporary living, making it an ideal destination for travelers.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='rockgarden.html'">
+            <img src="rkc1.jpg" alt="Rock Garden" class="img-fluid mb-2">
+            RockGarden
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='sukhna.html'">
+            <img src="skc1.jpg" alt="Sukhna Lake" class="img-fluid mb-2">
+            Sukhna Lake
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='rosegarden.html'">
+            <img src="roseg1.jpg" alt="Rose Garden" class="img-fluid mb-2">
+             Rose Garden
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='pinjoregardens.html'">
+            <img src="pj1.jpg" alt="Pinjore Gardens" class="img-fluid mb-2">
+            Pinjore Gardens
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='elantemall.html'">
+            <img src="em1.jpg" alt="Elante Mall" class="img-fluid mb-2">
+            Elante Mall
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='capitolcomplex.html'">
+            <img src="ccp1.jpg" alt="Capitol Complex" class="img-fluid mb-2">
+            Capitol Complex
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
