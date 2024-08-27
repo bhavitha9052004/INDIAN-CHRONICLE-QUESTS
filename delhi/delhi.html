@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Delhi</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('india_gate_photo3.jpeg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Delhi</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Delhi</h1>
+      <p class="lead">Discover the rich history and diverse culture</p>
+    </div>
+    <div class="description">
+      <h2>About Delhi</h2>
+      <p>Delhi, the capital city of India, is a vibrant metropolis known for its historical landmarks, bustling markets, and diverse culinary scene.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='india_gate.html'">
+            <img src="india_gate_photo1.jpeg" alt="India Gate" class="img-fluid mb-2">
+            India Gate
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='qutub_minar.html'">
+            <img src="qutub_minar_photo2.jpeg" alt="Qutub Minar" class="img-fluid mb-2">
+            Qutub Minar
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='red_fort.html'">
+            <img src="red_fort_photo2.jpeg" alt="Red Fort" class="img-fluid mb-2">
+            Red Fort
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='lotus_temple.html'">
+            <img src="lotus_temple_photo2.jpeg" alt="Lotus Temple" class="img-fluid mb-2">
+            Lotus Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='akshardham_temple.html'">
+            <img src="akshardham_temple_photo1.jpeg" alt="Akshardham Temple" class="img-fluid mb-2">
+            Akshardham Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='humayun_tomb.html'">
+            <img src="humayun_tomb_photo1.jpeg" alt="Humayun's Tomb" class="img-fluid mb-2">
+            Humayun's Tomb
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

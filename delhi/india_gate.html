@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India Gate - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('india_gate_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">India Gate</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">India Gate</h1>
+        <p class="lead">A symbol of national pride and sacrifice</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>India Gate, originally called the All India War Memorial, is a prominent landmark located in the heart of New Delhi, India. Built in the early 20th century, India Gate commemorates the sacrifice of Indian soldiers who lost their lives during World War I and the Afghan Wars. The monument serves as a memorial to honor the bravery and valor of the Indian Army.</p>
+
+<h2>Cultural Significance</h2>
+<p>India Gate holds cultural significance as a symbol of national pride, unity, and remembrance. It serves as a rallying point for national events, celebrations, and ceremonies, including Republic Day parades and Independence Day festivities. The monument symbolizes the spirit of patriotism and solidarity among the people of India.</p>
+
+<h2>Brief Synthesis</h2>
+<p>India Gate stands as a majestic archway in the heart of New Delhi, surrounded by lush green lawns and gardens. Designed by Sir Edwin Lutyens, the monument is inspired by the Arc de Triomphe in Paris and features intricate carvings and inscriptions honoring the soldiers who sacrificed their lives for the country. The names of the soldiers are inscribed on the walls of the monument, serving as a solemn reminder of their sacrifice.<br>
+
+The Amar Jawan Jyoti (Flame of the Immortal Soldier) is a perpetual flame burning beneath the arch of India Gate, symbolizing the eternal spirit of the Indian Army. The flame is guarded by uniformed soldiers round the clock, paying homage to the fallen heroes of the nation.<br>
+
+Surrounded by beautifully landscaped gardens, India Gate is a popular destination for locals and tourists alike. Visitors can enjoy leisurely walks, picnics, and recreational activities in the serene ambiance of the monument's surroundings.</p>
+
+<h2>Integrity</h2>
+<p>The integrity of India Gate is preserved through conservation efforts and maintenance activities carried out by the authorities. Restoration projects aim to maintain the structural stability of the monument and safeguard its historical significance for future generations. Measures are also taken to ensure the cleanliness and upkeep of the surrounding area.</p>
+
+<h2>Authenticity</h2>
+<p>India Gate retains its authenticity as a national monument dedicated to the memory of Indian soldiers who made the ultimate sacrifice for their country. Conservation efforts focus on preserving the original architectural elements and historical features of the monument, ensuring that its symbolic value remains intact.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="india_gate_photo1.jpeg" alt="India Gate Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="india_gate_photo2.jpeg" alt="India Gate Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="india_gate_photo3.jpeg" alt="India Gate Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/India_Gate" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to India Gate -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to India Gate</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "India Gate, New Delhi, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

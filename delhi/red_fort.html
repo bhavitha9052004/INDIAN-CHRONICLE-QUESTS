@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Fort - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('red_fort_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Red Fort</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Red Fort</h1>
+        <p class="lead">A UNESCO World Heritage Site in Delhi</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>The Red Fort, also known as Lal Qila, is a historic fortification located in the heart of Old Delhi, India. Constructed in the 17th century by the Mughal Emperor Shah Jahan, the fort served as the main residence of the Mughal emperors for nearly 200 years. It is named after its massive red sandstone walls and stands as a symbol of Mughal architectural grandeur and power.</p>
+
+<h2>Cultural Significance</h2>
+<p>The Red Fort holds immense cultural significance as a symbol of India's rich heritage and historical legacy. It is a UNESCO World Heritage Site and attracts millions of visitors each year who come to admire its architectural splendor and learn about its storied past. The fort complex is a testament to the vibrant cultural fusion of Mughal, Persian, and Indian architectural styles.</p>
+
+<h2>Brief Synthesis</h2>
+<p>The Red Fort encompasses a sprawling complex of palaces, pavilions, gardens, and courtyards, all enclosed within its imposing walls. The architectural highlights of the fort include the Diwan-i-Aam (Hall of Public Audience), Diwan-i-Khas (Hall of Private Audience), Rang Mahal (Palace of Colors), and the iconic Moti Masjid (Pearl Mosque). The fort's intricate marble carvings, delicate inlays, and ornate domes reflect the opulence of Mughal art and design.<br>
+
+The Red Fort served as the ceremonial and political center of the Mughal Empire and witnessed many significant events in Indian history, including the proclamation of Indian independence by Prime Minister Jawaharlal Nehru on August 15, 1947. Today, the fort remains a symbol of India's sovereignty and a venue for national celebrations, cultural events, and exhibitions.</p>
+
+<h2>Integrity</h2>
+<p>The integrity of the Red Fort is preserved through extensive conservation efforts and restoration projects undertaken by archaeological authorities. Measures are taken to maintain the structural stability of the fort's buildings, preserve its original architectural features, and protect it from environmental factors and urban encroachment.</p>
+
+<h2>Authenticity</h2>
+<p>The Red Fort retains its authenticity as a historic monument dating back to the Mughal period. Conservation efforts focus on preserving the originality and authenticity of the fort's architectural elements, including its red sandstone walls, marble structures, and decorative motifs. Visitors can experience the rich history and cultural heritage of the Red Fort through guided tours, audio-visual presentations, and cultural performances.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="red_fort_photo1.jpeg" alt="Red Fort Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="red_fort_photo2.jpeg" alt="Red Fort Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="red_fort_photo3.jpeg" alt="Red Fort Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Red_Fort" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Red Fort -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Red Fort</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Red Fort, Delhi, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
