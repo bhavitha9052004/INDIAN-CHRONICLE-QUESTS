@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rumtek Monastery - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('rm1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Rumtek Monastery</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Rumtek Monastery</h1>
+        <p class="lead">A prominent Buddhist monastery in Sikkim</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Rumtek Monastery, also known as the Dharmachakra Centre, is one of the largest and most significant monasteries in Sikkim, India. Originally built in the 16th century, the monastery was rebuilt in the 20th century by the 16th Karmapa after fleeing Tibet.</p>
+        <h2>Cultural Significance</h2>
+        <p>Rumtek Monastery serves as the seat of the Kagyu sect of Tibetan Buddhism outside Tibet. It houses precious Buddhist artifacts, religious relics, and a vast collection of thangkas (Tibetan silk paintings). The monastery is a center for Buddhist studies, meditation, and spiritual practices.</p>
+        <h2>Architectural Beauty</h2>
+        <p>The architecture of Rumtek Monastery reflects traditional Tibetan and Sikkimese styles. The main temple, known as the Golden Stupa, features intricate murals, sculptures, and ornate decorations. The surrounding landscape offers breathtaking views of the Himalayas.</p>
+        <h2>Preservation Efforts</h2>
+        <p>Efforts have been made to preserve and protect the cultural and spiritual heritage of Rumtek Monastery. Conservation initiatives focus on maintaining the structural integrity of the monastery complex, preserving ancient artifacts, and promoting religious harmony.</p>
+        <h2>Promoting Tourism</h2>
+        <p>Rumtek Monastery attracts visitors from around the world with its spiritual ambiance, architectural splendor, and serene surroundings. Visitors can explore the monastery, attend religious ceremonies, and participate in meditation and cultural programs.</p>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Rumtek_Monastery" style="color:red;">Wikipedia</a></div><br>
+<!-- Photo Gallery -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="rm1.jpeg" alt="Rumtek Monastery Photo 1" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="rm1.jpeg" alt="Rumtek Monastery Photo 2" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <img src="rm1.jpeg" alt="Rumtek Monastery Photo 3" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- Button to Get Directions to Rumtek Monastery -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Rumtek Monastery</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Replace the destination with the actual location coordinates
+        var destination = "Rumtek Monastery, Sikkim, India";
+        var url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(destination);
+        window.open(url, '_blank');
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
