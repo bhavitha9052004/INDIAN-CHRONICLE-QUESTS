@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Bihar</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('kesaria_stupa_photo.jpg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Bihar</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Bihar</h1>
+      <p class="lead">Discover the cultural heritage of India</p>
+    </div>
+    <div class="description">
+      <h2>About Bihar</h2>
+      <p>Bihar, the land of ancient heritage and spirituality, is known for its rich cultural history. Explore the vibrant tapestry of Bihar's cultural and historical landmarks.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='MahabodhiTemple.html'">
+            <img src="mahabodhi_temple_photo.jpeg" alt="Mahabodhi Temple, Bodh Gaya" class="img-fluid mb-2">
+            Mahabodhi Temple, Bodh Gaya
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='kesaristupa.html'">
+            <img src="kesaria_stupa_photo.jpg" alt="Kesaria Stupa" class="img-fluid mb-2">
+            Kesaria Stupa
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='vaishali.html'">
+            <img src="vaishali_photo.jpg" alt="Vaishali" class="img-fluid mb-2">
+            Vaishali
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Pawapuri.html'">
+            <img src="pawapuri_photo.jpg" alt="Pawapuri" class="img-fluid mb-2">
+            Pawapuri
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Rajgir.html'">
+            <img src="rajgir_photo.jpeg" alt="Rajgir" class="img-fluid mb-2">
+            Rajgir
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='RohtasgarhFort.html'">
+            <img src="rws.jpeg" alt="Rohtasgarh Fort" class="img-fluid mb-2">
+            Rohtasgarh Fort
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
