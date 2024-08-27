@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Rajasthan</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('jaipur_photo2.jpeg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Rajasthan</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Rajasthan</h1>
+      <p class="lead">Experience the Royal Legacy</p>
+    </div>
+    <div class="description">
+      <h2>About Rajasthan</h2>
+      <p>Rajasthan, known as the "Land of Kings," is India's largest state by area. It is famous for its vibrant culture, magnificent palaces, and forts.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='jaipur.html'">
+            <img src="jaipur_photo1.jpeg" alt="Jaipur" class="img-fluid mb-2">
+            Jaipur
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='udaipur.html'">
+            <img src="udaipur_photo1.jpeg" alt="Udaipur" class="img-fluid mb-2">
+            Udaipur
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='jodhpur.html'">
+            <img src="jodhpur_photo1.jpeg" alt="Jodhpur" class="img-fluid mb-2">
+            Jodhpur
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='jaisalmer.html'" >
+            <img src="jaisalmer_photo1.jpeg" alt="Jaisalmer" class="img-fluid mb-2">
+            Jaisalmer
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='pushkar.html'">
+            <img src="pushkar_photo2.jpeg" alt="Pushkar" class="img-fluid mb-2">
+            Pushkar
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='bikaner.html'" >
+            <img src="bikaner_photo1.jpeg" alt="Bikaner" class="img-fluid mb-2">
+            Bikaner
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

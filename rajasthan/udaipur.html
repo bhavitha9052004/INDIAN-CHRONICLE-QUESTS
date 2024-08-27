@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udaipur - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('udaipur_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Udaipur</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Udaipur</h1>
+        <p class="lead">The City of Lakes</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Udaipur, often referred to as the Venice of the East, is a city in the Indian state of Rajasthan. Founded in 1559 by Maharana Udai Singh II, it served as the capital of the Mewar Kingdom. Udaipur is renowned for its picturesque lakes, palaces, and vibrant culture.</p>
+        <h2>Cultural Significance</h2>
+        <p>Udaipur is a vibrant center of Rajasthani culture, known for its traditional music, dance forms, and colorful festivals. The city's markets offer a rich variety of handicrafts, textiles, and artwork, reflecting the region's rich heritage and skilled craftsmanship.</p>
+        <h2>Notable Palaces and Attractions</h2>
+        <p>The <b>City Palace</b> is a majestic complex of palaces, courtyards, and gardens, overlooking Lake Pichola. Built over centuries by different rulers of the Mewar dynasty, it showcases a blend of Rajasthani and Mughal architectural styles, with ornate decorations and stunning views.</p>
+        <p>The <b>Lake Palace</b>, also known as Jag Niwas, is an iconic luxury hotel located on a serene island in Lake Pichola. Built-in the 18th century by Maharana Jagat Singh II, it exemplifies Rajputana architecture and offers a luxurious retreat amidst scenic surroundings.</p>
+        <p>The <b>Jag Mandir</b>, another island palace in Lake Pichola, is renowned for its intricate architecture and scenic beauty. Built by various Maharanas of the Mewar dynasty, it served as a pleasure palace and refuge during times of war.</p>
+        <p>The <b>Saheliyon-ki-Bari</b>, or Garden of the Maidens, is a beautiful garden adorned with fountains, marble pavilions, and lush greenery. Built by Maharana Sangram Singh II in the 18th century, it was designed as a recreational space for the royal ladies and their companions.</p>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="udaipur_photo1.jpeg" alt="udaipur Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="udaipur_photo2.jpeg" alt="udaipur Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="udaipur_photo3.jpeg" alt="udaipur Photo 3" class="img-fluid">
+    </div>
+
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Udaipur" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Udaipur -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Udaipur</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Udaipur, Rajasthan, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

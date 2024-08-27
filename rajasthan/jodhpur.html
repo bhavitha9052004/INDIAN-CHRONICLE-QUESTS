@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jodhpur - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('jodhpur_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Jodhpur</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Jodhpur</h1>
+        <p class="lead">The Blue City</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Jodhpur, located in the Indian state of Rajasthan, is a city with a rich historical legacy. Founded in 1459 by Rao Jodha, the city served as the capital of the Marwar Kingdom. Its formidable Mehrangarh Fort, built on a rocky hill, has stood as a symbol of power and resilience for centuries.</p>
+        <h2>Cultural Significance</h2>
+        <p>Jodhpur is steeped in Rajasthani culture, known for its vibrant festivals, folk music, and traditional art forms. The city's narrow lanes are adorned with intricately designed havelis, showcasing the craftsmanship of bygone eras. Its culinary delights, including the famous Mirchi Bada and Pyaaz Kachori, are a testament to its rich culinary heritage.</p>
+        <h2>Notable Landmarks</h2>
+        <p>The <b>Mehrangarh Fort</b> stands as an imposing fortress overlooking the city. With its massive walls and intricate architecture, it offers panoramic views of Jodhpur's skyline and houses a museum showcasing the city's history and cultural artifacts.</p>
+        <p>The <b>Umaid Bhawan Palace</b>, one of the world's largest private residences, is a magnificent blend of Indo-Saracenic and Art Deco styles. Built-in the 20th century, it serves as a royal residence and luxury hotel, offering guests a glimpse into the opulent lifestyle of the erstwhile rulers of Jodhpur.</p>
+        <p>The <b>Jaswant Thada</b> is a cenotaph built-in memory of Maharaja Jaswant Singh II. Constructed of intricately carved marble, it exudes tranquility amidst its lush gardens and serene lakes, making it a popular spot for visitors seeking solace.</p>
+        <p>The <b>Ghanta Ghar</b> or Clock Tower is a prominent landmark in Jodhpur's bustling Sadar Bazaar. Built-in the 19th century by Maharaja Sardar Singh, it stands as a testament to the city's architectural heritage and serves as a hub of activity for locals and tourists alike.</p>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="jodhpur_photo1.jpeg" alt="jodhpur Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="jodhpur_photo2.jpeg" alt="jodhpur Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="jodhpur_photo3.jpeg" alt="jodhpur Photo 3" class="img-fluid">
+    </div>
+
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Jodhpur" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Jodhpur -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Jodhpur</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Jodhpur, Rajasthan, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaipur - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('jaipur_photo3.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Jaipur</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Jaipur</h1>
+        <p class="lead">The Pink City of India</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Jaipur, the capital of Rajasthan, was founded in 1727 by Maharaja Sawai Jai Singh II. It is renowned for its rich history, vibrant culture, and architectural splendor. The city's layout, with its pink buildings and bustling streets, reflects its royal heritage.</p>
+        <h2>Cultural Significance</h2>
+        <p>Jaipur is a vibrant center of Rajasthani culture, known for its colorful festivals, traditional music, and dance forms. The city's markets are a treasure trove of handicrafts, textiles, and jewelry, showcasing the skilled craftsmanship of local artisans.</p>
+        <h2>Notable Palaces and Forts</h2>
+        <p>The <b>City Palace</b> is a magnificent complex of palaces, courtyards, and gardens, showcasing a blend of Rajasthani and Mughal architectural styles. It houses the Chandra Mahal and Mubarak Mahal, along with museums displaying royal artifacts. The palace complex also includes the iconic Hawa Mahal.</p>
+        <p>The <b>Hawa Mahal</b>, or Palace of Winds, is an iconic landmark of Jaipur, known for its intricate facade with 953 small windows (jharokhas). Built in 1799 by Maharaja Sawai Pratap Singh, it allowed royal ladies to observe street festivities while remaining unseen.</p>
+        <p>The <b>Amer Fort</b>, also known as Amber Fort, is a UNESCO World Heritage Site located on a hilltop overlooking Maota Lake. Built in the 16th century by Raja Man Singh I, it is a stunning example of Rajput architecture, with its grand gateways, palaces, and courtyards.</p>
+        <p>The <b>Jaigarh Fort</b>, situated on the Aravalli hills, is renowned for its massive cannon, Jaivana, which was once the world's largest wheeled cannon. Built by Maharaja Sawai Jai Singh II in 1726, it offers panoramic views of the surrounding landscape.</p>
+        <p>The <b>Nahargarh Fort</b>, also known as Tiger Fort, is perched on the edge of the Aravalli hills, providing breathtaking views of Jaipur city. Built in 1734 by Maharaja Sawai Jai Singh II, it was originally designed as a defense fort but later served as a retreat palace.</p>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="jaipur_photo1.jpeg" alt="jaipur Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="jaipur_photo2.jpeg" alt="jaipur Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="jaipur_photo3.jpeg" alt="jaipur Photo 3" class="img-fluid">
+    </div>
+
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Jaipur" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Jaipur -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Jaipur</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Jaipur, Rajasthan, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

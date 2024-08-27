@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushkar - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('pushkar_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Pushkar</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Pushkar</h1>
+        <p class="lead">The Sacred City</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Pushkar is one of the oldest cities in India, known for its sacred lake and Hindu temples. Legend has it that Lord Brahma, the creator of the universe, performed a yajna (fire-sacrifice) here, making it a revered pilgrimage site.</p>
+        <h2>Cultural Significance</h2>
+        <p>Pushkar is steeped in religious and cultural traditions, attracting devotees, pilgrims, and tourists from around the world. The city hosts the famous Pushkar Camel Fair, a vibrant cultural extravaganza showcasing Rajasthani music, dance, and handicrafts.</p>
+        <h2>Notable Landmarks</h2>
+        <p>The <b>Pushkar Lake</b> is considered one of the holiest lakes in India. Surrounded by ghats and temples, it is believed that a dip in its sacred waters cleanses one of sins and bestows salvation.</p>
+        <p>The <b>Brahma Temple</b> is one of the few temples dedicated to Lord Brahma in the world. Built with marble and adorned with intricate carvings, it is a major pilgrimage site for Hindus.</p>
+        <p>The <b>Savitri Temple</b> is perched on a hill overlooking Pushkar. Dedicated to Goddess Savitri, the wife of Lord Brahma, it offers panoramic views of the city and the surrounding desert landscape.</p>
+        <p>The <b>Pushkar Camel Fair Grounds</b> come alive during the annual Pushkar Camel Fair, held in November. The fair attracts thousands of visitors who come to witness camel races, folk performances, and trade in camels, cattle, and handicrafts.</p>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="pushkar_photo1.jpeg" alt="pushkar Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="pushkar_photo2.jpeg" alt="pushkar Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="pushkar_photo3.jpeg" alt="pushkar Photo 3" class="img-fluid">
+    </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Pushkar" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Pushkar -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Pushkar</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Pushkar, Rajasthan, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
