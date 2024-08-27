@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Araku Valley - Natural Beauty and Serenity</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('araku_valley.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Araku Valley</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Araku Valley</h1>
+        <p class="lead">Nature's Paradise in Andhra Pradesh</p>
+    </div>
+    <div class="description">
+        <h2>Natural Beauty</h2>
+        <p>Araku Valley, nestled in the Eastern Ghats of Andhra Pradesh, is renowned for its breathtaking natural beauty. Surrounded by lush greenery, mist-covered hills, and cascading waterfalls, the valley offers a serene escape from the hustle and bustle of city life. The cool climate and pristine air make it an ideal destination for nature lovers and adventure enthusiasts alike.</p>
+        <h2>Tribal Culture</h2>
+        <p>Araku Valley is also home to indigenous tribal communities known for their rich cultural heritage. Visitors to the valley have the opportunity to immerse themselves in the vibrant traditions and customs of these tribes, from their colorful festivals and dances to their unique culinary delights. Exploring the tribal villages and interacting with the locals provides valuable insights into their way of life.</p>
+        <h2>Tourist Attractions</h2>
+        <p>Araku Valley boasts a plethora of tourist attractions, including the famous Borra Caves, known for their stunning stalactite and stalagmite formations. The Katiki Waterfalls, located amidst dense forests, offer a refreshing retreat for visitors seeking tranquility. The Padmapuram Gardens, with its enchanting landscapes and floral displays, is another must-visit destination in the valley.</p>
+        <p>Adventure seekers can indulge in activities such as trekking, hiking, and camping amidst the scenic beauty of Araku Valley. The picturesque train journey on the Araku Valley Railway, passing through tunnels and over bridges, is a memorable experience that allows travelers to soak in the mesmerizing vistas of the surrounding landscape.</p>
+        <h2>Integrity</h2>
+        <p>The integrity of Araku Valley's natural environment is carefully preserved through sustainable tourism practices and conservation efforts. Measures are in place to protect the valley's flora and fauna, ensuring that future generations can continue to enjoy its pristine beauty.</p>
+        <h2>Authenticity</h2>
+        <p>Araku Valley remains true to its authentic charm, with efforts made to maintain its unspoiled landscapes and traditional way of life. Development projects are implemented with sensitivity to the valley's cultural and ecological values, striking a balance between modern amenities and preserving its natural heritage.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="araku_photo1.jpeg" alt="Araku Valley Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="araku_photo2.jpeg" alt="Araku Valley Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="araku_photo3.jpeg" alt="Araku Valley Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Araku_Valley" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Araku Valley -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Araku Valley</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Araku Valley, Andhra Pradesh, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
