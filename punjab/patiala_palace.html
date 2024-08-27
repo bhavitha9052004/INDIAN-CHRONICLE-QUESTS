@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patiala Palace - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('patiala_palace_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Patiala Palace</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Patiala Palace</h1>
+        <p class="lead">A symbol of royal heritage and grandeur</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>The Patiala Palace, also known as Qila Mubarak, is a majestic fortress located in the heart of Patiala, Punjab, India. It was built in the 18th century by Maharaja Ala Singh, the founder of the Patiala dynasty, and served as the royal residence of the Patiala rulers for centuries.</p>
+
+<h2>Cultural Significance</h2>
+<p>The Patiala Palace is not only a symbol of the city's rich royal heritage but also a testament to its architectural splendor and cultural legacy. It houses a remarkable collection of artifacts, artworks, and historical documents that provide insight into the glorious past of the Patiala kingdom.</p>
+
+<h2>Brief Synthesis</h2>
+<p>The architecture of the Patiala Palace is a blend of Mughal, Rajput, and Sikh architectural styles, reflecting the cultural diversity and influences prevalent in Punjab during that era. The palace complex consists of several buildings, including the main palace, gardens, courtyards, and defense structures.</p>
+
+<h2>Integrity</h2>
+<p>The Patiala Palace has been well-maintained over the centuries, with efforts made to preserve its structural integrity and historical authenticity. Conservation and restoration works are regularly carried out to ensure the upkeep of the palace and its surrounding structures.</p>
+
+<h2>Authenticity</h2>
+<p>The Patiala Palace retains its authenticity as a symbol of Punjab's royal heritage, with its original architectural features and historical significance preserved. Conservation efforts are guided by principles that prioritize maintaining the authenticity of the palace while ensuring its continued relevance as a cultural landmark.</p>
+
+<h2>Professional Photos</h2>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="patiala_palace_photo1.jpeg" alt="Patiala Palace Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="patiala_palace_photo2.jpeg" alt="Patiala Palace Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="patiala_palace_photo3.jpeg" alt="Patiala Palace Photo 3" class="img-fluid">
+    </div>
+</div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Qila_Mubarak" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Patiala Palace -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Patiala Palace</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Patiala Palace, Patiala, Punjab, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Temple - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('golden_temple_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Golden Temple</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Golden Temple</h1>
+        <p class="lead">A symbol of spirituality and unity</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>The Golden Temple, also known as Sri Harmandir Sahib or Darbar Sahib, holds immense historical significance in Sikhism. It was built in the 16th century by Guru Arjan Dev Ji, the fifth Sikh Guru, as a central place of worship for Sikhs. The construction of the Golden Temple was completed in 1604, and it has since served as a spiritual and cultural hub for the Sikh community.</p>
+
+<h2>Cultural Significance</h2>
+<p>The Golden Temple is not only a sacred place of worship for Sikhs but also a symbol of equality, inclusivity, and community service. It embodies the core principles of Sikhism, including seva (selfless service), simran (meditation), and sangat (community). The temple complex is open to people of all faiths and backgrounds, reflecting the inclusive nature of Sikh philosophy.</p>
+
+<h2>Brief Synthesis</h2>
+<p>The Golden Temple is located in Amritsar, Punjab, India, and is surrounded by a large sarovar (holy tank) known as the Amrit Sarovar. The construction of the temple was initiated by Guru Ram Das Ji, the fourth Sikh Guru, and was later completed by Guru Arjan Dev Ji. The architecture of the Golden Temple is a unique blend of Hindu, Islamic, and Sikh architectural styles, symbolizing the harmony among different religions.<br>
+
+The main building of the Golden Temple, known as the Harmandir Sahib, is constructed with white marble and gold-plated domes, which give it its distinctive appearance. The temple complex also includes other important structures such as the Akal Takht (Throne of the Timeless One), which serves as the seat of Sikh religious authority.<br>
+
+The Golden Temple is not only a place of worship but also a center for social and humanitarian activities. The langar (community kitchen) at the temple serves free meals to thousands of people every day, regardless of their religion, caste, or social status. This tradition of langar reflects the Sikh principle of equality and selfless service.<br>
+
+The Golden Temple is a symbol of resilience and spirituality for the Sikh community, having withstood numerous challenges and attacks throughout its history. It remains a place of pilgrimage and inspiration for millions of Sikhs and people from around the world.</p>
+
+<h2>Integrity</h2>
+<p>The Golden Temple complex has been well-maintained over the centuries, with efforts made to preserve its structural integrity and historical authenticity. Conservation and restoration works are regularly carried out to ensure the upkeep of the temple and its surrounding structures. Additionally, measures are taken to protect the temple from environmental factors and potential threats.</p>
+
+<h2>Authenticity</h2>
+<p>The Golden Temple complex retains its authenticity as a sacred site of Sikhism, with its original architectural features and religious significance preserved. Conservation efforts are guided by principles that prioritize maintaining the authenticity of the temple while ensuring its continued use as a place of worship and community gathering.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="golden_temple_photo1.jpeg" alt="Golden Temple Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="golden_temple_photo2.jpeg" alt="Golden Temple Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="golden_temple_photo3.jpeg" alt="Golden Temple Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Golden_Temple" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Golden Temple -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Golden Temple</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Golden Temple, Amritsar, Punjab, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

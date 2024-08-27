@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Punjab</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('amritsar_museum_photo2.jpeg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Punjab</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Punjab</h1>
+      <p class="lead">Experience the vibrant culture and history</p>
+    </div>
+    <div class="description">
+      <h2>About Punjab</h2>
+      <p>Punjab, known as the "Land of Five Rivers," is a state in northern India renowned for its rich cultural heritage, delicious cuisine, and warm hospitality.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='golden_temple.html'">
+            <img src="golden_temple_photo1.jpeg" alt="Golden Temple" class="img-fluid mb-2">
+            Golden Temple
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='jallianwala_bagh.html'">
+            <img src="jallianwala_bagh_photo1.jpeg" alt="Jallianwala Bagh" class="img-fluid mb-2">
+            Jallianwala Bagh
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='wagah_border.html'">
+            <img src="wagah_border_photo1.jpeg" alt="Wagah Border" class="img-fluid mb-2">
+            Wagah Border
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='amritsar_museum.html'">
+            <img src="amritsar_museum_photo1.jpeg" alt="Amritsar Museum" class="img-fluid mb-2">
+            Amritsar Museum
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='patiala_palace.html'">
+            <img src="patiala_palace_photo1.jpeg" alt="Patiala Palace" class="img-fluid mb-2">
+            Patiala Palace
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='ranjit_sagar_dam.html'">
+            <img src="ranjit_sagar_dam_photo1.jpeg" alt="Ranjit Sagar Dam" class="img-fluid mb-2">
+            Ranjit Sagar Dam
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jallianwala Bagh - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('jallianwala_bagh_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Jallianwala Bagh</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Jallianwala Bagh</h1>
+        <p class="lead">A memorial to the tragic events of 1919</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>Jallianwala Bagh is a public garden in Amritsar, Punjab, India, that holds immense historical significance due to the tragic events that occurred there on April 13, 1919. On that day, British Indian Army soldiers under the command of Colonel Reginald Dyer opened fire on unarmed civilians who had gathered at the garden for a peaceful protest against British colonial rule, killing hundreds of people and injuring thousands.</p>
+
+<h2>Cultural Significance</h2>
+<p>Jallianwala Bagh serves as a reminder of the sacrifices made by Indian freedom fighters in their struggle for independence from British rule. The massacre at Jallianwala Bagh galvanized the Indian independence movement and sparked outrage both nationally and internationally. It played a crucial role in mobilizing public opinion against British colonialism and ultimately contributed to the end of British rule in India.</p>
+
+<h2>Brief Synthesis</h2>
+<p>The Jallianwala Bagh memorial is spread over an area of approximately six and a half acres and is surrounded by high walls with only a narrow entrance. The garden contains a memorial plaque that commemorates the victims of the massacre. There is also a Martyrs' Well, into which many people jumped to escape the bullets during the massacre.</p>
+
+<h2>Integrity</h2>
+<p>The Jallianwala Bagh memorial has been preserved over the years as a symbol of the struggle for independence and the sacrifices made by those who fought for freedom. Efforts have been made to maintain the integrity of the site and ensure that future generations remember the events that took place there.</p>
+
+<h2>Authenticity</h2>
+<p>The Jallianwala Bagh memorial retains its authenticity as a historic site that bears witness to the tragic events of April 13, 1919. Conservation efforts have focused on preserving the original features of the garden and memorial, ensuring that they accurately reflect the events of that fateful day.</p>
+
+<h2>Professional Photos</h2>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="jallianwala_bagh_photo1.jpeg" alt="Jallianwala Bagh Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="jallianwala_bagh_photo2.jpeg" alt="Jallianwala Bagh Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="jallianwala_bagh_photo3.jpeg" alt="Jallianwala Bagh Photo 3" class="img-fluid">
+    </div>
+</div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Jallianwala_Bagh" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Jallianwala Bagh -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Jallianwala Bagh</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Jallianwala Bagh, Amritsar, Punjab, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>

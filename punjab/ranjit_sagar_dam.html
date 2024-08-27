@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranjit Sagar Dam - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ranjit_sagar_dam_photo2.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ranjit Sagar Dam</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ranjit Sagar Dam</h1>
+        <p class="lead">A symbol of hydroelectric power and water resource management</p>
+    </div>
+    <div class="description">
+       <h2> Historical Significance</h2>
+<p>The Ranjit Sagar Dam, also known as Thein Dam, is a multipurpose dam located on the Ravi River in the northern state of Punjab, India. It was constructed in the late 20th century to harness the water resources of the Ravi River for irrigation, hydroelectric power generation, and flood control.</p>
+
+<h2>Cultural Significance</h2>
+<p>The Ranjit Sagar Dam plays a crucial role in the agricultural and economic development of the region by providing water for irrigation and generating electricity for local industries and households. It has also become a popular tourist destination, attracting visitors with its scenic beauty and recreational activities.</p>
+
+<h2>Brief Synthesis</h2>
+<p>The Ranjit Sagar Dam is one of the largest dams in Punjab and serves as a lifeline for the surrounding communities. Its reservoir, known as the Ranjit Sagar Lake, covers a vast area and supports a diverse ecosystem of flora and fauna. The dam has helped improve agricultural productivity, mitigate floods, and promote sustainable development in the region.</p>
+
+<h2>Integrity</h2>
+<p>The Ranjit Sagar Dam has been well-maintained since its construction, with regular inspections and maintenance works carried out to ensure its structural integrity and operational efficiency. The dam's infrastructure, including its spillways, turbines, and gates, is regularly monitored to prevent any potential hazards.</p>
+
+<h2>Authenticity</h2>
+<p>The Ranjit Sagar Dam retains its authenticity as a vital infrastructure project that has contributed to the socio-economic development of Punjab. Conservation efforts are focused on preserving the dam's functionality and environmental sustainability while meeting the growing water and energy demands of the region.</p>
+
+<h2>Professional Photos</h2>
+<!-- Photo Gallery -->
+<div class="row">
+    <div class="col-md-4">
+        <img src="ranjit_sagar_dam_photo1.jpeg" alt="Ranjit Sagar Dam Photo 1" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="ranjit_sagar_dam_photo2.jpeg" alt="Ranjit Sagar Dam Photo 2" class="img-fluid">
+    </div>
+    <div class="col-md-4">
+        <img src="ranjit_sagar_dam_photo3.jpeg" alt="Ranjit Sagar Dam Photo 3" class="img-fluid">
+    </div>
+</div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Ranjit_Sagar_Dam" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Ranjit Sagar Dam -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ranjit Sagar Dam</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ranjit Sagar Dam, Punjab, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
