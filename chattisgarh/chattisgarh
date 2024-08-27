@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore Chhattisgarh</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('bastar1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+    .btn-custom {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .btn-custom:hover {
+        background-color: #0056b3;
+        color: #fff;
+    }
+    .btn-custom img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Chhattisgarh</a>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Chhattisgarh</h1>
+        <p class="lead">Discover the cultural and natural wonders of Chhattisgarh</p>
+    </div>
+    <div class="description">
+        <h2>Famous Landmarks and Attractions</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-custom btn-block" onclick="location.href='chitrakoot.html'">
+                    <img src="ckk2.jpg" alt="Chitrakoot Falls" class="img-fluid mb-2">
+                    Chitrakoot Falls
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-custom btn-block" onclick="location.href='bastar.html'">
+                    <img src="bastar1.jpg" alt="Bastar" class="img-fluid mb-2">
+                    Bastar
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-custom btn-block" onclick="location.href='tirathgarh.html'">
+                    <img src="tgb1.jpg" alt="Tirathgarh Waterfalls" class="img-fluid mb-2">
+                    Tirathgarh Waterfalls
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-custom btn-block" onclick="location.href='sirpur.html'">
+                    <img src="sirpur1.jpg" alt="Sirpur" class="img-fluid mb-2">
+                    Sirpur
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-custom btn-block" onclick="location.href='kanger_valley.html'">
+                    <img src="kvn1.jpg" alt="Kanger Valley National Park" class="img-fluid mb-2">
+                    Kanger Valley National Park
+                </button>
+            </div>
+            <div class="col-md-4 mb-4">
+                <button class="btn btn-custom btn-block" onclick="location.href='bhoramdeo.html'">
+                    <img src="bbn1.jpg" alt="Bhoramdeo Temple" class="img-fluid mb-2">
+                    Bhoramdeo Temple
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
