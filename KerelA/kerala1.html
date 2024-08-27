@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Kerala</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('kerala.jpg'); /* Replace with an actual image of Kerala */
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Kerala</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Kerala</h1>
+      <p class="lead">Experience the beauty of Kerala</p>
+    </div>
+    <div class="description">
+      <h2>About Kerala</h2>
+      <p>Kerala, known as "God's Own Country", is famous for its stunning backwaters, beautiful beaches, and rich cultural heritage.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Munnar.html'">
+            <img src="munnar_main.jpg" alt="Munnar" class="img-fluid mb-2">
+            Munnar
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Alleppey.html'">
+            <img src="alleppey_main.jpg" alt="Alleppey" class="img-fluid mb-2">
+            Alleppey
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Kochi.html'">
+            <img src="kochi_main.jpg" alt="Kochi" class="img-fluid mb-2">
+            Kochi
+          </button>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Wayanad.html'">
+            <img src="wayanad_main.jpg" alt="Wayanad" class="img-fluid mb-2">
+            Wayanad
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Kovalam.html'">
+            <img src="kovalam_main.jpg" alt="Kovalam" class="img-fluid mb-2">
+            Kovalam
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='thekkady.html'">
+            <img src="thekkady_main.jpg" alt="Thekkady" class="img-fluid mb-2">
+            Thekkady
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
