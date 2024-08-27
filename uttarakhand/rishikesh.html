@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rishikesh - The Yoga Capital of the World</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('rishikesh_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Rishikesh</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Rishikesh</h1>
+        <p class="lead">The Yoga Capital of the World</p>
+    </div>
+    <div class="description">
+        <h2>About Rishikesh</h2>
+        <p>Rishikesh, situated in the foothills of the Himalayas along the banks of the Ganges River, is renowned as the Yoga Capital of the World. This spiritual town attracts visitors with its serene environment, ancient temples, yoga ashrams, and adventure sports.</p>
+
+        <h2>Tourist Attractions</h2>
+        <p>Rishikesh offers a range of tourist attractions, including:</p>
+        <ul>
+            <li><strong>Laxman Jhula:</strong> A suspension bridge across the Ganges River, named after Lord Rama's brother, Laxman.</li>
+            <li><strong>Triveni Ghat:</strong> A sacred bathing ghat where devotees perform rituals and ceremonies.</li>
+            <li><strong>Neelkanth Mahadev Temple:</strong> An ancient temple dedicated to Lord Shiva, situated amidst scenic surroundings.</li>
+            <li><strong>The Beatles Ashram (Maharishi Mahesh Yogi Ashram):</strong> An abandoned ashram where The Beatles stayed in the 1960s.</li>
+            <li><strong>Adventure Sports:</strong> Rishikesh is popular for adventure activities such as white-water rafting, bungee jumping, and camping.</li>
+        </ul>
+
+        <h2>Yoga and Meditation</h2>
+        <p>Rishikesh is a hub for yoga and meditation enthusiasts, offering numerous ashrams, yoga centers, and meditation retreats where visitors can learn and practice various yoga and meditation techniques.</p>
+
+        <h2>Climate</h2>
+        <p>Rishikesh experiences a moderate climate throughout the year, with hot summers, pleasant winters, and a monsoon season from June to September.</p>
+
+        <h2>Accommodation</h2>
+        <p>Rishikesh provides a variety of accommodation options, including ashrams, guesthouses, hotels, and resorts, catering to different budgets and preferences.</p>
+
+        <h2>Integrity</h2>
+        <p>Rishikesh is committed to preserving its spiritual and natural heritage through sustainable tourism practices and conservation efforts.</p>
+
+        <h2>Authenticity</h2>
+        <p>Rishikesh maintains its authenticity as a spiritual destination with a rich cultural heritage, reflected in its temples, ashrams, and traditional practices.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="rishikesh_photo1.jpeg" alt="Rishikesh Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="rishikesh_photo2.jpeg" alt="Rishikesh Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="rishikesh_photo3.jpeg" alt="Rishikesh Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Rishikesh" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Rishikesh -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Rishikesh</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Rishikesh, Uttarakhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

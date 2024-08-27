@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haridwar - Gateway to the Gods</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('haridwar_photo3.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Haridwar</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Haridwar</h1>
+        <p class="lead">Gateway to the Gods</p>
+    </div>
+    <div class="description">
+        <h2>About Haridwar</h2>
+        <p>Haridwar, located in the state of Uttarakhand, is one of the seven holiest places in Hinduism. It is situated along the banks of the Ganges River and is known for its religious significance, ancient temples, and vibrant culture.</p>
+
+        <h2>Tourist Attractions</h2>
+        <p>Haridwar offers a range of tourist attractions, including:</p>
+        <ul>
+            <li><strong>Har Ki Pauri:</strong> A sacred ghat where devotees gather for the evening Ganga Aarti.</li>
+            <li><strong>Mansa Devi Temple:</strong> A hilltop temple dedicated to Goddess Mansa Devi, accessible via cable car or trekking.</li>
+            <li><strong>Chandi Devi Temple:</strong> Another hilltop temple dedicated to Goddess Chandi Devi, accessible via cable car or trekking.</li>
+            <li><strong>Haridwar Ropeway:</strong> A cable car ride offering panoramic views of Haridwar and its surroundings.</li>
+            <li><strong>Bara Bazaar:</strong> A bustling market known for its wide range of religious items, souvenirs, and street food.</li>
+        </ul>
+
+        <h2>Religious Significance</h2>
+        <p>Haridwar is considered a gateway to the Char Dham pilgrimage sites (Badrinath, Kedarnath, Gangotri, and Yamunotri) and attracts millions of pilgrims and tourists every year.</p>
+
+        <h2>Festivals and Events</h2>
+        <p>Haridwar hosts several festivals and events, including the Kumbh Mela, Ardh Kumbh Mela, and Kanwar Yatra, which draw devotees and tourists from all over the world.</p>
+
+        <h2>Accommodation</h2>
+        <p>Haridwar offers a variety of accommodation options, including budget hotels, guesthouses, ashrams, and luxury resorts, catering to different preferences and budgets.</p>
+
+        <h2>Integrity</h2>
+        <p>Haridwar is committed to preserving its religious and cultural heritage through sustainable tourism practices and conservation efforts.</p>
+
+        <h2>Authenticity</h2>
+        <p>Haridwar maintains its authenticity as a sacred destination with a rich spiritual legacy, evident in its temples, ghats, rituals, and traditions.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="haridwar_photo1.jpeg" alt="Haridwar Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="haridwar_photo2.jpeg" alt="Haridwar Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="haridwar_photo3.jpeg" alt="Haridwar Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Haridwar" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Haridwar -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Haridwar</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Haridwar, Uttarakhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

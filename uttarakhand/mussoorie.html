@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mussoorie - The Queen of Hills</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('mussoorie_photo1.jpeg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Mussoorie</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Mussoorie</h1>
+        <p class="lead">The Queen of Hills</p>
+    </div>
+    <div class="description">
+        <h2>About Mussoorie</h2>
+        <p>Mussoorie, located in the foothills of the Garhwal Himalayan range, is a picturesque hill station known for its lush greenery, pleasant climate, and stunning views of the Himalayas. Popularly referred to as the "Queen of Hills," Mussoorie attracts tourists with its colonial charm, scenic beauty, and various tourist attractions.</p>
+
+        <h2>Tourist Attractions</h2>
+        <p>Mussoorie offers a range of tourist attractions, including:</p>
+        <ul>
+            <li><strong>Gun Hill:</strong> The second-highest peak in Mussoorie, offering panoramic views of the Himalayas and Doon Valley.</li>
+            <li><strong>Kempty Falls:</strong> A mesmerizing waterfall surrounded by lush green hills, perfect for picnics and bathing.</li>
+            <li><strong>Lal Tibba:</strong> The highest point in Mussoorie, providing breathtaking views of the Himalayan peaks.</li>
+            <li><strong>Camel's Back Road:</strong> A scenic walking trail named after its rock formation resembling a camel's back.</li>
+            <li><strong>Mussoorie Lake:</strong> A serene lake surrounded by mountains, offering boating and stunning views.</li>
+        </ul>
+
+        <h2>Climate</h2>
+        <p>Mussoorie enjoys a pleasant climate throughout the year, with summers being mild and winters being cold. The monsoon season, from June to September, brings moderate to heavy rainfall.</p>
+
+        <h2>Accommodation</h2>
+        <p>Mussoorie offers a variety of accommodation options, including luxury hotels, resorts, budget guesthouses, and homestays, catering to different preferences and budgets.</p>
+
+        <h2>Activities</h2>
+        <p>Visitors to Mussoorie can engage in various activities such as trekking, nature walks, shopping for local handicrafts, and enjoying local cuisine.</p>
+
+        <h2>Integrity</h2>
+        <p>The natural beauty and ecological integrity of Mussoorie are preserved through conservation efforts and sustainable tourism practices.</p>
+
+        <h2>Authenticity</h2>
+        <p>Mussoorie retains its authenticity as a hill station with a rich colonial heritage, reflected in its architecture, cuisine, and cultural events.</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="mussoorie_photo1.jpeg" alt="Mussoorie Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="mussoorie_photo2.jpeg" alt="Mussoorie Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="mussoorie_photo3.jpeg" alt="Mussoorie Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Mussoorie" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Mussoorie -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Mussoorie</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Mussoorie, Uttarakhand, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
