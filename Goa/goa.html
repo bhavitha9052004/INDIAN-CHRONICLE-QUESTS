@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Goa</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('goa.jpg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Goa</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Goa</h1>
+      <p class="lead">Experience the vibrant beaches and rich culture of Goa</p>
+    </div>
+    <div class="description">
+      <h2>About Goa</h2>
+      <p>Goa, renowned for its stunning beaches and lively nightlife, is a paradise for travelers seeking relaxation and adventure.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='calangute.html'">
+            <img src="calangute_photo1.jpeg" alt="Calangute Beach" class="img-fluid mb-2">
+            Calangute Beach
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='anjuna.html'">
+            <img src="anjuna_photo1.jpeg" alt="Anjuna Beach" class="img-fluid mb-2">
+            Anjuna Beach
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='baga.html'">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGnAQgjPfMnOg-0IunXaSlxhF5Zo6bGQIThQ&s" alt="Baga Beach" class="img-fluid mb-2">
+            Baga Beach
+          </button>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='dudhsagar.html'">
+            <img src="dudhsagar_photo1.jpg" alt="Dudhsagar Falls" class="img-fluid mb-2">
+            Dudhsagar Falls
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='oldgoa.html'">
+            <img src="old_goa_photo1.jpg" alt="Old Goa" class="img-fluid mb-2">
+            Old Goa
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='fortaguada.html'">
+            <img src="fortaguada_photo1.jpeg" alt="Fort Aguada" class="img-fluid mb-2">
+            Fort Aguada
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Old Goa - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('old_goa_photo1.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Old Goa</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Old Goa</h1>
+        <p class="lead">A UNESCO World Heritage Site known for its majestic churches and rich history</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>Old Goa, also known as Velha Goa, was the capital of Portuguese India and a bustling city during the 16th to 18th centuries. It was founded by the Bijapur Sultanate and later captured by the Portuguese in 1510. The city served as the administrative headquarters and a major trading post of the Portuguese Empire in Asia.</p>
+        <h2>Cultural Significance</h2>
+        <p>Old Goa is renowned for its remarkable blend of European and Indian architectural styles. It is home to numerous churches, convents, and other religious structures that exemplify Baroque and Renaissance architecture. Notable sites include the Basilica of Bom Jesus, Se Cathedral, and the Church of St. Francis of Assisi. The rich cultural heritage of Old Goa reflects the historical confluence of different cultures and traditions.</p>
+        
+        <h2>Brief Synthesis</h2>
+        <p>Old Goa, also known as Velha Goa, was once the vibrant capital of Portuguese India from the 16th to 18th centuries. Established initially by the Bijapur Sultanate, the city was seized by the Portuguese in 1510 and flourished as a major trade hub. Old Goa boasts an impressive collection of Baroque and Renaissance-style religious monuments, which have earned it the designation of a UNESCO World Heritage Site.
+<br>
+Key attractions include the Basilica of Bom Jesus, famous for housing the relics of St. Francis Xavier, the Se Cathedral, one of the largest churches in Asia, and the Church of St. Francis of Assisi, noted for its ornate interiors. These structures reflect the city's historical significance and architectural grandeur during the Portuguese colonial period.
+<br>
+Despite the decline of Old Goa due to plague epidemics in the 18th century, the surviving monuments continue to draw visitors and scholars interested in its rich heritage. Today, Old Goa is celebrated for its historic architecture and remains a vital part of Goa's cultural landscape.
+</p>
+        <h2>Integrity</h2>
+        <p>The integrity of Old Goa's historical monuments has been preserved through rigorous conservation efforts. The remaining churches, convents, and other structures maintain their original layout and architectural features, reflecting the city's historical and cultural significance. Continuous monitoring and restoration projects are in place to address any environmental or structural challenges, ensuring the site's stability and protection.
+<br>
+Old Goa's surroundings and setting are safeguarded to prevent encroachments and maintain the historical context of the site, allowing visitors to experience the heritage of this once-thriving colonial capital.
+</p>
+
+        <h2>Authenticity</h2>
+        <p>The authenticity of Old Goa is evident in its well-preserved religious monuments and the city's overall historical ambiance. The buildings retain their original design, materials, and construction techniques, showcasing the artistry and craftsmanship of the Portuguese colonial era. Restoration efforts adhere to principles that prioritize historical accuracy, ensuring that any interventions respect the site's authentic character.
+<br>
+Visitors to Old Goa can explore the intact religious and historical structures, which offer a genuine glimpse into the city's illustrious past as a significant Portuguese colonial center.
+</p>
+
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="old_goa_photo1.jpg" alt="Old Goa Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="old_goa_photo2.jpg" alt="Old Goa Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="old_goa_photo3.jpg" alt="Old Goa Photo 3" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Old_Goa" style="color:red;">Wikipedia</a></div><br>
+<!-- Button to Get Directions to Old Goa -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Old Goa</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Old Goa, Goa, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>
