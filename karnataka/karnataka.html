@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Karnataka</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+      background-image: url('karnataka.jpg');
+      background-size: cover;
+      color: #fff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Explore Karnataka</a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Karnataka</h1>
+      <p class="lead">Experience the beauty of Karnataka</p>
+    </div>
+    <div class="description">
+      <h2>About Karnataka</h2>
+      <p>Karnataka, known for its diverse landscapes and rich heritage, is a treasure trove of cultural and natural wonders.</p>
+      <h2>Tourist Attractions</h2>
+      <!-- Buttons with pictures and names of tourist attractions -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='hampi.html'">
+            <img src="hampi_main.jpeg" alt="Hampi" class="img-fluid mb-2">
+            Hampi
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='coorg.html'">
+            <img src="coorg_main.jpg" alt="Coorg" class="img-fluid mb-2">
+            Coorg
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='Gokarna.html'">
+            <img src="gokarna_main.jpg" alt="Gokarna" class="img-fluid mb-2">
+            Gokarna
+          </button>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='ckm.html'">
+            <img src="chikmagalur_main.jpg" alt="Chikmagalur" class="img-fluid mb-2">
+            Chikmagalur
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='abc.html'" >
+            <img src="belur_halebidu_main.jpg" alt="Belur and Halebidu" class="img-fluid mb-2">
+            Belur & Halebidu
+          </button>
+        </div>
+        <div class="col-md-4 mb-4">
+          <button class="btn btn-primary btn-block" onclick="location.href='shivamogga.html'">
+            <img src="shivamogga_main.jpg" alt="Shivamogga" class="img-fluid mb-2">
+            Shivamogga
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
