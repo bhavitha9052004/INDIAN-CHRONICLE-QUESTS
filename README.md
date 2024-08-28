@@ -1,4 +1,4 @@
-INDIAN CHRONICLE QUEST
+INDIAN CHRONICLE QUESTS
 
 
 This project utilizes content and APIs from various sources. Below is the necessary attribution and licensing information.
