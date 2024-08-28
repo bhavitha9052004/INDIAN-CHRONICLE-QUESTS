@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajanta and Ellora Caves - Historical & Cultural Significance</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<style>
+    body {
+        padding-top: 50px; /* To accommodate the fixed navbar */
+    }
+    .jumbotron {
+        background-image: url('ajanta_ellora.jpg');
+        background-size: cover;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+    .description {
+        margin-top: 50px;
+    }
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Ajanta and Ellora Caves</a>
+    <!-- Language Selector -->
+    <select id="languageSelect" class="form-control-sm mr-2" onchange="translatePage()">
+        <option value="" disabled selected>Select Language</option>
+        <option value="en">English</option>
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+        <option value="ml">Malayalam</option>
+        <option value="fr">French</option>
+        <!-- Add more languages as needed -->
+    </select>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Ajanta and Ellora Caves</h1>
+        <p class="lead">Ancient rock-cut cave complexes</p>
+    </div>
+    <div class="description">
+        <h2>Historical Significance</h2>
+        <p>The Ajanta and Ellora Caves, located in Maharashtra, India, are ancient rock-cut cave complexes dating back to the 2nd century BCE and 5th century CE respectively. These caves are significant historical sites, showcasing the evolution of Buddhist, Hindu, and Jain art and architecture over several centuries.</p>
+        <h2>Cultural Significance</h2>
+        <p>The Ajanta and Ellora Caves are not only architectural marvels but also symbols of religious harmony and cultural exchange. They feature exquisite sculptures, frescoes, and intricate carvings that depict religious themes, mythological stories, and daily life from ancient India.</p>
+<h2>Brief Synopsis</h2>
+
+<p>The Ajanta Caves, a UNESCO World Heritage Site, consist of 30 rock-cut Buddhist cave monuments. These caves, primarily monasteries, contain some of the finest ancient Indian art, especially expressive paintings that depict the life of Buddha and various Buddhist divinities. The Ellora Caves, also a UNESCO World Heritage Site, comprise 34 rock-cut temples representing Buddhist, Hindu, and Jain faiths. These caves showcase remarkable architectural and sculptural achievements, including the massive Kailash Temple dedicated to Lord Shiva.</p>
+
+<h2>Integrity</h2>
+
+<p>The integrity of Ajanta and Ellora Caves is preserved through ongoing conservation efforts and monitoring. Measures are taken to safeguard the physical fabric of the caves, ensuring structural stability and protection from natural elements. Conservation projects focus on maintaining the authenticity of the caves while enhancing visitor experience and understanding.</p>
+
+<h2>Authenticity</h2>
+
+<p>Ajanta and Ellora Caves maintain their authenticity through careful preservation and restoration work. Efforts are made to retain the original form, design, and artistic elements of the caves while addressing decay and damage caused by environmental factors and human activity. Conservation practices adhere to international standards to ensure the long-term preservation of these invaluable cultural heritage sites.</p>
+        <h2>Professional Photos</h2>
+        <!-- Photo Gallery -->
+        <div class="row">
+            <div class="col-md-4">
+                <img src="ajanta_photo1.jpeg" alt="Ajanta Caves Photo 1" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ajanta_photo2.jpeg" alt="Ajanta Caves Photo 2" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="ajanta_photo3.jpeg" alt="Ellora Caves Photo 1" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-4 text-center">
+<a href="https://en.wikipedia.org/wiki/Ajanta_Caves" style="color:red;">Ajanta Caves - Wikipedia</a> | <a href="https://en.wikipedia.org/wiki/Ellora_Caves" style="color:red;">Ellora Caves - Wikipedia</a></div><br>
+<!-- Button to Get Directions to Ajanta and Ellora Caves -->
+<div class="container mt-4 text-center">
+    <button id="map-btn" class="btn btn-primary">Get Directions to Ajanta and Ellora Caves</button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Location Script -->
+<script>
+    document.getElementById('map-btn').addEventListener('click', function() {
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get current location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Open Google Maps with directions
+                var destination = "Ajanta and Ellora Caves, Maharashtra, India";
+                var url = "https://www.google.com/maps/dir/?api=1&origin=" + latitude + "," + longitude + "&destination=" + encodeURIComponent(destination);
+                window.open(url, '_blank');
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    });
+</script>
+
+<!-- Language Translator Script -->
+<script>
+    function translatePage() {
+        var targetLanguage = document.getElementById('languageSelect').value;
+
+        // Check if a language is selected
+        if (!targetLanguage) {
+            alert('Please select a language.');
+            return;
+        }
+
+        // Translate all paragraphs
+        var paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(paragraph) {
+            var sentences = paragraph.innerHTML.split('. '); // Split the paragraph into sentences
+            var translatedParagraph = '';
+            var count = 0;
+            sentences.forEach(function(sentence) {
+                fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(sentence))
+                .then(response => response.json())
+                .then(data => {
+                    var translatedSentence = data[0][0][0];
+                    translatedParagraph += translatedSentence + '. ';
+                    count++;
+                    if (count === sentences.length) {
+                        paragraph.innerHTML = translatedParagraph; // Update paragraph content with translated sentences
+                        // Hide the language selection dropdown
+                        document.getElementById('languageSelect').style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Translation Error:', error);
+                });
+            });
+        });
+
+        // Translate all headings, links, buttons, and options
+        var elements = document.querySelectorAll('h1, h2, h3, a, span, button, option');
+        elements.forEach(function(element) {
+            fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=' + targetLanguage + '&dt=t&q=' + encodeURIComponent(element.innerHTML))
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data[0][0][0];
+                element.innerHTML = translatedText;
+            })
+            .catch(error => {
+                console.error('Translation Error:', error);
+            });
+        });
+
+        // Reset language selection after translation
+        document.getElementById('languageSelect').selectedIndex = 0;
+    }
+</script>
+
+
+</body>
+</html>
